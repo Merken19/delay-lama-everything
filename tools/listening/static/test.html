@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listening Test</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+  <div class="topbar">
+    <nav>
+      <a href="/">Index</a>
+      <a id="prev" href="#" hidden>← Previous</a>
+      <a id="next" href="#" hidden>Next →</a>
+    </nav>
+    <label title="Shuffle the clips and hide their names until you save an answer">
+      <input type="checkbox" id="blind"> Blind mode
+    </label>
+  </div>
+
+  <p class="muted small" id="where"></p>
+  <h1 id="title">Loading…</h1>
+  <p class="question" id="question"></p>
+  <p class="muted small" id="notes"></p>
+  <details id="intro-box" hidden><summary class="small muted">About this set</summary>
+    <p class="small muted" id="intro"></p></details>
+
+  <section class="panel sticky" id="player">
+    <div class="transport">
+      <button id="play" disabled>▶ Play</button>
+      <span class="time" id="time">0:00.0 / 0:00.0</span>
+      <label><input type="checkbox" id="loop"> Loop</label>
+      <button id="loop-a" title="Loop start at the playhead ( [ )">[ Start</button>
+      <button id="loop-b" title="Loop end at the playhead ( ] )">End ]</button>
+      <button id="loop-clear" title="Clear the loop region">Clear</button>
+      <span class="small muted" id="loop-info"></span>
+      <span class="spacer"></span>
+      <label class="small" title="Output volume (all clips)">Vol <input type="range" id="volume" min="0" max="1" step="0.01"></label>
+    </div>
+    <div class="wave-wrap"><canvas id="wave"></canvas></div>
+    <div class="hint">
+      <kbd>1</kbd>–<kbd>9</kbd> <kbd>0</kbd> or <kbd>↑</kbd><kbd>↓</kbd> switch clip (same position) ·
+      <kbd>Space</kbd> play/pause · <kbd>←</kbd><kbd>→</kbd> seek 2 s (<kbd>Shift</kbd> 0.5 s) ·
+      <kbd>Home</kbd> to start · <kbd>L</kbd> loop · <kbd>[</kbd> <kbd>]</kbd> loop start/end ·
+      click the waveform to seek, drag to set a loop
+    </div>
+    <div id="load-status" class="small muted"></div>
+  </section>
+
+  <div class="two-col">
+    <section>
+      <h2>Clips</h2>
+      <div id="clips"></div>
+      <p class="small muted" id="files"></p>
+    </section>
+    <section>
+      <h2>Your answer</h2>
+      <form id="form" class="panel" autocomplete="off">
+        <div id="questions"></div>
+        <fieldset>
+          <legend>Confidence</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="confidence" value="low"> Low</label>
+            <label class="choice"><input type="radio" name="confidence" value="medium"> Medium</label>
+            <label class="choice"><input type="radio" name="confidence" value="high"> High</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Note <span class="muted small">(optional)</span></legend>
+          <textarea id="note" placeholder="What you heard, what to try next…"></textarea>
+        </fieldset>
+        <div class="actions">
+          <button type="submit" class="primary" id="save">Save answer</button>
+          <button type="button" id="skip" title="Record this comparison as skipped (the note is kept)">Skip</button>
+          <button type="button" id="reshuffle" hidden>New blind round</button>
+          <span id="status"></span>
+        </div>
+        <p class="blind-note" id="blind-note" hidden>Blind: candidates are shuffled and lettered; the reference keeps its name.
+          Names are revealed when you save or skip.</p>
+      </form>
+      <div id="previous"></div>
+    </section>
+  </div>
+</main>
+<script src="/static/test.js"></script>
+</body>
+</html>

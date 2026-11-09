@@ -1,0 +1,141 @@
+{
+  "format": 1,
+  "title": "Phase 4b round 6: the bass 'doo' in the articulator",
+  "intro": "The 'doo' turned out to be phase 4a's 'oo' vowel, which the articulator's vowel tracking made darker on low notes. Does the articulator have it now?",
+  "tests": [
+    {
+      "id": "bass",
+      "title": "Bass: the 'doo' in the articulator",
+      "question": "Bass: which have the 'doo'?",
+      "notes": "Round 5: the 'doo' was in every phase 4a bass, even with no vowel move, so it is the vowel itself. The articulator lowered it: its vowel tracking turned phase 4a's 'oo' into a 'u' on low notes. 'Copy of 4a' matches phase 4a's clip in the measurements; 'Held oo' changes only the vowel and keeps the profile's breath, attack and 'm' ending. Every clip at the same loudness; blind mode is worth it.",
+      "clips": [
+        {
+          "file": "bass/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "Reference",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "bass/02_no_move.wav",
+          "label": "Phase 4a, no vowel move",
+          "desc": "Round 5's best",
+          "condition": "no_move"
+        },
+        {
+          "file": "bass/03_steady.wav",
+          "label": "Articulator now",
+          "desc": "bass.finger as it is ('u' on low notes)",
+          "condition": "steady"
+        },
+        {
+          "file": "bass/04_oo.wav",
+          "label": "Held 'oo'",
+          "desc": "Nucleus 0.12 with no vowel tracking; the rest as now",
+          "condition": "oo"
+        },
+        {
+          "file": "bass/05_copy.wav",
+          "label": "Copy of 4a",
+          "desc": "Also breath 0.25, crisp attack, no 'm' ending",
+          "condition": "copy"
+        }
+      ],
+      "questions": [
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "no_move",
+              "label": "Phase 4a, no vowel move",
+              "condition": "no_move"
+            },
+            {
+              "id": "steady",
+              "label": "Articulator now",
+              "condition": "steady"
+            },
+            {
+              "id": "oo",
+              "label": "Held 'oo'",
+              "condition": "oo"
+            },
+            {
+              "id": "copy",
+              "label": "Copy of 4a",
+              "condition": "copy"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "doo",
+          "text": "Which ones have the 'doo'?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "no_move",
+              "label": "Phase 4a, no vowel move",
+              "condition": "no_move"
+            },
+            {
+              "id": "steady",
+              "label": "Articulator now",
+              "condition": "steady"
+            },
+            {
+              "id": "oo",
+              "label": "Held 'oo'",
+              "condition": "oo"
+            },
+            {
+              "id": "copy",
+              "label": "Copy of 4a",
+              "condition": "copy"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "no_move",
+              "label": "Phase 4a, no vowel move",
+              "condition": "no_move"
+            },
+            {
+              "id": "steady",
+              "label": "Articulator now",
+              "condition": "steady"
+            },
+            {
+              "id": "oo",
+              "label": "Held 'oo'",
+              "condition": "oo"
+            },
+            {
+              "id": "copy",
+              "label": "Copy of 4a",
+              "condition": "copy"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

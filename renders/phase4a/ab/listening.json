@@ -1,0 +1,797 @@
+{
+  "format": 1,
+  "title": "Phase 4a A/B: Delay Lama vs. Gervill",
+  "intro": "Each comparison plays the instrument as midis2jam2 plays it (Gervill, its default soundbank) against Delay Lama candidates: first alone, then inside a small band (drums, bass, piano, lead) where the monk replaces that instrument. Every candidate is matched to the loudness of the instrument it replaces. The monk is dry (no echo); Gervill has its default reverb. The syllables are first guesses (phase 4c tunes them): judge the octave, and in c08 the dynamics. 'As written' means the monk sings the file's pitch (the helper adds the octave that the DSP drops); '-1 octave' is Delay Lama's native register. Guide: AB_LISTENING.md.",
+  "tests": [
+    {
+      "id": "c01_bass",
+      "title": "Bass",
+      "question": "Bass line (finger bass, A1-A2): which octave should the monk sing?",
+      "clips": [
+        {
+          "file": "c01_bass/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill (what midis2jam2 plays), alone",
+          "group": "Alone",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c01_bass/02_monk_as_written_solo.wav",
+          "label": "As written",
+          "desc": "Delay Lama, as written, alone",
+          "group": "Alone",
+          "condition": "as_written"
+        },
+        {
+          "file": "c01_bass/03_monk_up1_octave_solo.wav",
+          "label": "+1 octave",
+          "desc": "Delay Lama, +1 octave, alone",
+          "group": "Alone",
+          "condition": "up1"
+        },
+        {
+          "file": "c01_bass/04_monk_up2_octaves_solo.wav",
+          "label": "+2 octaves",
+          "desc": "Delay Lama, +2 octaves, alone",
+          "group": "Alone",
+          "condition": "up2"
+        },
+        {
+          "file": "c01_bass/05_gervill_band.wav",
+          "label": "Gervill",
+          "desc": "Band, Gervill",
+          "group": "In the band",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c01_bass/06_monk_as_written_band.wav",
+          "label": "As written",
+          "desc": "Band with Delay Lama, as written",
+          "group": "In the band",
+          "condition": "as_written"
+        },
+        {
+          "file": "c01_bass/07_monk_up1_octave_band.wav",
+          "label": "+1 octave",
+          "desc": "Band with Delay Lama, +1 octave",
+          "group": "In the band",
+          "condition": "up1"
+        },
+        {
+          "file": "c01_bass/08_monk_up2_octaves_band.wav",
+          "label": "+2 octaves",
+          "desc": "Band with Delay Lama, +2 octaves",
+          "group": "In the band",
+          "condition": "up2"
+        }
+      ],
+      "questions": [
+        {
+          "id": "octave",
+          "text": "Which octave should the monk sing?",
+          "choices": [
+            {
+              "id": "as_written",
+              "label": "As written",
+              "condition": "as_written"
+            },
+            {
+              "id": "up1",
+              "label": "+1 octave",
+              "condition": "up1"
+            },
+            {
+              "id": "up2",
+              "label": "+2 octaves",
+              "condition": "up2"
+            },
+            {
+              "id": "none",
+              "label": "None fit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c02_piano",
+      "title": "Piano",
+      "question": "Piano chords on every beat, sung by a choir of 4 monks",
+      "clips": [
+        {
+          "file": "c02_piano/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill (what midis2jam2 plays), alone",
+          "group": "Alone",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c02_piano/02_monk_as_written_solo.wav",
+          "label": "As written",
+          "desc": "Delay Lama, as written, alone",
+          "group": "Alone",
+          "condition": "as_written"
+        },
+        {
+          "file": "c02_piano/03_monk_down1_octave_solo.wav",
+          "label": "-1 octave (native)",
+          "desc": "Delay Lama, -1 octave (Delay Lama native), alone",
+          "group": "Alone",
+          "condition": "down1"
+        },
+        {
+          "file": "c02_piano/04_gervill_band.wav",
+          "label": "Gervill",
+          "desc": "Band, Gervill",
+          "group": "In the band",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c02_piano/05_monk_as_written_band.wav",
+          "label": "As written",
+          "desc": "Band with Delay Lama, as written",
+          "group": "In the band",
+          "condition": "as_written"
+        },
+        {
+          "file": "c02_piano/06_monk_down1_octave_band.wav",
+          "label": "-1 octave (native)",
+          "desc": "Band with Delay Lama, -1 octave (Delay Lama native)",
+          "group": "In the band",
+          "condition": "down1"
+        }
+      ],
+      "questions": [
+        {
+          "id": "octave",
+          "text": "Which octave should the monk sing?",
+          "choices": [
+            {
+              "id": "as_written",
+              "label": "As written",
+              "condition": "as_written"
+            },
+            {
+              "id": "down1",
+              "label": "-1 octave (native)",
+              "condition": "down1"
+            },
+            {
+              "id": "none",
+              "label": "None fit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c03_trumpet",
+      "title": "Trumpet",
+      "question": "Trumpet lead (A4-E5), tongued 'taa-daa'",
+      "clips": [
+        {
+          "file": "c03_trumpet/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill (what midis2jam2 plays), alone",
+          "group": "Alone",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c03_trumpet/02_monk_as_written_solo.wav",
+          "label": "As written",
+          "desc": "Delay Lama, as written, alone",
+          "group": "Alone",
+          "condition": "as_written"
+        },
+        {
+          "file": "c03_trumpet/03_monk_down1_octave_solo.wav",
+          "label": "-1 octave (native)",
+          "desc": "Delay Lama, -1 octave (Delay Lama native), alone",
+          "group": "Alone",
+          "condition": "down1"
+        },
+        {
+          "file": "c03_trumpet/04_gervill_band.wav",
+          "label": "Gervill",
+          "desc": "Band, Gervill",
+          "group": "In the band",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c03_trumpet/05_monk_as_written_band.wav",
+          "label": "As written",
+          "desc": "Band with Delay Lama, as written",
+          "group": "In the band",
+          "condition": "as_written"
+        },
+        {
+          "file": "c03_trumpet/06_monk_down1_octave_band.wav",
+          "label": "-1 octave (native)",
+          "desc": "Band with Delay Lama, -1 octave (Delay Lama native)",
+          "group": "In the band",
+          "condition": "down1"
+        }
+      ],
+      "questions": [
+        {
+          "id": "octave",
+          "text": "Which octave should the monk sing?",
+          "choices": [
+            {
+              "id": "as_written",
+              "label": "As written",
+              "condition": "as_written"
+            },
+            {
+              "id": "down1",
+              "label": "-1 octave (native)",
+              "condition": "down1"
+            },
+            {
+              "id": "none",
+              "label": "None fit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c04_sax",
+      "title": "Sax",
+      "question": "Tenor sax lead (A3-E4), slurred 'doo-ah'",
+      "clips": [
+        {
+          "file": "c04_sax/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill (what midis2jam2 plays), alone",
+          "group": "Alone",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c04_sax/02_monk_as_written_solo.wav",
+          "label": "As written",
+          "desc": "Delay Lama, as written, alone",
+          "group": "Alone",
+          "condition": "as_written"
+        },
+        {
+          "file": "c04_sax/03_monk_down1_octave_solo.wav",
+          "label": "-1 octave (native)",
+          "desc": "Delay Lama, -1 octave (Delay Lama native), alone",
+          "group": "Alone",
+          "condition": "down1"
+        },
+        {
+          "file": "c04_sax/04_gervill_band.wav",
+          "label": "Gervill",
+          "desc": "Band, Gervill",
+          "group": "In the band",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c04_sax/05_monk_as_written_band.wav",
+          "label": "As written",
+          "desc": "Band with Delay Lama, as written",
+          "group": "In the band",
+          "condition": "as_written"
+        },
+        {
+          "file": "c04_sax/06_monk_down1_octave_band.wav",
+          "label": "-1 octave (native)",
+          "desc": "Band with Delay Lama, -1 octave (Delay Lama native)",
+          "group": "In the band",
+          "condition": "down1"
+        }
+      ],
+      "questions": [
+        {
+          "id": "octave",
+          "text": "Which octave should the monk sing?",
+          "choices": [
+            {
+              "id": "as_written",
+              "label": "As written",
+              "condition": "as_written"
+            },
+            {
+              "id": "down1",
+              "label": "-1 octave (native)",
+              "condition": "down1"
+            },
+            {
+              "id": "none",
+              "label": "None fit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c05_flute",
+      "title": "Flute",
+      "question": "Flute lead (A5-E6), tongued 'hoo-too'",
+      "clips": [
+        {
+          "file": "c05_flute/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill (what midis2jam2 plays), alone",
+          "group": "Alone",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c05_flute/02_monk_as_written_solo.wav",
+          "label": "As written",
+          "desc": "Delay Lama, as written, alone",
+          "group": "Alone",
+          "condition": "as_written"
+        },
+        {
+          "file": "c05_flute/03_monk_down1_octave_solo.wav",
+          "label": "-1 octave (native)",
+          "desc": "Delay Lama, -1 octave (Delay Lama native), alone",
+          "group": "Alone",
+          "condition": "down1"
+        },
+        {
+          "file": "c05_flute/04_monk_down2_octaves_solo.wav",
+          "label": "-2 octaves",
+          "desc": "Delay Lama, -2 octaves, alone",
+          "group": "Alone",
+          "condition": "down2"
+        },
+        {
+          "file": "c05_flute/05_gervill_band.wav",
+          "label": "Gervill",
+          "desc": "Band, Gervill",
+          "group": "In the band",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c05_flute/06_monk_as_written_band.wav",
+          "label": "As written",
+          "desc": "Band with Delay Lama, as written",
+          "group": "In the band",
+          "condition": "as_written"
+        },
+        {
+          "file": "c05_flute/07_monk_down1_octave_band.wav",
+          "label": "-1 octave (native)",
+          "desc": "Band with Delay Lama, -1 octave (Delay Lama native)",
+          "group": "In the band",
+          "condition": "down1"
+        },
+        {
+          "file": "c05_flute/08_monk_down2_octaves_band.wav",
+          "label": "-2 octaves",
+          "desc": "Band with Delay Lama, -2 octaves",
+          "group": "In the band",
+          "condition": "down2"
+        }
+      ],
+      "questions": [
+        {
+          "id": "octave",
+          "text": "Which octave should the monk sing?",
+          "choices": [
+            {
+              "id": "as_written",
+              "label": "As written",
+              "condition": "as_written"
+            },
+            {
+              "id": "down1",
+              "label": "-1 octave (native)",
+              "condition": "down1"
+            },
+            {
+              "id": "down2",
+              "label": "-2 octaves",
+              "condition": "down2"
+            },
+            {
+              "id": "none",
+              "label": "None fit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c06_violin",
+      "title": "Violin",
+      "question": "Violin lead (A5-E6), slurred 'neee'",
+      "clips": [
+        {
+          "file": "c06_violin/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill (what midis2jam2 plays), alone",
+          "group": "Alone",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c06_violin/02_monk_as_written_solo.wav",
+          "label": "As written",
+          "desc": "Delay Lama, as written, alone",
+          "group": "Alone",
+          "condition": "as_written"
+        },
+        {
+          "file": "c06_violin/03_monk_down1_octave_solo.wav",
+          "label": "-1 octave (native)",
+          "desc": "Delay Lama, -1 octave (Delay Lama native), alone",
+          "group": "Alone",
+          "condition": "down1"
+        },
+        {
+          "file": "c06_violin/04_monk_down2_octaves_solo.wav",
+          "label": "-2 octaves",
+          "desc": "Delay Lama, -2 octaves, alone",
+          "group": "Alone",
+          "condition": "down2"
+        },
+        {
+          "file": "c06_violin/05_gervill_band.wav",
+          "label": "Gervill",
+          "desc": "Band, Gervill",
+          "group": "In the band",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c06_violin/06_monk_as_written_band.wav",
+          "label": "As written",
+          "desc": "Band with Delay Lama, as written",
+          "group": "In the band",
+          "condition": "as_written"
+        },
+        {
+          "file": "c06_violin/07_monk_down1_octave_band.wav",
+          "label": "-1 octave (native)",
+          "desc": "Band with Delay Lama, -1 octave (Delay Lama native)",
+          "group": "In the band",
+          "condition": "down1"
+        },
+        {
+          "file": "c06_violin/08_monk_down2_octaves_band.wav",
+          "label": "-2 octaves",
+          "desc": "Band with Delay Lama, -2 octaves",
+          "group": "In the band",
+          "condition": "down2"
+        }
+      ],
+      "questions": [
+        {
+          "id": "octave",
+          "text": "Which octave should the monk sing?",
+          "choices": [
+            {
+              "id": "as_written",
+              "label": "As written",
+              "condition": "as_written"
+            },
+            {
+              "id": "down1",
+              "label": "-1 octave (native)",
+              "condition": "down1"
+            },
+            {
+              "id": "down2",
+              "label": "-2 octaves",
+              "condition": "down2"
+            },
+            {
+              "id": "none",
+              "label": "None fit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c07_guitar",
+      "title": "Overdrive guitar",
+      "question": "Overdrive guitar lead (A3-E4), 'nyeow' with slides",
+      "clips": [
+        {
+          "file": "c07_guitar/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill (what midis2jam2 plays), alone",
+          "group": "Alone",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c07_guitar/02_monk_as_written_solo.wav",
+          "label": "As written",
+          "desc": "Delay Lama, as written, alone",
+          "group": "Alone",
+          "condition": "as_written"
+        },
+        {
+          "file": "c07_guitar/03_monk_down1_octave_solo.wav",
+          "label": "-1 octave (native)",
+          "desc": "Delay Lama, -1 octave (Delay Lama native), alone",
+          "group": "Alone",
+          "condition": "down1"
+        },
+        {
+          "file": "c07_guitar/04_gervill_band.wav",
+          "label": "Gervill",
+          "desc": "Band, Gervill",
+          "group": "In the band",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c07_guitar/05_monk_as_written_band.wav",
+          "label": "As written",
+          "desc": "Band with Delay Lama, as written",
+          "group": "In the band",
+          "condition": "as_written"
+        },
+        {
+          "file": "c07_guitar/06_monk_down1_octave_band.wav",
+          "label": "-1 octave (native)",
+          "desc": "Band with Delay Lama, -1 octave (Delay Lama native)",
+          "group": "In the band",
+          "condition": "down1"
+        }
+      ],
+      "questions": [
+        {
+          "id": "octave",
+          "text": "Which octave should the monk sing?",
+          "choices": [
+            {
+              "id": "as_written",
+              "label": "As written",
+              "condition": "as_written"
+            },
+            {
+              "id": "down1",
+              "label": "-1 octave (native)",
+              "condition": "down1"
+            },
+            {
+              "id": "none",
+              "label": "None fit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c08_velocity",
+      "title": "Velocity",
+      "question": "Velocity: a trumpet line from soft (40) to loud (120), with accents in bar 2 (Delay Lama as written)",
+      "notes": "Judge the dynamics here, not the octave.",
+      "clips": [
+        {
+          "file": "c08_velocity/01_gervill_solo.wav",
+          "label": "Gervill",
+          "desc": "Gervill trumpet with these velocities",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "c08_velocity/02_monk_none.wav",
+          "label": "No velocity response",
+          "desc": "Delay Lama, no velocity response (classic Delay Lama)",
+          "condition": "none"
+        },
+        {
+          "file": "c08_velocity/03_monk_moderate.wav",
+          "label": "Moderate",
+          "desc": "Delay Lama, moderate: about 12 dB from 127 to 32",
+          "condition": "moderate"
+        },
+        {
+          "file": "c08_velocity/04_monk_gm.wav",
+          "label": "GM curve",
+          "desc": "Delay Lama, GM curve, as the phase 1 helper does: about 24 dB",
+          "condition": "gm"
+        },
+        {
+          "file": "c08_velocity/05_monk_gm_bright.wav",
+          "label": "GM curve + bright",
+          "desc": "Delay Lama, GM curve, plus brighter vowel and more breath when hard",
+          "condition": "gm_bright"
+        }
+      ],
+      "questions": [
+        {
+          "id": "response",
+          "text": "Which velocity response should the monk have?",
+          "choices": [
+            {
+              "id": "none",
+              "label": "None (classic)",
+              "condition": "none"
+            },
+            {
+              "id": "moderate",
+              "label": "Moderate (~12 dB)",
+              "condition": "moderate"
+            },
+            {
+              "id": "gm",
+              "label": "GM curve (~24 dB, today's helper)",
+              "condition": "gm"
+            },
+            {
+              "id": "gm_bright",
+              "label": "GM curve + brighter and breathier when hard",
+              "condition": "gm_bright"
+            },
+            {
+              "id": "none_fit",
+              "label": "None fit"
+            }
+          ]
+        },
+        {
+          "id": "character",
+          "text": "Does responding to velocity change Delay Lama's character too much?",
+          "choices": [
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "a_little",
+              "label": "A little, but worth it"
+            },
+            {
+              "id": "yes",
+              "label": "Yes, too much"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c09_consonants",
+      "title": "Consonants and drums",
+      "question": "Pure Delay Lama vs. a mock-up of a small noise layer for consonants and drums (offline mix, not the helper)",
+      "clips": [
+        {
+          "file": "c09_consonants/01_trumpet_pure.wav",
+          "label": "Trumpet, pure",
+          "desc": "Trumpet 'taa', pure Delay Lama (as in c03)",
+          "group": "Trumpet 'taa'",
+          "condition": "trumpet_pure"
+        },
+        {
+          "file": "c09_consonants/02_trumpet_noise.wav",
+          "label": "Trumpet + 't' noise",
+          "desc": "Same, plus a 't' noise burst on every note",
+          "group": "Trumpet 'taa'",
+          "condition": "trumpet_noise"
+        },
+        {
+          "file": "c09_consonants/03_chug_pure.wav",
+          "label": "Chug, pure",
+          "desc": "Muted guitar 'dg-dg', pure Delay Lama",
+          "group": "Muted guitar 'dg-dg'",
+          "condition": "chug_pure"
+        },
+        {
+          "file": "c09_consonants/04_chug_noise.wav",
+          "label": "Chug + 'ch' noise",
+          "desc": "Same, plus a 'ch' noise burst on every note ('chugga')",
+          "group": "Muted guitar 'dg-dg'",
+          "condition": "chug_noise"
+        },
+        {
+          "file": "c09_consonants/05_drums_gervill.wav",
+          "label": "Gervill drums",
+          "desc": "Gervill drums (kick, snare, hi-hat)",
+          "group": "Drums alone",
+          "condition": "gervill_drums",
+          "reference": true
+        },
+        {
+          "file": "c09_consonants/06_beatbox_pure.wav",
+          "label": "Beatbox monk, pure",
+          "desc": "Pure Delay Lama: kick 'bm', snare 'ka', hat 'ti'",
+          "group": "Drums alone",
+          "condition": "beatbox_pure"
+        },
+        {
+          "file": "c09_consonants/07_beatbox_noise.wav",
+          "label": "Beatbox monk + noise",
+          "desc": "Beatbox monk plus noise on snare and hat ('pf', 'ts')",
+          "group": "Drums alone",
+          "condition": "beatbox_noise"
+        },
+        {
+          "file": "c09_consonants/08_band_beatbox_pure.wav",
+          "label": "Beatbox monk, pure",
+          "desc": "Band (trumpet lead) with the pure beatbox monk instead of drums",
+          "group": "Drums in the band",
+          "condition": "beatbox_pure"
+        },
+        {
+          "file": "c09_consonants/09_band_beatbox_noise.wav",
+          "label": "Beatbox monk + noise",
+          "desc": "Band with the beatbox monk plus noise",
+          "group": "Drums in the band",
+          "condition": "beatbox_noise"
+        }
+      ],
+      "questions": [
+        {
+          "id": "trumpet",
+          "text": "Trumpet 'taa': which is better?",
+          "choices": [
+            {
+              "id": "trumpet_pure",
+              "label": "Pure",
+              "condition": "trumpet_pure"
+            },
+            {
+              "id": "trumpet_noise",
+              "label": "With the 't' noise",
+              "condition": "trumpet_noise"
+            },
+            {
+              "id": "same",
+              "label": "No real difference"
+            }
+          ]
+        },
+        {
+          "id": "chug",
+          "text": "Muted guitar: which is better?",
+          "choices": [
+            {
+              "id": "chug_pure",
+              "label": "Pure",
+              "condition": "chug_pure"
+            },
+            {
+              "id": "chug_noise",
+              "label": "With the 'ch' noise",
+              "condition": "chug_noise"
+            },
+            {
+              "id": "same",
+              "label": "No real difference"
+            }
+          ]
+        },
+        {
+          "id": "drums",
+          "text": "Drums: is a beatbox monk worth doing (O5)?",
+          "choices": [
+            {
+              "id": "beatbox_pure",
+              "label": "Yes, pure",
+              "condition": "beatbox_pure"
+            },
+            {
+              "id": "beatbox_noise",
+              "label": "Yes, with the noise layer",
+              "condition": "beatbox_noise"
+            },
+            {
+              "id": "no",
+              "label": "No: keep Gervill drums"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

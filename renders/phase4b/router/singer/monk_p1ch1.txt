@@ -1,0 +1,392 @@
+set articulator 1
+set profile.begin 1
+set profile.reset 1
+set onset.vowel -1
+set onset.time 0
+set onset.curve 3
+set onset.attack 40
+set onset.lips 0
+set onset.burst -1
+set onset.burst_time 0
+set body.vowel -1
+set body.sustain 1
+set ending.vowel -1
+set ending.vowel_time -1
+set ending.release 120
+set ending.lips 0
+set phrase.dip_level 0.2
+set phrase.mode 0
+set nucleus.vowel 0.5
+set range.fit 2
+set range.high 72
+set vibrato.depth 0.35
+set vibrato.delay 250
+set vibrato.fade 300
+set ensemble.unison 1
+set ensemble.detune 10
+set voice.size 0.5
+set profile.apply 1
+set range.shift -12
+program 0 48
+cc 121 0
+cc 64 0
+cc 91 59
+cc 10 28
+cc 7 126
+on 71 105 480
+on 79 105 480
+on 62 105 480
+wait 480
+off 71
+off 79
+off 62
+wait 420
+on 74 105 180
+wait 180
+off 74
+wait 120
+on 79 105 480
+wait 480
+off 79
+wait 420
+on 74 105 180
+wait 180
+off 74
+wait 120
+on 79 105 180
+wait 180
+off 79
+wait 120
+on 74 105 180
+wait 180
+off 74
+wait 120
+on 79 105 180
+wait 180
+off 79
+wait 120
+on 83 105 180
+wait 180
+off 83
+wait 120
+on 86 105 480
+wait 480
+off 86
+wait 720
+on 84 105 480
+wait 480
+off 84
+wait 420
+on 81 105 180
+wait 180
+off 81
+wait 120
+on 84 105 480
+wait 480
+off 84
+wait 420
+on 81 105 180
+wait 180
+off 81
+wait 120
+on 84 105 180
+wait 180
+off 84
+wait 120
+on 81 105 180
+wait 180
+off 81
+wait 120
+on 78 105 180
+wait 180
+off 78
+wait 120
+on 81 105 180
+wait 180
+off 81
+wait 120
+on 74 105 480
+wait 480
+off 74
+wait 720
+on 71 116 166
+on 79 116 125
+on 62 116 166
+wait 125
+off 79
+wait 41
+off 71
+off 62
+wait 250
+on 79 116 500
+wait 500
+off 79
+wait 125
+on 83 116 209
+wait 209
+off 83
+on 81 116 125
+wait 125
+off 81
+wait 83
+on 79 116 125
+wait 125
+off 79
+wait 83
+on 81 116 52
+wait 52
+off 81
+on 79 116 52
+wait 52
+off 79
+on 81 116 52
+wait 52
+off 81
+on 79 116 53
+wait 53
+off 79
+on 78 116 125
+wait 125
+off 78
+wait 83
+on 78 116 500
+wait 500
+off 78
+wait 125
+on 81 116 208
+wait 208
+off 81
+on 84 116 125
+wait 125
+off 84
+wait 84
+on 78 116 125
+wait 125
+off 78
+wait 83
+on 81 116 208
+wait 208
+off 81
+on 79 116 125
+wait 125
+off 79
+wait 84
+on 79 116 499
+wait 499
+off 79
+wait 126
+on 83 116 208
+wait 208
+off 83
+on 81 116 125
+wait 125
+off 81
+wait 83
+on 79 116 125
+wait 125
+off 79
+wait 84
+on 81 116 52
+wait 52
+off 81
+on 79 116 52
+wait 52
+off 79
+on 81 116 52
+wait 52
+off 81
+on 79 116 52
+wait 52
+off 79
+on 78 116 125
+wait 125
+off 78
+wait 83
+on 78 116 500
+wait 500
+off 78
+wait 125
+on 81 116 209
+wait 209
+off 81
+on 84 116 125
+wait 125
+off 84
+wait 83
+on 78 116 125
+wait 125
+off 78
+wait 83
+on 79 116 125
+wait 125
+off 79
+wait 84
+on 79 116 125
+wait 125
+off 79
+wait 83
+on 79 116 104
+wait 104
+off 79
+on 78 116 104
+wait 104
+off 78
+on 76 116 104
+wait 104
+off 76
+on 78 116 105
+wait 105
+off 78
+on 79 116 125
+wait 125
+off 79
+wait 83
+on 79 116 125
+wait 125
+off 79
+wait 83
+on 83 116 104
+wait 104
+off 83
+on 81 116 105
+wait 105
+off 81
+on 79 116 104
+wait 104
+off 79
+on 81 116 83
+wait 83
+off 81
+wait 21
+on 83 116 125
+wait 125
+off 83
+wait 83
+on 83 116 125
+wait 125
+off 83
+wait 84
+on 86 116 106
+wait 106
+off 86
+on 84 116 106
+wait 106
+off 84
+on 83 116 107
+wait 107
+off 83
+on 84 116 84
+wait 84
+off 84
+wait 22
+on 86 92 348
+wait 348
+off 86
+wait 531
+on 74 72 883
+wait 883
+off 74
+on 76 72 706
+wait 706
+off 76
+wait 176
+on 74 72 104
+wait 104
+off 74
+on 72 72 204
+wait 204
+off 72
+wait 109
+on 72 72 270
+wait 270
+off 72
+wait 146
+on 72 72 104
+wait 104
+off 72
+on 71 72 204
+wait 204
+off 71
+wait 109
+on 71 72 270
+wait 270
+off 71
+wait 147
+on 71 72 104
+wait 104
+off 71
+on 69 72 203
+wait 203
+off 69
+wait 109
+on 69 72 270
+wait 270
+off 69
+wait 147
+on 67 72 208
+wait 208
+off 67
+on 66 72 135
+wait 135
+off 66
+wait 74
+on 64 72 135
+wait 135
+off 64
+wait 73
+on 66 72 135
+wait 135
+off 66
+wait 73
+on 67 72 166
+wait 166
+off 67
+wait 251
+on 69 72 168
+wait 168
+off 69
+wait 255
+on 71 58 170
+wait 170
+off 71
+wait 693
+on 74 72 882
+wait 882
+off 74
+on 76 72 707
+wait 707
+off 76
+wait 176
+on 74 72 208
+wait 208
+off 74
+on 72 72 135
+wait 135
+off 72
+wait 73
+on 72 72 135
+wait 135
+off 72
+wait 74
+on 72 72 135
+wait 135
+off 72
+wait 73
+on 72 72 208
+wait 208
+off 72
+on 71 72 135
+wait 135
+off 71
+wait 74
+on 71 72 135
+wait 135
+off 71
+wait 73
+on 71 72 135
+wait 135
+off 71
+wait 73
+on 71 72 209
+wait 114
+allnotesoff

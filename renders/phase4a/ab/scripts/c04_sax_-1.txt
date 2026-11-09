@@ -1,0 +1,4288 @@
+# c04_sax_-1
+# Written by renders/phase4a/make_palette.py; do not edit.
+hello 0
+bendrange 12
+cc 7 127
+set echo_amount 0
+set glide 0
+set vibrato 0
+set vibrato_rate 0.5
+set breath 0.5
+set voice 0.5
+set vowel 0.5
+set gain 1
+wait 485
+set vibrato_rate 0.55
+set vowel 0.6
+set breath 0.7
+set gain 0
+bend 7646
+wait 15
+on 57 100
+wait 5
+set vowel 0.5794
+set gain 0.25
+bend 7726
+wait 5
+set vowel 0.525
+set gain 0.5
+bend 7795
+wait 5
+set vowel 0.4481
+set gain 0.75
+bend 7854
+wait 5
+set vowel 0.36
+set gain 1
+bend 7905
+wait 5
+set vowel 0.2719
+bend 7949
+wait 5
+set vowel 0.195
+bend 7987
+wait 5
+set vowel 0.1406
+bend 8019
+wait 5
+set vowel 0.12
+bend 8048
+wait 5
+set vowel 0.1318
+bend 8072
+wait 5
+set vowel 0.1433
+bend 8092
+wait 5
+set vowel 0.1544
+bend 8110
+wait 5
+set vowel 0.1652
+bend 8126
+wait 5
+set vowel 0.1757
+bend 8139
+wait 5
+set vowel 0.1859
+bend 8150
+wait 5
+set vowel 0.1957
+bend 8160
+wait 5
+set vowel 0.2053
+bend 8168
+wait 5
+set vowel 0.2146
+bend 8176
+wait 5
+set vowel 0.2236
+bend 8182
+wait 5
+set vowel 0.2324
+bend 8187
+wait 5
+set vowel 0.2409
+bend 8192
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 60 100
+wait 1
+off 57
+wait 4
+set vowel 0.4272
+bend 6184
+wait 5
+set vowel 0.4101
+bend 6296
+wait 5
+set vowel 0.3844
+bend 6464
+wait 5
+set vowel 0.3521
+bend 6675
+wait 5
+set vowel 0.3155
+bend 6914
+wait 5
+set vowel 0.2767
+bend 7168
+wait 5
+set vowel 0.2379
+bend 7422
+wait 5
+set vowel 0.2012
+bend 7661
+wait 5
+set vowel 0.1318
+bend 7872
+wait 5
+set vowel 0.1433
+bend 8040
+wait 5
+set vowel 0.1544
+bend 8152
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 64 100
+wait 1
+off 60
+wait 4
+set vowel 0.4272
+bend 5515
+wait 5
+set vowel 0.4101
+bend 5664
+wait 5
+set vowel 0.3844
+bend 5888
+wait 5
+set vowel 0.3521
+bend 6169
+wait 5
+set vowel 0.3155
+bend 6488
+wait 5
+set vowel 0.2767
+bend 6827
+wait 5
+set vowel 0.2379
+bend 7165
+wait 5
+set vowel 0.2012
+bend 7484
+wait 5
+set vowel 0.1318
+bend 7765
+wait 5
+set vowel 0.1433
+bend 7990
+wait 5
+set vowel 0.1544
+bend 8138
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vowel 0.6
+set vibrato 0
+set gain 0.25
+bend 7646
+off 64
+on 64 100
+wait 5
+set vowel 0.5794
+set gain 0.4375
+bend 7726
+wait 5
+set vowel 0.525
+set gain 0.625
+bend 7795
+wait 5
+set vowel 0.4481
+set gain 0.8125
+bend 7854
+wait 5
+set vowel 0.36
+set gain 1
+bend 7905
+wait 5
+set vowel 0.2719
+bend 7949
+wait 5
+set vowel 0.195
+bend 7987
+wait 5
+set vowel 0.1406
+bend 8019
+wait 5
+set vowel 0.12
+bend 8048
+wait 5
+set vowel 0.1318
+bend 8072
+wait 5
+set vowel 0.1433
+bend 8092
+wait 5
+set vowel 0.1544
+bend 8110
+wait 5
+set vowel 0.1652
+bend 8126
+wait 5
+set vowel 0.1757
+bend 8139
+wait 5
+set vowel 0.1859
+bend 8150
+wait 5
+set vowel 0.1957
+bend 8160
+wait 5
+set vowel 0.2053
+bend 8168
+wait 5
+set vowel 0.2146
+bend 8176
+wait 5
+set vowel 0.2236
+bend 8182
+wait 5
+set vowel 0.2324
+bend 8187
+wait 5
+set vowel 0.2409
+bend 8192
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 62 100
+wait 1
+off 64
+wait 4
+set vowel 0.4272
+bend 9530
+wait 5
+set vowel 0.4101
+bend 9456
+wait 5
+set vowel 0.3844
+bend 9344
+wait 5
+set vowel 0.3521
+bend 9203
+wait 5
+set vowel 0.3155
+bend 9044
+wait 5
+set vowel 0.2767
+bend 8875
+wait 5
+set vowel 0.2379
+bend 8706
+wait 5
+set vowel 0.2012
+bend 8546
+wait 5
+set vowel 0.1318
+bend 8405
+wait 5
+set vowel 0.1433
+bend 8293
+wait 5
+set vowel 0.1544
+bend 8219
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 60 100
+wait 1
+off 62
+wait 4
+set vowel 0.4272
+bend 9530
+wait 5
+set vowel 0.4101
+bend 9456
+wait 5
+set vowel 0.3844
+bend 9344
+wait 5
+set vowel 0.3521
+bend 9203
+wait 5
+set vowel 0.3155
+bend 9044
+wait 5
+set vowel 0.2767
+bend 8875
+wait 5
+set vowel 0.2379
+bend 8706
+wait 5
+set vowel 0.2012
+bend 8546
+wait 5
+set vowel 0.1318
+bend 8405
+wait 5
+set vowel 0.1433
+bend 8293
+wait 5
+set vowel 0.1544
+bend 8219
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0
+on 57 100
+wait 1
+off 60
+wait 4
+set vowel 0.4925
+bend 10199
+wait 5
+set vowel 0.4719
+bend 10088
+wait 5
+set vowel 0.4406
+bend 9920
+wait 5
+set vowel 0.4015
+bend 9709
+wait 5
+set vowel 0.3571
+bend 9469
+wait 5
+set vowel 0.31
+bend 9216
+wait 5
+set vowel 0.2629
+bend 8962
+wait 5
+set vowel 0.2185
+bend 8723
+wait 5
+set vowel 0.1318
+bend 8512
+wait 5
+set vowel 0.1433
+bend 8344
+wait 5
+set vowel 0.1544
+bend 8232
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0.35
+wait 300
+set vibrato 0
+on 55 100
+wait 1
+off 57
+wait 4
+set vowel 0.4925
+bend 9530
+wait 5
+set vowel 0.4719
+bend 9456
+wait 5
+set vowel 0.4406
+bend 9344
+wait 5
+set vowel 0.4015
+bend 9203
+wait 5
+set vowel 0.3571
+bend 9044
+wait 5
+set vowel 0.31
+bend 8875
+wait 5
+set vowel 0.2629
+bend 8706
+wait 5
+set vowel 0.2185
+bend 8546
+wait 5
+set vowel 0.1318
+bend 8405
+wait 5
+set vowel 0.1433
+bend 8293
+wait 5
+set vowel 0.1544
+bend 8219
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 53 100
+wait 1
+off 55
+wait 4
+set vowel 0.4272
+bend 9530
+wait 5
+set vowel 0.4101
+bend 9456
+wait 5
+set vowel 0.3844
+bend 9344
+wait 5
+set vowel 0.3521
+bend 9203
+wait 5
+set vowel 0.3155
+bend 9044
+wait 5
+set vowel 0.2767
+bend 8875
+wait 5
+set vowel 0.2379
+bend 8706
+wait 5
+set vowel 0.2012
+bend 8546
+wait 5
+set vowel 0.1318
+bend 8405
+wait 5
+set vowel 0.1433
+bend 8293
+wait 5
+set vowel 0.1544
+bend 8219
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0
+on 57 100
+wait 1
+off 53
+wait 4
+set vowel 0.4925
+bend 5515
+wait 5
+set vowel 0.4719
+bend 5664
+wait 5
+set vowel 0.4406
+bend 5888
+wait 5
+set vowel 0.4015
+bend 6169
+wait 5
+set vowel 0.3571
+bend 6488
+wait 5
+set vowel 0.31
+bend 6827
+wait 5
+set vowel 0.2629
+bend 7165
+wait 5
+set vowel 0.2185
+bend 7484
+wait 5
+set vowel 0.1318
+bend 7765
+wait 5
+set vowel 0.1433
+bend 7990
+wait 5
+set vowel 0.1544
+bend 8138
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0
+on 55 100
+wait 1
+off 57
+wait 4
+set vowel 0.4925
+bend 9530
+wait 5
+set vowel 0.4719
+bend 9456
+wait 5
+set vowel 0.4406
+bend 9344
+wait 5
+set vowel 0.4015
+bend 9203
+wait 5
+set vowel 0.3571
+bend 9044
+wait 5
+set vowel 0.31
+bend 8875
+wait 5
+set vowel 0.2629
+bend 8706
+wait 5
+set vowel 0.2185
+bend 8546
+wait 5
+set vowel 0.1318
+bend 8405
+wait 5
+set vowel 0.1433
+bend 8293
+wait 5
+set vowel 0.1544
+bend 8219
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 57 100
+wait 1
+off 55
+wait 4
+set vowel 0.4272
+bend 6854
+wait 5
+set vowel 0.4101
+bend 6928
+wait 5
+set vowel 0.3844
+bend 7040
+wait 5
+set vowel 0.3521
+bend 7181
+wait 5
+set vowel 0.3155
+bend 7340
+wait 5
+set vowel 0.2767
+bend 7509
+wait 5
+set vowel 0.2379
+bend 7678
+wait 5
+set vowel 0.2012
+bend 7838
+wait 5
+set vowel 0.1318
+bend 7979
+wait 5
+set vowel 0.1433
+bend 8091
+wait 5
+set vowel 0.1544
+bend 8165
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 60 100
+wait 1
+off 57
+wait 4
+set vowel 0.4272
+bend 6184
+wait 5
+set vowel 0.4101
+bend 6296
+wait 5
+set vowel 0.3844
+bend 6464
+wait 5
+set vowel 0.3521
+bend 6675
+wait 5
+set vowel 0.3155
+bend 6914
+wait 5
+set vowel 0.2767
+bend 7168
+wait 5
+set vowel 0.2379
+bend 7422
+wait 5
+set vowel 0.2012
+bend 7661
+wait 5
+set vowel 0.1318
+bend 7872
+wait 5
+set vowel 0.1433
+bend 8040
+wait 5
+set vowel 0.1544
+bend 8152
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 62 100
+wait 1
+off 60
+wait 4
+set vowel 0.4272
+bend 6854
+wait 5
+set vowel 0.4101
+bend 6928
+wait 5
+set vowel 0.3844
+bend 7040
+wait 5
+set vowel 0.3521
+bend 7181
+wait 5
+set vowel 0.3155
+bend 7340
+wait 5
+set vowel 0.2767
+bend 7509
+wait 5
+set vowel 0.2379
+bend 7678
+wait 5
+set vowel 0.2012
+bend 7838
+wait 5
+set vowel 0.1318
+bend 7979
+wait 5
+set vowel 0.1433
+bend 8091
+wait 5
+set vowel 0.1544
+bend 8165
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+on 64 100
+wait 1
+off 62
+wait 4
+set vowel 0.4272
+bend 6854
+wait 5
+set vowel 0.4101
+bend 6928
+wait 5
+set vowel 0.3844
+bend 7040
+wait 5
+set vowel 0.3521
+bend 7181
+wait 5
+set vowel 0.3155
+bend 7340
+wait 5
+set vowel 0.2767
+bend 7509
+wait 5
+set vowel 0.2379
+bend 7678
+wait 5
+set vowel 0.2012
+bend 7838
+wait 5
+set vowel 0.1318
+bend 7979
+wait 5
+set vowel 0.1433
+bend 8091
+wait 5
+set vowel 0.1544
+bend 8165
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0.35
+wait 600
+set vibrato 0
+on 62 100
+wait 1
+off 64
+wait 4
+set vowel 0.4925
+bend 9530
+wait 5
+set vowel 0.4719
+bend 9456
+wait 5
+set vowel 0.4406
+bend 9344
+wait 5
+set vowel 0.4015
+bend 9203
+wait 5
+set vowel 0.3571
+bend 9044
+wait 5
+set vowel 0.31
+bend 8875
+wait 5
+set vowel 0.2629
+bend 8706
+wait 5
+set vowel 0.2185
+bend 8546
+wait 5
+set vowel 0.1318
+bend 8405
+wait 5
+set vowel 0.1433
+bend 8293
+wait 5
+set vowel 0.1544
+bend 8219
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0
+on 59 100
+wait 1
+off 62
+wait 4
+set vowel 0.4925
+bend 10199
+wait 5
+set vowel 0.4719
+bend 10088
+wait 5
+set vowel 0.4406
+bend 9920
+wait 5
+set vowel 0.4015
+bend 9709
+wait 5
+set vowel 0.3571
+bend 9469
+wait 5
+set vowel 0.31
+bend 9216
+wait 5
+set vowel 0.2629
+bend 8962
+wait 5
+set vowel 0.2185
+bend 8723
+wait 5
+set vowel 0.1318
+bend 8512
+wait 5
+set vowel 0.1433
+bend 8344
+wait 5
+set vowel 0.1544
+bend 8232
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0
+on 55 100
+wait 1
+off 59
+wait 4
+set vowel 0.4925
+bend 10869
+wait 5
+set vowel 0.4719
+bend 10720
+wait 5
+set vowel 0.4406
+bend 10496
+wait 5
+set vowel 0.4015
+bend 10214
+wait 5
+set vowel 0.3571
+bend 9895
+wait 5
+set vowel 0.31
+bend 9557
+wait 5
+set vowel 0.2629
+bend 9219
+wait 5
+set vowel 0.2185
+bend 8900
+wait 5
+set vowel 0.1318
+bend 8619
+wait 5
+set vowel 0.1433
+bend 8394
+wait 5
+set vowel 0.1544
+bend 8246
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0.35
+wait 600
+set vibrato 0
+on 57 100
+wait 1
+off 55
+wait 4
+set vowel 0.4925
+bend 6854
+wait 5
+set vowel 0.4719
+bend 6928
+wait 5
+set vowel 0.4406
+bend 7040
+wait 5
+set vowel 0.4015
+bend 7181
+wait 5
+set vowel 0.3571
+bend 7340
+wait 5
+set vowel 0.31
+bend 7509
+wait 5
+set vowel 0.2629
+bend 7678
+wait 5
+set vowel 0.2185
+bend 7838
+wait 5
+set vowel 0.1318
+bend 7979
+wait 5
+set vowel 0.1433
+bend 8091
+wait 5
+set vowel 0.1544
+bend 8165
+wait 5
+set vowel 0.1652
+bend 8192
+wait 5
+set vowel 0.1757
+wait 5
+set vowel 0.1859
+wait 5
+set vowel 0.1957
+wait 5
+set vowel 0.2053
+wait 5
+set vowel 0.2146
+wait 5
+set vowel 0.2236
+wait 5
+set vowel 0.2324
+wait 5
+set vowel 0.2409
+wait 5
+set vowel 0.2491
+wait 5
+set vowel 0.2572
+wait 5
+set vowel 0.2649
+wait 5
+set vowel 0.2725
+wait 5
+set vowel 0.2798
+wait 5
+set vowel 0.2869
+wait 5
+set vowel 0.2938
+wait 5
+set vowel 0.3004
+wait 5
+set vowel 0.3069
+wait 5
+set vowel 0.3132
+wait 5
+set vowel 0.3193
+wait 5
+set vowel 0.3253
+wait 5
+set vowel 0.331
+wait 5
+set vowel 0.3366
+wait 5
+set vowel 0.342
+wait 5
+set vowel 0.3473
+wait 5
+set vowel 0.3524
+wait 5
+set vowel 0.3573
+wait 5
+set vowel 0.3621
+wait 5
+set vowel 0.3668
+wait 5
+set vowel 0.3713
+wait 5
+set vowel 0.3757
+wait 5
+set vowel 0.38
+wait 5
+set vowel 0.3841
+wait 5
+set vowel 0.3881
+wait 5
+set vowel 0.392
+wait 5
+set vowel 0.3958
+wait 5
+set vowel 0.3995
+wait 5
+set vowel 0.403
+wait 5
+set vowel 0.4065
+wait 5
+set vowel 0.4098
+wait 5
+set vowel 0.4131
+wait 5
+set vowel 0.4162
+wait 5
+set vowel 0.4193
+wait 5
+set vowel 0.4223
+wait 5
+set vowel 0.4252
+wait 5
+set vowel 0.428
+wait 5
+set vowel 0.4307
+wait 5
+set vowel 0.4333
+wait 5
+set vowel 0.4359
+wait 5
+set vowel 0.4384
+wait 5
+set vowel 0.4408
+wait 5
+set vowel 0.4431
+wait 5
+set vowel 0.4454
+wait 5
+set vowel 0.4476
+wait 5
+set vowel 0.4497
+wait 5
+set vowel 0.4518
+wait 5
+set vowel 0.4538
+wait 5
+set vowel 0.4558
+wait 5
+set vowel 0.4577
+wait 5
+set vowel 0.4595
+set vibrato 0.007
+wait 5
+set vowel 0.4613
+set vibrato 0.014
+wait 5
+set vowel 0.463
+set vibrato 0.021
+wait 5
+set vowel 0.4647
+set vibrato 0.028
+wait 5
+set vowel 0.4663
+set vibrato 0.035
+wait 5
+set vowel 0.4679
+set vibrato 0.042
+wait 5
+set vowel 0.4694
+set vibrato 0.049
+wait 5
+set vowel 0.4709
+set vibrato 0.056
+wait 5
+set vowel 0.4724
+set vibrato 0.063
+wait 5
+set vowel 0.4738
+set vibrato 0.07
+wait 5
+set vowel 0.4752
+set vibrato 0.077
+wait 5
+set vowel 0.4765
+set vibrato 0.084
+wait 5
+set vowel 0.4778
+set vibrato 0.091
+wait 5
+set vowel 0.479
+set vibrato 0.098
+wait 5
+set vowel 0.4802
+set vibrato 0.105
+wait 5
+set vowel 0.4814
+set vibrato 0.112
+wait 5
+set vowel 0.4825
+set vibrato 0.119
+wait 5
+set vowel 0.4836
+set vibrato 0.126
+wait 5
+set vowel 0.4847
+set vibrato 0.133
+wait 5
+set vowel 0.4857
+set vibrato 0.14
+wait 5
+set vowel 0.4868
+set vibrato 0.147
+wait 5
+set vowel 0.4877
+set vibrato 0.154
+wait 5
+set vowel 0.4887
+set vibrato 0.161
+wait 5
+set vowel 0.4896
+set vibrato 0.168
+wait 5
+set vowel 0.4905
+set vibrato 0.175
+wait 5
+set vowel 0.4914
+set vibrato 0.182
+wait 5
+set vowel 0.4922
+set vibrato 0.189
+wait 5
+set vowel 0.493
+set vibrato 0.196
+wait 5
+set vowel 0.4938
+set vibrato 0.203
+wait 5
+set vowel 0.4946
+set vibrato 0.21
+wait 5
+set vowel 0.4953
+set vibrato 0.217
+wait 5
+set vowel 0.4961
+set vibrato 0.224
+wait 5
+set vowel 0.4968
+set vibrato 0.231
+wait 5
+set vowel 0.4975
+set vibrato 0.238
+wait 5
+set vowel 0.4981
+set vibrato 0.245
+wait 5
+set vowel 0.4988
+set vibrato 0.252
+wait 5
+set vowel 0.4994
+set vibrato 0.259
+wait 5
+set vowel 0.5
+set vibrato 0.266
+wait 5
+set vibrato 0.273
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.287
+wait 5
+set vibrato 0.294
+wait 5
+set vibrato 0.301
+wait 5
+set vibrato 0.308
+wait 5
+set vibrato 0.315
+wait 5
+set vibrato 0.322
+wait 5
+set vibrato 0.329
+wait 5
+set vibrato 0.336
+wait 5
+set vibrato 0.343
+wait 5
+set vibrato 0.35
+wait 1565
+set vowel 0.4985
+set gain 0.8825
+wait 5
+set vowel 0.4941
+set gain 0.7788
+wait 5
+set vowel 0.4871
+set gain 0.6873
+wait 5
+set vowel 0.4778
+set gain 0.6065
+wait 5
+set vowel 0.4664
+set gain 0.5353
+wait 5
+set vowel 0.4531
+set gain 0.4724
+wait 5
+set vowel 0.4383
+set gain 0.4169
+wait 5
+set vowel 0.4222
+set gain 0.3679
+wait 5
+set vowel 0.4051
+set gain 0.3247
+wait 5
+set vowel 0.3872
+set gain 0.2865
+wait 5
+set vowel 0.3687
+set gain 0.2528
+wait 5
+set vowel 0.35
+set gain 0.2231
+wait 5
+set vowel 0.3313
+set gain 0.1969
+wait 5
+set vowel 0.3128
+set gain 0.1738
+wait 5
+set vowel 0.2949
+set gain 0.1534
+wait 5
+set vowel 0.2778
+set gain 0.1353
+wait 5
+set vowel 0.2617
+set gain 0.1194
+wait 5
+set vowel 0.2469
+set gain 0.1054
+wait 5
+set vowel 0.2336
+set gain 0.093
+wait 5
+set vowel 0.2222
+set gain 0.0821
+wait 5
+set vowel 0.2129
+set gain 0.0724
+wait 5
+set vowel 0.2059
+set gain 0.0639
+wait 5
+set vowel 0.2015
+set gain 0.0564
+wait 5
+set vowel 0.2
+set gain 0.0498
+wait 5
+set gain 0.0439
+wait 5
+set gain 0.0388
+wait 5
+set gain 0.0342
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0266
+wait 5
+set gain 0.0235
+wait 5
+set gain 0.0208
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0162
+wait 5
+set gain 0.0143
+wait 5
+set gain 0.0126
+wait 5
+off 57
+wait 5
+set gain 1
+set vowel 0.5
+set breath 0.5
+set vibrato 0
+set vibrato_rate 0.5

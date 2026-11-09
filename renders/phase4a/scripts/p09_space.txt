@@ -1,0 +1,135 @@
+# Echo amount and unison on a short phrase
+# Written by renders/phase4a/make_palette.py; do not edit.
+hello 0
+bendrange 12
+cc 7 127
+set echo_amount 0
+set glide 0
+set vibrato 0
+set vibrato_rate 0.5
+set breath 0.5
+set voice 0.5
+set vowel 0.5
+set gain 1
+set echo_amount 0.0
+on 62 100
+wait 300
+off 62
+on 64 100
+wait 300
+off 64
+on 67 100
+wait 450
+off 67
+wait 150
+on 69 100
+wait 300
+off 69
+on 67 100
+wait 300
+off 67
+on 64 100
+wait 680
+set echo_amount 0
+wait 20
+off 64
+wait 1185
+set echo_amount 0.2
+wait 15
+on 62 100
+wait 300
+off 62
+on 64 100
+wait 300
+off 64
+on 67 100
+wait 450
+off 67
+wait 150
+on 69 100
+wait 300
+off 69
+on 67 100
+wait 300
+off 67
+on 64 100
+wait 680
+set echo_amount 0
+wait 20
+off 64
+wait 1185
+set echo_amount 0.42
+wait 15
+on 62 100
+wait 300
+off 62
+on 64 100
+wait 300
+off 64
+on 67 100
+wait 450
+off 67
+wait 150
+on 69 100
+wait 300
+off 69
+on 67 100
+wait 300
+off 67
+on 64 100
+wait 680
+set echo_amount 0
+wait 20
+off 64
+wait 1185
+set echo_amount 0.8
+wait 15
+on 62 100
+wait 300
+off 62
+on 64 100
+wait 300
+off 64
+on 67 100
+wait 450
+off 67
+wait 150
+on 69 100
+wait 300
+off 69
+on 67 100
+wait 300
+off 67
+on 64 100
+wait 680
+set echo_amount 0
+wait 20
+off 64
+wait 1185
+set unison_voices 3
+set unison_detune 12
+set unison_spread 0.15
+wait 15
+on 62 100
+wait 300
+off 62
+on 64 100
+wait 300
+off 64
+on 67 100
+wait 450
+off 67
+wait 150
+on 69 100
+wait 300
+off 69
+on 67 100
+wait 300
+off 67
+on 64 100
+wait 680
+set unison_voices 1
+set unison_detune 0
+set unison_spread 0
+wait 20
+off 64

@@ -1,0 +1,100 @@
+hello 1
+set articulator 1
+cc 7 100
+set profile.begin 1
+set profile.reset 1
+set onset.vowel -1
+set onset.time 50
+set onset.curve 3
+set onset.attack 3
+set onset.lips 0
+set onset.burst -1
+set onset.burst_time 0
+set onset.scoop -0.8
+set onset.scoop_time 100
+set body.vowel 0.25
+set body.vowel_time 500
+set body.breath 0.6
+set ending.vowel -1
+set ending.vowel_time -1
+set ending.release 20
+set ending.lips 0
+set phrase.dip_level 0.2
+set phrase.mode 1
+set nucleus.vowel 0
+set range.fit 2
+set range.high 72
+set vibrato.depth 0.35
+set vibrato.delay 350
+set vibrato.fade 300
+set voice.size 0.4
+set profile.apply 1
+set voice.formant3 0
+set body.breath 0.3
+set onset.burst 0.3
+set dyn.gain 1.274
+set range.shift 0
+wait 5300
+on 57 84 330
+wait 300
+on 60 84 330
+wait 30
+off 57
+wait 270
+on 65 84 510
+wait 30
+off 60
+wait 480
+off 65
+wait 90
+on 64 92 330
+wait 300
+on 62 84 330
+wait 30
+off 64
+wait 270
+on 60 84 510
+wait 30
+off 62
+wait 480
+off 60
+wait 90
+on 59 84 630
+wait 600
+on 62 92 630
+wait 30
+off 59
+wait 570
+on 55 84 1020
+wait 30
+off 62
+wait 990
+off 55
+wait 4980
+on 53 84 330
+wait 300
+on 57 92 330
+wait 30
+off 53
+wait 270
+on 62 84 510
+wait 30
+off 57
+wait 480
+off 62
+wait 90
+on 59 84 330
+wait 300
+on 62 84 330
+wait 30
+off 59
+wait 270
+on 55 92 510
+wait 30
+off 62
+wait 480
+off 55
+wait 90
+on 60 84 1530
+wait 1530
+off 60

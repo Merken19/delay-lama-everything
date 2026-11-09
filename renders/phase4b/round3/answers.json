@@ -1,0 +1,197 @@
+{
+  "format": 1,
+  "tests": {
+    "bass": [
+      {
+        "saved": "2026-11-05T11:13:34+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "before",
+              "d",
+              "d_w2"
+            ],
+            "label": [
+              "Phase 4a",
+              "'d', narrow",
+              "'d', wider x2"
+            ]
+          },
+          {
+            "question": "doo",
+            "text": "Which ones have the 'doo'?",
+            "choice": [
+              "before"
+            ],
+            "label": [
+              "Phase 4a"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating the instrument?",
+            "choice": "before",
+            "label": "Phase 4a"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ],
+    "trumpet": [
+      {
+        "saved": "2026-11-05T11:14:46+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "t",
+              "t_w3",
+              "d_w3"
+            ],
+            "label": [
+              "'t', narrow",
+              "'t', wider x3",
+              "Soft 'd', wider x3"
+            ]
+          },
+          {
+            "question": "tongued",
+            "text": "Which ones sound tongued (a 't' or 'd' at the start of notes)?",
+            "choice": [
+              "none"
+            ],
+            "label": [
+              "None of them"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating the instrument?",
+            "choice": "steady",
+            "label": "Steady (new default)"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ],
+    "guitar": [
+      {
+        "saved": "2026-11-05T11:16:28+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "wa_start",
+              "wa_start_w3",
+              "wa_all_w3"
+            ],
+            "label": [
+              "'wa' at the start, narrow",
+              "'wa' at the start, wider x3",
+              "'wa' on every note, wider x3"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating the instrument?",
+            "choice": "steady",
+            "label": "Steady (new default)"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ],
+    "violin": [
+      {
+        "saved": "2026-11-05T11:18:16+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "phase4a",
+              "now",
+              "no_glides",
+              "straight",
+              "no_breath",
+              "quick"
+            ],
+            "label": [
+              "Phase 4a",
+              "Now (legato)",
+              "No glides",
+              "No glides, straight",
+              "No glides, no breath",
+              "Quick glides"
+            ]
+          },
+          {
+            "question": "kind",
+            "text": "What does the glitch sound like? (pick all you hear)",
+            "choice": [
+              "whistle",
+              "between"
+            ],
+            "label": [
+              "Whistle or ringing above the note",
+              "Wrong or too high between notes"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating the instrument?",
+            "choice": "low",
+            "label": "No glides, octave lower"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ],
+    "k525": [
+      {
+        "saved": "2026-11-05T11:19:45+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which works best as violin 1 in the music?",
+            "choice": "plain_p6",
+            "label": "Your pick (+6 dB)"
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "violin"
+            ],
+            "label": [
+              "Violin (legato)"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ]
+  },
+  "set": "renders/phase4b/round3",
+  "manifest": "listening.json",
+  "updated": "2026-11-05T11:19:45+01:00"
+}

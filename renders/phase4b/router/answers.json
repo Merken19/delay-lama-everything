@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "tests": {
+    "k525": [
+      {
+        "saved": "2026-11-05T15:20:43+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which works best as violin 1 in the music?",
+            "choice": "singer",
+            "label": "Singer"
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "none"
+            ],
+            "label": [
+              "None of them"
+            ]
+          },
+          {
+            "question": "same",
+            "text": "Does 'Singer' sound like round 4's singer?",
+            "choice": "same",
+            "label": "The same"
+          },
+          {
+            "question": "balance",
+            "text": "Against the band, are the profile monks (Auto, Singer) as easy to hear as the plain one?",
+            "choice": "same",
+            "label": "About the same"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ]
+  },
+  "set": "renders/phase4b/router",
+  "manifest": "listening.json",
+  "updated": "2026-11-05T15:20:43+01:00"
+}

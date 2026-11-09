@@ -1,0 +1,216 @@
+{
+  "format": 1,
+  "tests": {
+    "chords": [
+      {
+        "saved": "2026-11-05T23:54:19+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "detuned",
+            "text": "Which sound out of tune or detuned?",
+            "choice": [
+              "now",
+              "locked"
+            ],
+            "label": [
+              "Now",
+              "Locked"
+            ]
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, whistle, click, wobble)?",
+            "choice": [
+              "now",
+              "locked",
+              "locked_long"
+            ],
+            "label": [
+              "Now",
+              "Locked",
+              "Locked, longer"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating a piano?",
+            "choice": "locked_long",
+            "label": "Locked, longer"
+          }
+        ],
+        "confidence": "high",
+        "note": "There is a very slight bug with the first notes, where at the end of the note it sounds like a high pitch."
+      }
+    ],
+    "lines": [
+      {
+        "saved": "2026-11-05T23:56:55+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "ring",
+            "text": "Which ring about the right length?",
+            "choice": [
+              "now",
+              "long",
+              "long_open",
+              "long_e",
+              "long_big"
+            ],
+            "label": [
+              "Now",
+              "Longer",
+              "Longer, no ng",
+              "Longer, steady 'e'",
+              "Longer, bigger voice"
+            ]
+          },
+          {
+            "question": "ending",
+            "text": "Which note endings (when the key lifts) sound right?",
+            "choice": [
+              "long_open"
+            ],
+            "label": [
+              "Longer, no ng"
+            ]
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, whistle, click, wobble)?",
+            "choice": [
+              "now",
+              "long",
+              "long_e",
+              "long_big"
+            ],
+            "label": [
+              "Now",
+              "Longer",
+              "Longer, steady 'e'",
+              "Longer, bigger voice"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating a piano?",
+            "choice": "long_open",
+            "label": "Longer, no ng"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ],
+    "band": [
+      {
+        "saved": "2026-11-05T23:57:54+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which works best as the piano in the band?",
+            "choice": "now_4",
+            "label": "Now, 4 monks"
+          },
+          {
+            "question": "detuned",
+            "text": "Which sound out of tune or detuned?",
+            "choice": [
+              "cand_4",
+              "cand_6"
+            ],
+            "label": [
+              "Candidate, 4 monks",
+              "Candidate, 6 monks"
+            ]
+          },
+          {
+            "question": "heard",
+            "text": "In which can you hear the piano well enough?",
+            "choice": [],
+            "label": []
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, whistle, click, wobble)?",
+            "choice": [
+              "now_4",
+              "cand_4",
+              "cand_6"
+            ],
+            "label": [
+              "Now, 4 monks",
+              "Candidate, 4 monks",
+              "Candidate, 6 monks"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      },
+      {
+        "saved": "2026-11-05T23:58:01+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which works best as the piano in the band?",
+            "choice": "now_4",
+            "label": "Now, 4 monks"
+          },
+          {
+            "question": "detuned",
+            "text": "Which sound out of tune or detuned?",
+            "choice": [
+              "cand_4",
+              "cand_6"
+            ],
+            "label": [
+              "Candidate, 4 monks",
+              "Candidate, 6 monks"
+            ]
+          },
+          {
+            "question": "heard",
+            "text": "In which can you hear the piano well enough?",
+            "choice": [
+              "now_4",
+              "cand_4",
+              "cand_6"
+            ],
+            "label": [
+              "Now, 4 monks",
+              "Candidate, 4 monks",
+              "Candidate, 6 monks"
+            ]
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, whistle, click, wobble)?",
+            "choice": [
+              "now_4",
+              "cand_4",
+              "cand_6"
+            ],
+            "label": [
+              "Now, 4 monks",
+              "Candidate, 4 monks",
+              "Candidate, 6 monks"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ]
+  },
+  "set": "renders/phase4c/piano",
+  "manifest": "listening.json",
+  "updated": "2026-11-05T23:58:01+01:00"
+}

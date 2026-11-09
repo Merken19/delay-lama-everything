@@ -1,0 +1,454 @@
+{
+  "format": 1,
+  "title": "Phase 4c piano: in tune, ringing, in the band",
+  "intro": "The first family tuning set. Your c02 note said the piano choir 'sounds like a broken detune piano'. Measured: the notes themselves are in tune within a few cents, but every monk's small vibrato runs on its own, so a chord's intervals keep swinging. A new helper key locks the monks of a chord together. The piano notes also die much sooner than Gervill's. Three tests: chords, single lines, and the piano in a small band at your live balance.",
+  "tests": [
+    {
+      "id": "chords",
+      "title": "Piano chords: in tune?",
+      "question": "Piano part alone (block chords, pedalled arpeggios, a long chord), 4 monks: which sound out of tune or detuned?",
+      "notes": "Each monk's vibrato floor (\u00b10.2 st, the wobble that keeps Delay Lama alive) runs on its own, so the intervals of a chord swing by up to ~75 cents. 'Locked' makes every monk of a chord wobble together (new helper key vibrato.lock), so the intervals stay within ~10 cents and the chord wobbles as one. The tuning between notes is only 1-2 cents off (measured), so nothing else changes. Every clip at Gervill's loudness; blind mode is worth it.",
+      "clips": [
+        {
+          "file": "chords/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "What midis2jam2 plays (reference)",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "chords/02_now.wav",
+          "label": "Now",
+          "desc": "The piano profile as it is: each monk wobbles on its own",
+          "condition": "now"
+        },
+        {
+          "file": "chords/03_locked.wav",
+          "label": "Locked",
+          "desc": "vibrato.lock: the monks of a chord wobble together",
+          "condition": "locked"
+        },
+        {
+          "file": "chords/04_locked_long.wav",
+          "label": "Locked, longer",
+          "desc": "Locked, and notes ring about as long as Gervill's (decay 2.5 s at C4)",
+          "condition": "locked_long"
+        }
+      ],
+      "questions": [
+        {
+          "id": "detuned",
+          "text": "Which sound out of tune or detuned?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now",
+              "label": "Now",
+              "condition": "now"
+            },
+            {
+              "id": "locked",
+              "label": "Locked",
+              "condition": "locked"
+            },
+            {
+              "id": "locked_long",
+              "label": "Locked, longer",
+              "condition": "locked_long"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, whistle, click, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now",
+              "label": "Now",
+              "condition": "now"
+            },
+            {
+              "id": "locked",
+              "label": "Locked",
+              "condition": "locked"
+            },
+            {
+              "id": "locked_long",
+              "label": "Locked, longer",
+              "condition": "locked_long"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating a piano?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "now",
+              "label": "Now",
+              "condition": "now"
+            },
+            {
+              "id": "locked",
+              "label": "Locked",
+              "condition": "locked"
+            },
+            {
+              "id": "locked_long",
+              "label": "Locked, longer",
+              "condition": "locked_long"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lines",
+      "title": "Piano lines: decay, ending and voice",
+      "question": "Scale, repeated notes, a legato line, a fast run and a long C4: which sounds most like a piano imitation?",
+      "notes": "Now: a note is gone 1.4 s after it starts (at C4; Gervill's piano is still only 29 dB down at 3 s) and closes on 'ng' when the key lifts. 'Longer' rings about as long as Gervill's (decay 2.5 s at C4, a little shorter up high). 'No ng' keeps the vowel as it is while the note fades. 'Steady e' sings 'e' all through instead of drifting from 'i' to 'e' (measured: the drift makes some notes swell or dip by 5-10 dB as they ring, since the moving vowel crosses the harmonics). 'Bigger voice' is voice size 0.4 instead of 0.6 (a larger, darker head). One line, so the vibrato lock makes no difference here. Every clip at Gervill's loudness.",
+      "clips": [
+        {
+          "file": "lines/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "What midis2jam2 plays (reference)",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "lines/02_now.wav",
+          "label": "Now",
+          "desc": "The piano profile as it is (d-i>e-ng, decay 0.9 s at C4)",
+          "condition": "now"
+        },
+        {
+          "file": "lines/03_long.wav",
+          "label": "Longer",
+          "desc": "Decay 2.5 s at C4 (track 0.85 per octave)",
+          "condition": "long"
+        },
+        {
+          "file": "lines/04_long_open.wav",
+          "label": "Longer, no ng",
+          "desc": "Longer, and no 'ng' when the key lifts",
+          "condition": "long_open"
+        },
+        {
+          "file": "lines/05_long_e.wav",
+          "label": "Longer, steady 'e'",
+          "desc": "Longer, sung on 'e' throughout (no i-to-e drift)",
+          "condition": "long_e"
+        },
+        {
+          "file": "lines/06_long_big.wav",
+          "label": "Longer, bigger voice",
+          "desc": "Longer, voice size 0.4",
+          "condition": "long_big"
+        }
+      ],
+      "questions": [
+        {
+          "id": "ring",
+          "text": "Which ring about the right length?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now",
+              "label": "Now",
+              "condition": "now"
+            },
+            {
+              "id": "long",
+              "label": "Longer",
+              "condition": "long"
+            },
+            {
+              "id": "long_open",
+              "label": "Longer, no ng",
+              "condition": "long_open"
+            },
+            {
+              "id": "long_e",
+              "label": "Longer, steady 'e'",
+              "condition": "long_e"
+            },
+            {
+              "id": "long_big",
+              "label": "Longer, bigger voice",
+              "condition": "long_big"
+            },
+            {
+              "id": "too_short",
+              "label": "None: all too short"
+            },
+            {
+              "id": "too_long",
+              "label": "None: all too long"
+            }
+          ]
+        },
+        {
+          "id": "ending",
+          "text": "Which note endings (when the key lifts) sound right?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now",
+              "label": "Now",
+              "condition": "now"
+            },
+            {
+              "id": "long",
+              "label": "Longer",
+              "condition": "long"
+            },
+            {
+              "id": "long_open",
+              "label": "Longer, no ng",
+              "condition": "long_open"
+            },
+            {
+              "id": "long_e",
+              "label": "Longer, steady 'e'",
+              "condition": "long_e"
+            },
+            {
+              "id": "long_big",
+              "label": "Longer, bigger voice",
+              "condition": "long_big"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, whistle, click, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now",
+              "label": "Now",
+              "condition": "now"
+            },
+            {
+              "id": "long",
+              "label": "Longer",
+              "condition": "long"
+            },
+            {
+              "id": "long_open",
+              "label": "Longer, no ng",
+              "condition": "long_open"
+            },
+            {
+              "id": "long_e",
+              "label": "Longer, steady 'e'",
+              "condition": "long_e"
+            },
+            {
+              "id": "long_big",
+              "label": "Longer, bigger voice",
+              "condition": "long_big"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating a piano?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "now",
+              "label": "Now",
+              "condition": "now"
+            },
+            {
+              "id": "long",
+              "label": "Longer",
+              "condition": "long"
+            },
+            {
+              "id": "long_open",
+              "label": "Longer, no ng",
+              "condition": "long_open"
+            },
+            {
+              "id": "long_e",
+              "label": "Longer, steady 'e'",
+              "condition": "long_e"
+            },
+            {
+              "id": "long_big",
+              "label": "Longer, bigger voice",
+              "condition": "long_big"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "band",
+      "title": "Piano in a small band",
+      "question": "Drums and bass from Gervill, the piano part sung: which works best as the piano?",
+      "notes": "Mixed as live playback plays it: Gervill 6 dB down (your D34 balance), the monks at their own level; every mix at the same loudness. 'Now' is the profile as it is. The candidate is locked and rings longer (the changes in the other two tests), with 4 or 6 monks: a pedalled arpeggio has up to six notes ringing, and with 4 monks the oldest pedal-held notes (the bass of each arpeggio first) are cut.",
+      "clips": [
+        {
+          "file": "band/01_gervill.wav",
+          "label": "Gervill only",
+          "desc": "What midis2jam2 plays without Delay Lama",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "band/02_now_4.wav",
+          "label": "Now, 4 monks",
+          "desc": "The piano profile as it is, 4 monks (the default)",
+          "condition": "now_4"
+        },
+        {
+          "file": "band/03_cand_4.wav",
+          "label": "Candidate, 4 monks",
+          "desc": "Locked and longer, 4 monks",
+          "condition": "cand_4"
+        },
+        {
+          "file": "band/04_cand_6.wav",
+          "label": "Candidate, 6 monks",
+          "desc": "Locked and longer, 6 monks",
+          "condition": "cand_6"
+        }
+      ],
+      "questions": [
+        {
+          "id": "best",
+          "text": "Which works best as the piano in the band?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "now_4",
+              "label": "Now, 4 monks",
+              "condition": "now_4"
+            },
+            {
+              "id": "cand_4",
+              "label": "Candidate, 4 monks",
+              "condition": "cand_4"
+            },
+            {
+              "id": "cand_6",
+              "label": "Candidate, 6 monks",
+              "condition": "cand_6"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        },
+        {
+          "id": "detuned",
+          "text": "Which sound out of tune or detuned?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now_4",
+              "label": "Now, 4 monks",
+              "condition": "now_4"
+            },
+            {
+              "id": "cand_4",
+              "label": "Candidate, 4 monks",
+              "condition": "cand_4"
+            },
+            {
+              "id": "cand_6",
+              "label": "Candidate, 6 monks",
+              "condition": "cand_6"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "heard",
+          "text": "In which can you hear the piano well enough?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now_4",
+              "label": "Now, 4 monks",
+              "condition": "now_4"
+            },
+            {
+              "id": "cand_4",
+              "label": "Candidate, 4 monks",
+              "condition": "cand_4"
+            },
+            {
+              "id": "cand_6",
+              "label": "Candidate, 6 monks",
+              "condition": "cand_6"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, whistle, click, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "now_4",
+              "label": "Now, 4 monks",
+              "condition": "now_4"
+            },
+            {
+              "id": "cand_4",
+              "label": "Candidate, 4 monks",
+              "condition": "cand_4"
+            },
+            {
+              "id": "cand_6",
+              "label": "Candidate, 6 monks",
+              "condition": "cand_6"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

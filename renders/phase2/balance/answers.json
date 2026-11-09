@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "tests": {
+    "balance_k525": [
+      {
+        "saved": "2026-11-04T12:08:04+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "balance",
+            "text": "Which balance is best?",
+            "choice": "02_p6",
+            "label": "+6 dB"
+          },
+          {
+            "question": "octave",
+            "text": "Is the octave part of the problem?",
+            "choice": "no",
+            "label": "No, only the level matters"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ]
+  },
+  "set": "renders/phase2/balance",
+  "manifest": "listening.json",
+  "updated": "2026-11-04T12:08:04+01:00"
+}

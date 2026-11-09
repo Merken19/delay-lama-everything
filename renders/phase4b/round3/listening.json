@@ -1,0 +1,705 @@
+{
+  "format": 1,
+  "title": "Phase 4b round 3: wider formants, and violin in the music",
+  "intro": "Round 2 showed that any vowel move at a note's start glitches, so every profile now starts steady. Delay Lama's formants are very narrow, which is why a moving vowel rings like a pitch (the laser). These clips widen the formants only while the onset vowel moves, to see whether consonants like 'd', 't' and 'w' can come back without the laser. Then more violin suspects, and violin 1 of K525 in the band at your +6 dB balance.",
+  "tests": [
+    {
+      "id": "bass",
+      "title": "Bass: a 'doo' with wider formants",
+      "question": "Bass: which keep the 'doo' without the laser?",
+      "notes": "Round 2: only phase 4a had the 'doo' (with the laser). The 'd' clips move the vowel from 0.55 to 'u' at each start, like phase 4a; 'wider' widens Delay Lama's formants during that move (same loudness).",
+      "clips": [
+        {
+          "file": "bass/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "Reference",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "bass/02_before.wav",
+          "label": "Phase 4a",
+          "desc": "Round 2's 'doo-doo' (with the laser)",
+          "condition": "before"
+        },
+        {
+          "file": "bass/03_steady.wav",
+          "label": "Steady (new default)",
+          "desc": "No onset vowel move",
+          "condition": "steady"
+        },
+        {
+          "file": "bass/04_d.wav",
+          "label": "'d', narrow",
+          "desc": "The 'd' move with Delay Lama's own formants (the laser, as a check)",
+          "condition": "d"
+        },
+        {
+          "file": "bass/05_d_w2.wav",
+          "label": "'d', wider x2",
+          "desc": "Formants twice as wide during the move",
+          "condition": "d_w2"
+        },
+        {
+          "file": "bass/06_d_w4.wav",
+          "label": "'d', wider x4",
+          "desc": "Formants four times as wide during the move",
+          "condition": "d_w4"
+        },
+        {
+          "file": "bass/07_d_fast_w4.wav",
+          "label": "Fast 'd', wider x4",
+          "desc": "A 25 ms move, as fast as phase 4a's, formants x4",
+          "condition": "d_fast_w4"
+        }
+      ],
+      "questions": [
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "before",
+              "label": "Phase 4a",
+              "condition": "before"
+            },
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "d",
+              "label": "'d', narrow",
+              "condition": "d"
+            },
+            {
+              "id": "d_w2",
+              "label": "'d', wider x2",
+              "condition": "d_w2"
+            },
+            {
+              "id": "d_w4",
+              "label": "'d', wider x4",
+              "condition": "d_w4"
+            },
+            {
+              "id": "d_fast_w4",
+              "label": "Fast 'd', wider x4",
+              "condition": "d_fast_w4"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "doo",
+          "text": "Which ones have the 'doo'?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "before",
+              "label": "Phase 4a",
+              "condition": "before"
+            },
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "d",
+              "label": "'d', narrow",
+              "condition": "d"
+            },
+            {
+              "id": "d_w2",
+              "label": "'d', wider x2",
+              "condition": "d_w2"
+            },
+            {
+              "id": "d_w4",
+              "label": "'d', wider x4",
+              "condition": "d_w4"
+            },
+            {
+              "id": "d_fast_w4",
+              "label": "Fast 'd', wider x4",
+              "condition": "d_fast_w4"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "before",
+              "label": "Phase 4a",
+              "condition": "before"
+            },
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "d",
+              "label": "'d', narrow",
+              "condition": "d"
+            },
+            {
+              "id": "d_w2",
+              "label": "'d', wider x2",
+              "condition": "d_w2"
+            },
+            {
+              "id": "d_w4",
+              "label": "'d', wider x4",
+              "condition": "d_w4"
+            },
+            {
+              "id": "d_fast_w4",
+              "label": "Fast 'd', wider x4",
+              "condition": "d_fast_w4"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet",
+      "title": "Trumpet: tonguing with wider formants",
+      "question": "Trumpet: which sound tongued without a high pitch at the starts?",
+      "notes": "Round 2: steady onsets were best and glitch-free; a darker onset glitched. These try a brighter 't' (as phase 4a's) with and without wider formants.",
+      "clips": [
+        {
+          "file": "trumpet/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "Reference",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "trumpet/02_steady.wav",
+          "label": "Steady (new default)",
+          "desc": "Round 2's pick",
+          "condition": "steady"
+        },
+        {
+          "file": "trumpet/03_t.wav",
+          "label": "'t', narrow",
+          "desc": "Onset colour 0.75 for 15 ms, then a step to the nucleus (as a check)",
+          "condition": "t"
+        },
+        {
+          "file": "trumpet/04_t_w3.wav",
+          "label": "'t', wider x3",
+          "desc": "The same 't' with formants three times as wide",
+          "condition": "t_w3"
+        },
+        {
+          "file": "trumpet/05_d_w3.wav",
+          "label": "Soft 'd', wider x3",
+          "desc": "Onset 0.75 gliding to the nucleus over 40 ms, formants x3",
+          "condition": "d_w3"
+        }
+      ],
+      "questions": [
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "t",
+              "label": "'t', narrow",
+              "condition": "t"
+            },
+            {
+              "id": "t_w3",
+              "label": "'t', wider x3",
+              "condition": "t_w3"
+            },
+            {
+              "id": "d_w3",
+              "label": "Soft 'd', wider x3",
+              "condition": "d_w3"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "tongued",
+          "text": "Which ones sound tongued (a 't' or 'd' at the start of notes)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "t",
+              "label": "'t', narrow",
+              "condition": "t"
+            },
+            {
+              "id": "t_w3",
+              "label": "'t', wider x3",
+              "condition": "t_w3"
+            },
+            {
+              "id": "d_w3",
+              "label": "Soft 'd', wider x3",
+              "condition": "d_w3"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "t",
+              "label": "'t', narrow",
+              "condition": "t"
+            },
+            {
+              "id": "t_w3",
+              "label": "'t', wider x3",
+              "condition": "t_w3"
+            },
+            {
+              "id": "d_w3",
+              "label": "Soft 'd', wider x3",
+              "condition": "d_w3"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitar",
+      "title": "Overdrive guitar: 'wa' only at the start",
+      "question": "Overdrive guitar: does a 'wa' on the first note work?",
+      "notes": "Round 2: 'wa' on every note glitched and wasn't realistic; you suggested it only where the guitar starts after a break. This phrase has one start, so 'at the start' means the first note only.",
+      "clips": [
+        {
+          "file": "guitar/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "Reference",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "guitar/02_steady.wav",
+          "label": "Steady (new default)",
+          "desc": "Round 2's pick",
+          "condition": "steady"
+        },
+        {
+          "file": "guitar/03_wa_start.wav",
+          "label": "'wa' at the start, narrow",
+          "desc": "The first note only (onset.after_rest 400 ms)",
+          "condition": "wa_start"
+        },
+        {
+          "file": "guitar/04_wa_start_w3.wav",
+          "label": "'wa' at the start, wider x3",
+          "desc": "First note only, formants x3 during the move",
+          "condition": "wa_start_w3"
+        },
+        {
+          "file": "guitar/05_wa_all_w3.wav",
+          "label": "'wa' on every note, wider x3",
+          "desc": "Round 2's glitchy 'wa', formants x3",
+          "condition": "wa_all_w3"
+        }
+      ],
+      "questions": [
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "wa_start",
+              "label": "'wa' at the start, narrow",
+              "condition": "wa_start"
+            },
+            {
+              "id": "wa_start_w3",
+              "label": "'wa' at the start, wider x3",
+              "condition": "wa_start_w3"
+            },
+            {
+              "id": "wa_all_w3",
+              "label": "'wa' on every note, wider x3",
+              "condition": "wa_all_w3"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "steady",
+              "label": "Steady (new default)",
+              "condition": "steady"
+            },
+            {
+              "id": "wa_start",
+              "label": "'wa' at the start, narrow",
+              "condition": "wa_start"
+            },
+            {
+              "id": "wa_start_w3",
+              "label": "'wa' at the start, wider x3",
+              "condition": "wa_start_w3"
+            },
+            {
+              "id": "wa_all_w3",
+              "label": "'wa' on every note, wider x3",
+              "condition": "wa_all_w3"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin",
+      "title": "Violin: find the glitch (round 3)",
+      "question": "Violin: which clips have a glitch, and what does it sound like?",
+      "notes": "Round 2: every variant glitched, 'no glides' a little less. The violin sits at F5-E6, where Delay Lama's pitch moves in whole-sample steps of 30-50 cents, so its vibrato and glides become small stairs; the octave-lower clip halves those steps. Phase 4a's violin is here too: you called it 'a tad too bright', not glitchy.",
+      "clips": [
+        {
+          "file": "violin/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "Reference",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "violin/02_phase4a.wav",
+          "label": "Phase 4a",
+          "desc": "The phase 4a A/B violin, as written",
+          "condition": "phase4a"
+        },
+        {
+          "file": "violin/03_now.wav",
+          "label": "Now (legato)",
+          "desc": "strings.violin with the new steady onset",
+          "condition": "now"
+        },
+        {
+          "file": "violin/04_no_glides.wav",
+          "label": "No glides",
+          "desc": "Every note a new onset (round 2's least glitchy)",
+          "condition": "no_glides"
+        },
+        {
+          "file": "violin/05_straight.wav",
+          "label": "No glides, straight",
+          "desc": "No glides and no vibrato beyond Delay Lama's floor",
+          "condition": "straight"
+        },
+        {
+          "file": "violin/06_low.wav",
+          "label": "No glides, octave lower",
+          "desc": "No glides, sung an octave below the written part",
+          "condition": "low"
+        },
+        {
+          "file": "violin/07_no_breath.wav",
+          "label": "No glides, no breath",
+          "desc": "No glides and breath 0 (no high breath partials)",
+          "condition": "no_breath"
+        },
+        {
+          "file": "violin/08_quick.wav",
+          "label": "Quick glides",
+          "desc": "Legato, but each glide takes ~15 ms instead of ~130 ms",
+          "condition": "quick"
+        }
+      ],
+      "questions": [
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "phase4a",
+              "label": "Phase 4a",
+              "condition": "phase4a"
+            },
+            {
+              "id": "now",
+              "label": "Now (legato)",
+              "condition": "now"
+            },
+            {
+              "id": "no_glides",
+              "label": "No glides",
+              "condition": "no_glides"
+            },
+            {
+              "id": "straight",
+              "label": "No glides, straight",
+              "condition": "straight"
+            },
+            {
+              "id": "low",
+              "label": "No glides, octave lower",
+              "condition": "low"
+            },
+            {
+              "id": "no_breath",
+              "label": "No glides, no breath",
+              "condition": "no_breath"
+            },
+            {
+              "id": "quick",
+              "label": "Quick glides",
+              "condition": "quick"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "kind",
+          "text": "What does the glitch sound like? (pick all you hear)",
+          "multi": true,
+          "choices": [
+            {
+              "id": "stairs",
+              "label": "Stepped or wobbly pitch"
+            },
+            {
+              "id": "whistle",
+              "label": "Whistle or ringing above the note"
+            },
+            {
+              "id": "between",
+              "label": "Wrong or too high between notes"
+            },
+            {
+              "id": "start",
+              "label": "Something at the starts of notes"
+            },
+            {
+              "id": "click",
+              "label": "Clicks"
+            },
+            {
+              "id": "other",
+              "label": "Something else (please note it)"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "phase4a",
+              "label": "Phase 4a",
+              "condition": "phase4a"
+            },
+            {
+              "id": "now",
+              "label": "Now (legato)",
+              "condition": "now"
+            },
+            {
+              "id": "no_glides",
+              "label": "No glides",
+              "condition": "no_glides"
+            },
+            {
+              "id": "straight",
+              "label": "No glides, straight",
+              "condition": "straight"
+            },
+            {
+              "id": "low",
+              "label": "No glides, octave lower",
+              "condition": "low"
+            },
+            {
+              "id": "no_breath",
+              "label": "No glides, no breath",
+              "condition": "no_breath"
+            },
+            {
+              "id": "quick",
+              "label": "Quick glides",
+              "condition": "quick"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k525",
+      "title": "Violin 1 in the music (K525)",
+      "question": "Mozart K525, the first 30 s: does the monk work as violin 1, as a violin or as a singer?",
+      "notes": "Gervill plays the band; a choir of 4 monks sings violin 1 in profile mode at the written pitch, as loud as your +6 dB pick. 'Your pick' is the phase 2 clip you chose (plain mode, an octave low). No glitch fixes beyond the steady onset are in these yet.",
+      "clips": [
+        {
+          "file": "k525/01_gervill.wav",
+          "label": "Gervill only",
+          "desc": "What midis2jam2 plays without Delay Lama",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "k525/02_plain_p6.wav",
+          "label": "Your pick (+6 dB)",
+          "desc": "Phase 2's monk (plain mode, an octave low) at +6 dB, as you picked",
+          "condition": "plain_p6"
+        },
+        {
+          "file": "k525/03_violin.wav",
+          "label": "Violin (legato)",
+          "desc": "strings.violin, steady onset, glides between connected notes",
+          "condition": "violin"
+        },
+        {
+          "file": "k525/04_violin_detached.wav",
+          "label": "Violin, no glides",
+          "desc": "strings.violin, every note a new onset",
+          "condition": "violin_detached"
+        },
+        {
+          "file": "k525/05_singer.wav",
+          "label": "Singer",
+          "desc": "A singer on 'ah' instead of a violin imitation: quick attack, lead vibrato, glides only on slurs",
+          "condition": "singer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "best",
+          "text": "Which works best as violin 1 in the music?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "plain_p6",
+              "label": "Your pick (+6 dB)",
+              "condition": "plain_p6"
+            },
+            {
+              "id": "violin",
+              "label": "Violin (legato)",
+              "condition": "violin"
+            },
+            {
+              "id": "violin_detached",
+              "label": "Violin, no glides",
+              "condition": "violin_detached"
+            },
+            {
+              "id": "singer",
+              "label": "Singer",
+              "condition": "singer"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        },
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "plain_p6",
+              "label": "Your pick (+6 dB)",
+              "condition": "plain_p6"
+            },
+            {
+              "id": "violin",
+              "label": "Violin (legato)",
+              "condition": "violin"
+            },
+            {
+              "id": "violin_detached",
+              "label": "Violin, no glides",
+              "condition": "violin_detached"
+            },
+            {
+              "id": "singer",
+              "label": "Singer",
+              "condition": "singer"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

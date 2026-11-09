@@ -1,0 +1,107 @@
+{
+  "format": 1,
+  "tests": {
+    "bass": [
+      {
+        "saved": "2026-11-05T11:37:01+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "before",
+              "like4a",
+              "like4a_u",
+              "like4a_small",
+              "like4a_step"
+            ],
+            "label": [
+              "Phase 4a",
+              "Like 4a",
+              "Like 4a, 'u' nucleus",
+              "Like 4a, smaller move",
+              "Like 4a, short step"
+            ]
+          },
+          {
+            "question": "doo",
+            "text": "Which ones have the 'doo'?",
+            "choice": [
+              "before"
+            ],
+            "label": [
+              "Phase 4a"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating the instrument?",
+            "choice": "before",
+            "label": "Phase 4a"
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ],
+    "violin": [
+      {
+        "saved": "2026-11-05T11:38:21+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "fold"
+            ],
+            "label": [
+              "Folded, legato (new default)"
+            ]
+          },
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating the instrument?",
+            "choice": "cant_tell",
+            "label": "Can't tell"
+          }
+        ],
+        "confidence": "medium",
+        "note": ""
+      }
+    ],
+    "k525": [
+      {
+        "saved": "2026-11-05T11:41:23+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which works best as violin 1 in the music?",
+            "choice": "singer",
+            "label": "Singer, folded"
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+            "choice": [
+              "none"
+            ],
+            "label": [
+              "None of them"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ]
+  },
+  "set": "renders/phase4b/round4",
+  "manifest": "listening.json",
+  "updated": "2026-11-05T11:41:23+01:00"
+}

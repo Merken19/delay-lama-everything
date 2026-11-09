@@ -1,0 +1,50 @@
+Delay Lama Everything {{VERSION}}: notices
+=========================================
+
+This package combines three works under different terms. Delay Lama
+Everything is not affiliated with or endorsed by AudioNerdz or the authors of
+midis2jam2.
+
+1. midis2jam2 (midis2jam2.exe, app\)
+-------------------------------------
+
+Copyright (C) Jacob Wysko and contributors. Modified for Delay Lama
+Everything. Licensed under the GNU General Public License, version 3 or (at
+your option) any later version: licenses\midis2jam2-GPL-3.0.txt. It comes
+with NO WARRANTY. Its third-party components and their licenses are listed in
+licenses\midis2jam2-THIRD-PARTY-NOTICES.txt (also under About in the app).
+
+Source code (GPL-3.0 section 6):
+- The original: https://github.com/wyskoj/midis2jam2 at commit
+  {{M2J_BASE}}
+- Our changes: source\midis2jam2-delay-lama.patch in this package, made
+  against that commit (apply with "git apply"). This build is branch
+  {{M2J_BRANCH}}, {{M2J_STATE}}.
+
+The Java runtime in runtime\ comes with its own notices in runtime\legal\.
+
+2. Delay Lama standalone and helper (DelayLamaVoice.exe, DelayLamaStandalone.exe)
+---------------------------------------------------------------------------------
+
+Built from delalalalay-lama (https://github.com/Merken19/delalalalay-lama,
+branch {{DL_BRANCH}}, {{DL_STATE}}).
+Copyright (c) 2026 Skye Davis, MIT License: licenses\delalalalay-lama-MIT.txt.
+
+Its vocal synthesis is derived from MonkSynth
+(https://github.com/JonET/monksynth), Copyright (c) 2026 Jonathan Taylor, MIT
+License: licenses\MonkSynth-MIT.txt.
+
+3. Delay Lama artwork and manual (Resources\)
+---------------------------------------------
+
+Delay Lama (TM) and its artwork and original manual are (c) AudioNerdz 2002,
+recovered from the 2004 Delay Lama freeware package. They are not relicensed
+by this package; their terms are in the manual itself,
+Resources\DelayLama-Original-Manual.pdf, under "Legal Stuff". In short: Delay
+Lama is free of charge and may be distributed freely, as long as all of its
+files are distributed together; it may not be sold or included in any
+commercial package, nor used as part of any commercial promotion. Keep every
+file in Resources\ with any copy of this package.
+
+The imitation profiles (profiles\imitation.json) are Delay Lama
+Everything's own data, read by the modified midis2jam2.

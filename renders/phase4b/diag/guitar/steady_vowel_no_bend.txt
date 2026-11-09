@@ -1,0 +1,1635 @@
+# Diagnostic copy of renders/phase4a/ab/scripts/c07_guitar_+0.txt: each slide's first bend moved to just before its note-on (the original sends it 5 ms after)
+# c07_guitar_+0
+# Written by renders/phase4a/make_palette.py; do not edit.
+hello 0
+bendrange 12
+cc 7 127
+set echo_amount 0
+set glide 0
+set vibrato 0
+set vibrato_rate 0.5
+set breath 0.5
+set voice 0.5
+set vowel 0.5
+set gain 1
+wait 485
+set voice 0.45
+set vibrato_rate 0.55
+set vowel 0.5
+set breath 0.6
+set gain 0
+wait 15
+on 69 100
+wait 5
+set vowel 0.5
+set gain 0.3333
+wait 5
+set vowel 0.5
+set gain 0.6667
+wait 5
+set vowel 0.5
+set gain 1
+wait 5
+set vowel 0.5
+set gain 0.9975
+wait 5
+set vowel 0.5
+set gain 0.995
+wait 5
+set vowel 0.5
+set gain 0.9926
+wait 5
+set vowel 0.5
+set gain 0.9902
+wait 5
+set vowel 0.5
+set gain 0.9878
+wait 5
+set vowel 0.5
+set gain 0.9854
+wait 5
+set vowel 0.5
+set gain 0.9831
+wait 5
+set vowel 0.5
+set gain 0.9808
+wait 5
+set vowel 0.5
+set gain 0.9785
+wait 5
+set vowel 0.5
+set gain 0.9762
+wait 5
+set vowel 0.5
+set gain 0.974
+wait 5
+set vowel 0.5
+set gain 0.9717
+wait 5
+set vowel 0.5
+set gain 0.9695
+wait 5
+set vowel 0.5
+set gain 0.9673
+wait 5
+set vowel 0.5
+set gain 0.9652
+wait 5
+set vowel 0.5
+set gain 0.963
+wait 5
+set vowel 0.5
+set gain 0.9609
+wait 5
+set vowel 0.5
+set gain 0.9588
+wait 5
+set vowel 0.5
+set gain 0.9567
+wait 5
+set vowel 0.5
+set gain 0.9547
+wait 5
+set vowel 0.5
+set gain 0.9526
+wait 5
+set vowel 0.5
+set gain 0.9506
+wait 5
+set vowel 0.5
+set gain 0.9486
+wait 5
+set vowel 0.5
+set gain 0.9467
+wait 5
+set vowel 0.5
+set gain 0.9447
+wait 5
+set gain 0.9428
+wait 5
+set gain 0.9408
+wait 5
+set gain 0.9389
+wait 5
+set gain 0.9371
+wait 5
+set gain 0.9352
+wait 5
+set gain 0.9334
+wait 5
+set gain 0.9315
+wait 5
+set gain 0.9297
+wait 5
+set gain 0.9279
+wait 5
+set gain 0.9262
+wait 5
+set gain 0.9244
+wait 5
+set gain 0.9227
+wait 5
+set gain 0.921
+wait 5
+set gain 0.9193
+wait 5
+set gain 0.9176
+wait 5
+set gain 0.9159
+wait 5
+set gain 0.9143
+wait 5
+set gain 0.9126
+wait 5
+set gain 0.911
+wait 5
+set gain 0.9094
+wait 5
+set gain 0.9078
+wait 5
+set gain 0.9063
+wait 5
+set gain 0.9047
+wait 5
+set gain 0.9032
+wait 5
+set gain 0.9016
+wait 5
+set gain 0.9001
+wait 5
+set gain 0.8986
+wait 5
+set gain 0.8972
+wait 5
+set gain 0.8957
+wait 5
+set gain 0.8942
+wait 5
+set gain 0.8928
+wait 5
+on 72 100
+wait 1
+off 69
+wait 4
+set gain 0.875
+wait 5
+set gain 0.8571
+wait 5
+set gain 0.8393
+wait 5
+set gain 0.8214
+wait 5
+set gain 0.8036
+wait 5
+set gain 0.7857
+wait 5
+set gain 0.7679
+wait 5
+set gain 0.75
+wait 5
+wait 5
+wait 250
+on 76 100
+wait 1
+off 72
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vowel 0.5
+set vibrato 0
+set gain 0.25
+off 76
+on 76 100
+wait 5
+set vowel 0.5
+set gain 0.5
+wait 5
+set vowel 0.5
+set gain 0.75
+wait 5
+set vowel 0.5
+set gain 1
+wait 5
+set vowel 0.5
+set gain 0.9975
+wait 5
+set vowel 0.5
+set gain 0.995
+wait 5
+set vowel 0.5
+set gain 0.9926
+wait 5
+set vowel 0.5
+set gain 0.9902
+wait 5
+set vowel 0.5
+set gain 0.9878
+wait 5
+set vowel 0.5
+set gain 0.9854
+wait 5
+set vowel 0.5
+set gain 0.9831
+wait 5
+set vowel 0.5
+set gain 0.9808
+wait 5
+set vowel 0.5
+set gain 0.9785
+wait 5
+set vowel 0.5
+set gain 0.9762
+wait 5
+set vowel 0.5
+set gain 0.974
+wait 5
+set vowel 0.5
+set gain 0.9717
+wait 5
+set vowel 0.5
+set gain 0.9695
+wait 5
+set vowel 0.5
+set gain 0.9673
+wait 5
+set vowel 0.5
+set gain 0.9652
+wait 5
+set vowel 0.5
+set gain 0.963
+wait 5
+set vowel 0.5
+set gain 0.9609
+wait 5
+set vowel 0.5
+set gain 0.9588
+wait 5
+set vowel 0.5
+set gain 0.9567
+wait 5
+set vowel 0.5
+set gain 0.9547
+wait 5
+set vowel 0.5
+set gain 0.9526
+wait 5
+set vowel 0.5
+set gain 0.9506
+wait 5
+set vowel 0.5
+set gain 0.9486
+wait 5
+set vowel 0.5
+set gain 0.9467
+wait 5
+set vowel 0.5
+set gain 0.9447
+wait 5
+set gain 0.9428
+wait 5
+set gain 0.9408
+wait 5
+set gain 0.9389
+wait 5
+set gain 0.9371
+wait 5
+set gain 0.9352
+wait 5
+set gain 0.9334
+wait 5
+set gain 0.9315
+wait 5
+set gain 0.9297
+wait 5
+set gain 0.9279
+wait 5
+set gain 0.9262
+wait 5
+set gain 0.9244
+wait 5
+set gain 0.9227
+wait 5
+set gain 0.921
+wait 5
+set gain 0.9193
+wait 5
+set gain 0.9176
+wait 5
+set gain 0.9159
+wait 5
+set gain 0.9143
+wait 5
+set gain 0.9126
+wait 5
+set gain 0.911
+wait 5
+set gain 0.9094
+wait 5
+set gain 0.9078
+wait 5
+set gain 0.9063
+wait 5
+set gain 0.9047
+wait 5
+set gain 0.9032
+wait 5
+set gain 0.9016
+wait 5
+set gain 0.9001
+wait 5
+set gain 0.8986
+wait 5
+set gain 0.8972
+wait 5
+set gain 0.8957
+wait 5
+set gain 0.8942
+wait 5
+set gain 0.8928
+wait 5
+on 74 100
+wait 1
+off 76
+wait 4
+set gain 0.875
+wait 5
+set gain 0.8571
+wait 5
+set gain 0.8393
+wait 5
+set gain 0.8214
+wait 5
+set gain 0.8036
+wait 5
+set gain 0.7857
+wait 5
+set gain 0.7679
+wait 5
+set gain 0.75
+wait 5
+wait 5
+wait 250
+on 72 100
+wait 1
+off 74
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0
+on 69 100
+wait 1
+off 72
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0.2
+wait 5
+set vibrato 0.2067
+wait 5
+set vibrato 0.2133
+wait 5
+set vibrato 0.22
+wait 5
+set vibrato 0.2267
+wait 5
+set vibrato 0.2333
+wait 5
+set vibrato 0.24
+wait 5
+set vibrato 0.2467
+wait 5
+set vibrato 0.2533
+wait 5
+set vibrato 0.26
+wait 5
+set vibrato 0.2667
+wait 5
+set vibrato 0.2733
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.2867
+wait 5
+set vibrato 0.2933
+wait 5
+set vibrato 0.3
+wait 5
+set vibrato 0.3067
+wait 5
+set vibrato 0.3133
+wait 5
+set vibrato 0.32
+wait 5
+set vibrato 0.3267
+wait 5
+set vibrato 0.3333
+wait 5
+set vibrato 0.34
+wait 5
+set vibrato 0.3467
+wait 5
+set vibrato 0.3533
+wait 5
+set vibrato 0.36
+wait 5
+set vibrato 0.3667
+wait 5
+set vibrato 0.3733
+wait 5
+set vibrato 0.38
+wait 5
+set vibrato 0.3867
+wait 5
+set vibrato 0.3933
+wait 5
+set vibrato 0.4
+wait 150
+set vibrato 0
+on 67 100
+wait 1
+off 69
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 250
+on 65 100
+wait 1
+off 67
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0
+on 69 100
+wait 1
+off 65
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0
+on 67 100
+wait 1
+off 69
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 250
+on 69 100
+wait 1
+off 67
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 250
+on 72 100
+wait 1
+off 69
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 250
+on 74 100
+wait 1
+off 72
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 250
+on 76 100
+wait 1
+off 74
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0.2
+wait 5
+set vibrato 0.2067
+wait 5
+set vibrato 0.2133
+wait 5
+set vibrato 0.22
+wait 5
+set vibrato 0.2267
+wait 5
+set vibrato 0.2333
+wait 5
+set vibrato 0.24
+wait 5
+set vibrato 0.2467
+wait 5
+set vibrato 0.2533
+wait 5
+set vibrato 0.26
+wait 5
+set vibrato 0.2667
+wait 5
+set vibrato 0.2733
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.2867
+wait 5
+set vibrato 0.2933
+wait 5
+set vibrato 0.3
+wait 5
+set vibrato 0.3067
+wait 5
+set vibrato 0.3133
+wait 5
+set vibrato 0.32
+wait 5
+set vibrato 0.3267
+wait 5
+set vibrato 0.3333
+wait 5
+set vibrato 0.34
+wait 5
+set vibrato 0.3467
+wait 5
+set vibrato 0.3533
+wait 5
+set vibrato 0.36
+wait 5
+set vibrato 0.3667
+wait 5
+set vibrato 0.3733
+wait 5
+set vibrato 0.38
+wait 5
+set vibrato 0.3867
+wait 5
+set vibrato 0.3933
+wait 5
+set vibrato 0.4
+wait 450
+set vibrato 0
+on 74 100
+wait 1
+off 76
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0
+on 71 100
+wait 1
+off 74
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0
+on 67 100
+wait 1
+off 71
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0.2
+wait 5
+set vibrato 0.2067
+wait 5
+set vibrato 0.2133
+wait 5
+set vibrato 0.22
+wait 5
+set vibrato 0.2267
+wait 5
+set vibrato 0.2333
+wait 5
+set vibrato 0.24
+wait 5
+set vibrato 0.2467
+wait 5
+set vibrato 0.2533
+wait 5
+set vibrato 0.26
+wait 5
+set vibrato 0.2667
+wait 5
+set vibrato 0.2733
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.2867
+wait 5
+set vibrato 0.2933
+wait 5
+set vibrato 0.3
+wait 5
+set vibrato 0.3067
+wait 5
+set vibrato 0.3133
+wait 5
+set vibrato 0.32
+wait 5
+set vibrato 0.3267
+wait 5
+set vibrato 0.3333
+wait 5
+set vibrato 0.34
+wait 5
+set vibrato 0.3467
+wait 5
+set vibrato 0.3533
+wait 5
+set vibrato 0.36
+wait 5
+set vibrato 0.3667
+wait 5
+set vibrato 0.3733
+wait 5
+set vibrato 0.38
+wait 5
+set vibrato 0.3867
+wait 5
+set vibrato 0.3933
+wait 5
+set vibrato 0.4
+wait 450
+set vibrato 0
+on 69 100
+wait 1
+off 67
+wait 4
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 5
+wait 405
+set vibrato 0.0067
+wait 5
+set vibrato 0.0133
+wait 5
+set vibrato 0.02
+wait 5
+set vibrato 0.0267
+wait 5
+set vibrato 0.0333
+wait 5
+set vibrato 0.04
+wait 5
+set vibrato 0.0467
+wait 5
+set vibrato 0.0533
+wait 5
+set vibrato 0.06
+wait 5
+set vibrato 0.0667
+wait 5
+set vibrato 0.0733
+wait 5
+set vibrato 0.08
+wait 5
+set vibrato 0.0867
+wait 5
+set vibrato 0.0933
+wait 5
+set vibrato 0.1
+wait 5
+set vibrato 0.1067
+wait 5
+set vibrato 0.1133
+wait 5
+set vibrato 0.12
+wait 5
+set vibrato 0.1267
+wait 5
+set vibrato 0.1333
+wait 5
+set vibrato 0.14
+wait 5
+set vibrato 0.1467
+wait 5
+set vibrato 0.1533
+wait 5
+set vibrato 0.16
+wait 5
+set vibrato 0.1667
+wait 5
+set vibrato 0.1733
+wait 5
+set vibrato 0.18
+wait 5
+set vibrato 0.1867
+wait 5
+set vibrato 0.1933
+wait 5
+set vibrato 0.2
+wait 5
+set vibrato 0.2067
+wait 5
+set vibrato 0.2133
+wait 5
+set vibrato 0.22
+wait 5
+set vibrato 0.2267
+wait 5
+set vibrato 0.2333
+wait 5
+set vibrato 0.24
+wait 5
+set vibrato 0.2467
+wait 5
+set vibrato 0.2533
+wait 5
+set vibrato 0.26
+wait 5
+set vibrato 0.2667
+wait 5
+set vibrato 0.2733
+wait 5
+set vibrato 0.28
+wait 5
+set vibrato 0.2867
+wait 5
+set vibrato 0.2933
+wait 5
+set vibrato 0.3
+wait 5
+set vibrato 0.3067
+wait 5
+set vibrato 0.3133
+wait 5
+set vibrato 0.32
+wait 5
+set vibrato 0.3267
+wait 5
+set vibrato 0.3333
+wait 5
+set vibrato 0.34
+wait 5
+set vibrato 0.3467
+wait 5
+set vibrato 0.3533
+wait 5
+set vibrato 0.36
+wait 5
+set vibrato 0.3667
+wait 5
+set vibrato 0.3733
+wait 5
+set vibrato 0.38
+wait 5
+set vibrato 0.3867
+wait 5
+set vibrato 0.3933
+wait 5
+set vibrato 0.4
+wait 1415
+set vowel 0.5
+set gain 0.7109
+wait 5
+set vowel 0.5
+set gain 0.6738
+wait 5
+set vowel 0.5
+set gain 0.6387
+wait 5
+set vowel 0.5
+set gain 0.6053
+wait 5
+set vowel 0.5
+set gain 0.5738
+wait 5
+set vowel 0.5
+set gain 0.5438
+wait 5
+set vowel 0.5
+set gain 0.5155
+wait 5
+set vowel 0.5
+set gain 0.4886
+wait 5
+set vowel 0.5
+set gain 0.4631
+wait 5
+set vowel 0.5
+set gain 0.4389
+wait 5
+set vowel 0.5
+set gain 0.416
+wait 5
+set vowel 0.5
+set gain 0.3943
+wait 5
+set vowel 0.5
+set gain 0.3738
+wait 5
+set vowel 0.5
+set gain 0.3543
+wait 5
+set vowel 0.5
+set gain 0.3358
+wait 5
+set vowel 0.5
+set gain 0.3183
+wait 5
+set vowel 0.5
+set gain 0.3017
+wait 5
+set vowel 0.5
+set gain 0.2859
+wait 5
+set vowel 0.5
+set gain 0.271
+wait 5
+set vowel 0.5
+set gain 0.2569
+wait 5
+set vowel 0.5
+set gain 0.2435
+wait 5
+set vowel 0.5
+set gain 0.2308
+wait 5
+set vowel 0.5
+set gain 0.2188
+wait 5
+set vowel 0.5
+set gain 0.2073
+wait 5
+set vowel 0.5
+set gain 0.1965
+wait 5
+set vowel 0.5
+set gain 0.1863
+wait 5
+set vowel 0.5
+set gain 0.1766
+wait 5
+set vowel 0.5
+set gain 0.1673
+wait 5
+set vowel 0.5
+set gain 0.1586
+wait 5
+set vowel 0.5
+set gain 0.1503
+wait 5
+set vowel 0.5
+set gain 0.1425
+wait 5
+set vowel 0.5
+set gain 0.1351
+wait 5
+set vowel 0.5
+set gain 0.128
+wait 5
+set vowel 0.5
+set gain 0.1213
+wait 5
+set vowel 0.5
+set gain 0.115
+wait 5
+set vowel 0.5
+set gain 0.109
+wait 5
+set vowel 0.5
+set gain 0.1033
+wait 5
+set vowel 0.5
+set gain 0.0979
+wait 5
+set vowel 0.5
+set gain 0.0928
+wait 5
+set vowel 0.5
+set gain 0.088
+wait 5
+set vowel 0.5
+set gain 0.0834
+wait 5
+set vowel 0.5
+set gain 0.079
+wait 5
+set vowel 0.5
+set gain 0.0749
+wait 5
+set vowel 0.5
+set gain 0.071
+wait 5
+set vowel 0.5
+set gain 0.0673
+wait 5
+set vowel 0.5
+set gain 0.0638
+wait 5
+set vowel 0.5
+set gain 0.0605
+wait 5
+set vowel 0.5
+set gain 0.0573
+wait 5
+set vowel 0.5
+set gain 0.0543
+wait 5
+set vowel 0.5
+set gain 0.0515
+wait 5
+set gain 0.0488
+wait 5
+set gain 0.0463
+wait 5
+set gain 0.0439
+wait 5
+set gain 0.0416
+wait 5
+set gain 0.0394
+wait 5
+set gain 0.0373
+wait 5
+set gain 0.0354
+wait 5
+set gain 0.0335
+wait 5
+set gain 0.0318
+wait 5
+set gain 0.0301
+wait 5
+set gain 0.0286
+wait 5
+set gain 0.0271
+wait 5
+set gain 0.0257
+wait 5
+set gain 0.0243
+wait 5
+set gain 0.0231
+wait 5
+set gain 0.0219
+wait 5
+set gain 0.0207
+wait 5
+set gain 0.0196
+wait 5
+set gain 0.0186
+wait 5
+set gain 0.0176
+wait 5
+set gain 0.0167
+wait 5
+set gain 0.0158
+wait 5
+set gain 0.015
+wait 5
+set gain 0.0142
+wait 5
+set gain 0.0135
+wait 5
+set gain 0.0128
+wait 5
+set gain 0.0121
+wait 5
+set gain 0.0115
+wait 5
+set gain 0.0109
+wait 5
+set gain 0.0103
+wait 5
+set gain 0.0098
+wait 5
+set gain 0.0093
+wait 5
+set gain 0.0088
+wait 5
+off 69
+wait 5
+set gain 1
+set vowel 0.5
+set breath 0.5
+set voice 0.5
+set vibrato 0
+set vibrato_rate 0.5

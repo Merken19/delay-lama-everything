@@ -1,0 +1,100 @@
+{
+  "format": 1,
+  "tests": {
+    "melody": [
+      {
+        "saved": "2026-11-08T17:22:04+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating a flute?",
+            "choice": "nof3_dark",
+            "label": "No F3, less breath"
+          },
+          {
+            "question": "flute",
+            "text": "Which could pass for a flute imitation at all?",
+            "choice": [
+              "nof3",
+              "nof3_dark",
+              "nof3_dark_legato"
+            ],
+            "label": [
+              "No F3",
+              "No F3, less breath",
+              "No F3, less breath, legato"
+            ]
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, pew, whistle above the note, click, wobble)?",
+            "choice": [
+              "now"
+            ],
+            "label": [
+              "Now"
+            ]
+          },
+          {
+            "question": "slurs",
+            "text": "Which slurred notes (pairs, the climb, the run down) sound right?",
+            "choice": [
+              "nof3_dark_legato"
+            ],
+            "label": [
+              "No F3, less breath, legato"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": "For slow notes, like the ones in the beginning, \"No F3, less breath' is perfect. For fast notes, \"No F3, less breath, legato\" is perfect."
+      }
+    ],
+    "band": [
+      {
+        "saved": "2026-11-08T17:23:05+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which works best as the flute in the band?",
+            "choice": "nof3_dark_legato",
+            "label": "No F3, less breath, legato"
+          },
+          {
+            "question": "heard",
+            "text": "In which can you hear the flute well enough?",
+            "choice": [
+              "now",
+              "nof3_legato",
+              "nof3_dark_legato"
+            ],
+            "label": [
+              "Now",
+              "No F3, slurs legato",
+              "No F3, less breath, legato"
+            ]
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (laser, pew, whistle above the note, click, wobble)?",
+            "choice": [
+              "now"
+            ],
+            "label": [
+              "Now"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ]
+  },
+  "set": "renders/phase4c/pipe",
+  "manifest": "listening.json",
+  "updated": "2026-11-08T17:23:05+01:00"
+}

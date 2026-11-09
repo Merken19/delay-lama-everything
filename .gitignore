@@ -1,0 +1,5 @@
+# Upstream clones. Each is its own git repository (see CLAUDE.md).
+/external/
+
+# Packages built by tools/package/make_package.ps1.
+/dist/

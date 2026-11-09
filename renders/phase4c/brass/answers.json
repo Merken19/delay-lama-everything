@@ -1,0 +1,137 @@
+{
+  "format": 1,
+  "tests": {
+    "trumpet": [
+      {
+        "saved": "2026-11-08T17:24:24+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating a trumpet?",
+            "choice": "now",
+            "label": "Now"
+          },
+          {
+            "question": "high",
+            "text": "In which do you hear the very high pitch (a thin whistle above the note; the A4s and E5s are where it was measured)?",
+            "choice": [
+              "none"
+            ],
+            "label": [
+              "None of them"
+            ]
+          },
+          {
+            "question": "dull",
+            "text": "Which are too dull or too pure for a trumpet?",
+            "choice": [
+              "nobreath"
+            ],
+            "label": [
+              "No breath"
+            ]
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (a high pitch or whistle above the note, laser, click, wobble)?",
+            "choice": [
+              "none"
+            ],
+            "label": [
+              "None of them"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": "Now is good enough."
+      }
+    ],
+    "sax": [
+      {
+        "saved": "2026-11-08T17:25:13+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which sounds most like someone imitating a tenor sax?",
+            "choice": "now",
+            "label": "Now"
+          },
+          {
+            "question": "bright",
+            "text": "Which are still too bright for a tenor sax?",
+            "choice": [],
+            "label": []
+          },
+          {
+            "question": "dull",
+            "text": "Which are too dull or muffled?",
+            "choice": [],
+            "label": []
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (a high pitch or whistle above the note, laser, click, wobble)?",
+            "choice": [],
+            "label": []
+          }
+        ],
+        "confidence": "high",
+        "note": "Now is perfect. Proceed."
+      }
+    ],
+    "band": [
+      {
+        "saved": "2026-11-08T17:25:35+01:00",
+        "status": "answered",
+        "blind": false,
+        "answers": [
+          {
+            "question": "best",
+            "text": "Which works best as the horns of this band?",
+            "choice": "now",
+            "label": "Now"
+          },
+          {
+            "question": "trumpet",
+            "text": "In which does the trumpet (bars 1-2 and 5-6) sound right?",
+            "choice": [
+              "now"
+            ],
+            "label": [
+              "Now"
+            ]
+          },
+          {
+            "question": "sax",
+            "text": "In which does the tenor sax (bars 3-4 and 7-8) sound right?",
+            "choice": [
+              "now"
+            ],
+            "label": [
+              "Now"
+            ]
+          },
+          {
+            "question": "glitch",
+            "text": "Which clips have a glitch (a high pitch or whistle above the note, laser, click, wobble)?",
+            "choice": [
+              "now"
+            ],
+            "label": [
+              "Now"
+            ]
+          }
+        ],
+        "confidence": "high",
+        "note": ""
+      }
+    ]
+  },
+  "set": "renders/phase4c/brass",
+  "manifest": "listening.json",
+  "updated": "2026-11-08T17:25:35+01:00"
+}

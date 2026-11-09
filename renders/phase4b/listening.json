@@ -1,0 +1,527 @@
+{
+  "format": 1,
+  "title": "Phase 4b: the articulator",
+  "intro": "DelayLamaVoice now shapes every note itself (protocol 1, 1 ms control ticks) from the profiles in profiles/imitation.json. The onset glitches came from the vowel moving at full level near a note's start: Delay Lama's formants are narrow, so a moving vowel is heard as a falling ping (low notes) or a whistle where it crosses a harmonic (high notes). onset.mask keeps the level low until the vowel has arrived. Whether that sounds right is your call.",
+  "tests": [
+    {
+      "id": "onsets_c01_bass",
+      "title": "Bass",
+      "question": "Bass: which clips still have the laser-gun start?",
+      "notes": "Profile 'bass.finger' from profiles/imitation.json, sung by the articulator (DelayLamaVoice protocol 1). One gain for the monk clips; Gervill is the reference.",
+      "clips": [
+        {
+          "file": "onsets/c01_bass/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "What midis2jam2 plays (reference)",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "onsets/c01_bass/02_phase4a.wav",
+          "label": "Phase 4a (heard before)",
+          "desc": "The render from the phase 1 fix A/B ('After'), made by the phase 4a prototype articulator",
+          "condition": "phase4a"
+        },
+        {
+          "file": "onsets/c01_bass/03_mask0.wav",
+          "label": "Articulator, no mask",
+          "desc": "onset.mask 0: the onset vowel at full level",
+          "condition": "mask0"
+        },
+        {
+          "file": "onsets/c01_bass/04_mask2.wav",
+          "label": "Articulator (default)",
+          "desc": "onset.mask 2: the level rises over twice the onset vowel move",
+          "condition": "mask2"
+        },
+        {
+          "file": "onsets/c01_bass/05_steady.wav",
+          "label": "Articulator, steady onset",
+          "desc": "No onset vowel move at all (onset.vowel null)",
+          "condition": "steady"
+        }
+      ],
+      "questions": [
+        {
+          "id": "still",
+          "text": "Which clips still have the laser-gun start?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "phase4a",
+              "label": "Phase 4a",
+              "condition": "phase4a"
+            },
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "onsets_c05_flute",
+      "title": "Flute",
+      "question": "Flute: which clips still have the plucked laser-gun start?",
+      "notes": "Profile 'flute' from profiles/imitation.json, sung by the articulator (DelayLamaVoice protocol 1). One gain for the monk clips; Gervill is the reference. The flute profile ('h-u') has no onset vowel move, so the three articulator clips are the same: the phase 4a flute's laser came from its 0.55 dip vowel, which this profile drops.",
+      "clips": [
+        {
+          "file": "onsets/c05_flute/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "What midis2jam2 plays (reference)",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "onsets/c05_flute/02_phase4a.wav",
+          "label": "Phase 4a (heard before)",
+          "desc": "The render from the phase 1 fix A/B ('After'), made by the phase 4a prototype articulator",
+          "condition": "phase4a"
+        },
+        {
+          "file": "onsets/c05_flute/03_mask0.wav",
+          "label": "Articulator, no mask",
+          "desc": "onset.mask 0: the onset vowel at full level",
+          "condition": "mask0"
+        },
+        {
+          "file": "onsets/c05_flute/04_mask2.wav",
+          "label": "Articulator (default)",
+          "desc": "onset.mask 2: the level rises over twice the onset vowel move",
+          "condition": "mask2"
+        },
+        {
+          "file": "onsets/c05_flute/05_steady.wav",
+          "label": "Articulator, steady onset",
+          "desc": "No onset vowel move at all (onset.vowel null)",
+          "condition": "steady"
+        }
+      ],
+      "questions": [
+        {
+          "id": "still",
+          "text": "Which clips still have the plucked laser-gun start?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "phase4a",
+              "label": "Phase 4a",
+              "condition": "phase4a"
+            },
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "onsets_c03_trumpet",
+      "title": "Trumpet",
+      "question": "Trumpet: which clips still have the high pitch at the start of some notes?",
+      "notes": "Profile 'trumpet' from profiles/imitation.json, sung by the articulator (DelayLamaVoice protocol 1). One gain for the monk clips; Gervill is the reference.",
+      "clips": [
+        {
+          "file": "onsets/c03_trumpet/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "What midis2jam2 plays (reference)",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "onsets/c03_trumpet/02_phase4a.wav",
+          "label": "Phase 4a (heard before)",
+          "desc": "The render from the phase 1 fix A/B ('After'), made by the phase 4a prototype articulator",
+          "condition": "phase4a"
+        },
+        {
+          "file": "onsets/c03_trumpet/03_mask0.wav",
+          "label": "Articulator, no mask",
+          "desc": "onset.mask 0: the onset vowel at full level",
+          "condition": "mask0"
+        },
+        {
+          "file": "onsets/c03_trumpet/04_mask2.wav",
+          "label": "Articulator (default)",
+          "desc": "onset.mask 2: the level rises over twice the onset vowel move",
+          "condition": "mask2"
+        },
+        {
+          "file": "onsets/c03_trumpet/05_steady.wav",
+          "label": "Articulator, steady onset",
+          "desc": "No onset vowel move at all (onset.vowel null)",
+          "condition": "steady"
+        }
+      ],
+      "questions": [
+        {
+          "id": "still",
+          "text": "Which clips still have the high pitch at the start of some notes?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "phase4a",
+              "label": "Phase 4a",
+              "condition": "phase4a"
+            },
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "onsets_c07_guitar",
+      "title": "Overdrive guitar",
+      "question": "Overdrive guitar: which clips still have the 'too high between two hits'?",
+      "notes": "Profile 'guitar.overdrive' from profiles/imitation.json, sung by the articulator (DelayLamaVoice protocol 1). One gain for the monk clips; Gervill is the reference.",
+      "clips": [
+        {
+          "file": "onsets/c07_guitar/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "What midis2jam2 plays (reference)",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "onsets/c07_guitar/02_phase4a.wav",
+          "label": "Phase 4a (heard before)",
+          "desc": "The render from the phase 1 fix A/B ('After'), made by the phase 4a prototype articulator",
+          "condition": "phase4a"
+        },
+        {
+          "file": "onsets/c07_guitar/03_mask0.wav",
+          "label": "Articulator, no mask",
+          "desc": "onset.mask 0: the onset vowel at full level",
+          "condition": "mask0"
+        },
+        {
+          "file": "onsets/c07_guitar/04_mask2.wav",
+          "label": "Articulator (default)",
+          "desc": "onset.mask 2: the level rises over twice the onset vowel move",
+          "condition": "mask2"
+        },
+        {
+          "file": "onsets/c07_guitar/05_steady.wav",
+          "label": "Articulator, steady onset",
+          "desc": "No onset vowel move at all (onset.vowel null)",
+          "condition": "steady"
+        }
+      ],
+      "questions": [
+        {
+          "id": "still",
+          "text": "Which clips still have the 'too high between two hits'?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "phase4a",
+              "label": "Phase 4a",
+              "condition": "phase4a"
+            },
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "mask0",
+              "label": "No mask",
+              "condition": "mask0"
+            },
+            {
+              "id": "mask2",
+              "label": "Default",
+              "condition": "mask2"
+            },
+            {
+              "id": "steady",
+              "label": "Steady onset",
+              "condition": "steady"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "demos",
+      "title": "Profile demos",
+      "question": "First-guess profiles through the articulator: do they imitate the instrument?",
+      "notes": "Each clip is normalised on its own (different instruments). Tuning is phase 4c; this checks that the articulator plays the profiles without glitches.",
+      "clips": [
+        {
+          "file": "demos/01_sax.wav",
+          "label": "Tenor sax",
+          "desc": "Profile 'sax.tenor'",
+          "condition": "sax"
+        },
+        {
+          "file": "demos/02_violin.wav",
+          "label": "Violin",
+          "desc": "Profile 'strings.violin'",
+          "condition": "violin"
+        },
+        {
+          "file": "demos/03_piano.wav",
+          "label": "Piano chords (4 monks)",
+          "desc": "Profile 'piano'",
+          "condition": "piano"
+        },
+        {
+          "file": "demos/04_organ.wav",
+          "label": "Drawbar organ chords (4 monks)",
+          "desc": "Profile 'organ'",
+          "condition": "organ"
+        },
+        {
+          "file": "demos/05_choir.wav",
+          "label": "Choir aahs chords (4 monks)",
+          "desc": "Profile 'choir.aahs'",
+          "condition": "choir"
+        },
+        {
+          "file": "demos/06_clean_guitar.wav",
+          "label": "Clean guitar lead",
+          "desc": "Profile 'guitar.clean'",
+          "condition": "clean_guitar"
+        }
+      ],
+      "questions": [
+        {
+          "id": "works",
+          "text": "Which ones sound like a person imitating that instrument?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "sax",
+              "label": "Tenor sax",
+              "condition": "sax"
+            },
+            {
+              "id": "violin",
+              "label": "Violin",
+              "condition": "violin"
+            },
+            {
+              "id": "piano",
+              "label": "Piano chords (4 monks)",
+              "condition": "piano"
+            },
+            {
+              "id": "organ",
+              "label": "Drawbar organ chords (4 monks)",
+              "condition": "organ"
+            },
+            {
+              "id": "choir",
+              "label": "Choir aahs chords (4 monks)",
+              "condition": "choir"
+            },
+            {
+              "id": "clean_guitar",
+              "label": "Clean guitar lead",
+              "condition": "clean_guitar"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "glitch",
+          "text": "Which ones have a glitch (laser, whistle, click, wrong pitch)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "sax",
+              "label": "Tenor sax",
+              "condition": "sax"
+            },
+            {
+              "id": "violin",
+              "label": "Violin",
+              "condition": "violin"
+            },
+            {
+              "id": "piano",
+              "label": "Piano chords (4 monks)",
+              "condition": "piano"
+            },
+            {
+              "id": "organ",
+              "label": "Drawbar organ chords (4 monks)",
+              "condition": "organ"
+            },
+            {
+              "id": "choir",
+              "label": "Choir aahs chords (4 monks)",
+              "condition": "choir"
+            },
+            {
+              "id": "clean_guitar",
+              "label": "Clean guitar lead",
+              "condition": "clean_guitar"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1772 @@
+# c09_beatbox
+# Written by renders/phase4a/make_palette.py; do not edit.
+hello 0
+bendrange 12
+cc 7 127
+set echo_amount 0
+set glide 0
+set vibrato 0
+set vibrato_rate 0.5
+set breath 0.5
+set voice 0.5
+set vowel 0.5
+set gain 1
+wait 485
+set voice 0
+set vowel 0.2
+set breath 0.1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 1
+set vowel 1
+set breath 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0.7
+set vowel 0.3
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set vowel 0.2
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 0.7
+set vowel 0.3
+set breath 1
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 1
+set vowel 1
+set breath 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0.7
+set vowel 0.3
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set vowel 0.2
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 0.7
+set vowel 0.3
+set breath 1
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 1
+set vowel 1
+set breath 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0.7
+set vowel 0.3
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set vowel 0.2
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 0.7
+set vowel 0.3
+set breath 1
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 1
+set vowel 1
+set breath 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0.7
+set vowel 0.3
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set vowel 0.2
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 135
+set voice 0.7
+set vowel 0.3
+set breath 1
+set gain 1
+wait 15
+on 64 100
+wait 5
+set vowel 0.3648
+set gain 0.8071
+wait 5
+set vowel 0.4852
+set gain 0.6514
+wait 5
+set vowel 0.55
+set gain 0.5258
+wait 5
+set gain 0.4244
+wait 5
+set gain 0.3425
+wait 5
+set gain 0.2765
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1801
+wait 5
+set gain 0.1454
+wait 5
+set gain 0.1173
+wait 5
+set gain 0.0947
+wait 5
+set gain 0.0764
+wait 5
+set gain 0.0617
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0402
+wait 5
+set gain 0.0324
+wait 5
+set gain 0.0262
+wait 5
+set gain 0.0211
+wait 5
+set gain 0.0078
+wait 5
+set gain 0.0029
+wait 5
+set gain 0.0011
+wait 5
+set gain 0.0004
+wait 2.5
+off 64
+wait 172.5
+set voice 1
+set vowel 1
+set gain 1
+wait 15
+on 100 100
+wait 5
+set gain 0.5488
+wait 5
+set gain 0.3012
+wait 5
+set gain 0.1653
+wait 5
+set gain 0.0907
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0273
+wait 5
+set gain 0.0042
+wait 5
+set gain 0.0006
+wait 2
+off 100
+wait 243
+set voice 0
+set vowel 0.2
+set breath 0.1
+set gain 1
+bend 11605
+wait 15
+on 45 100
+wait 5
+set vowel 0.1688
+set gain 0.8465
+bend 10353
+wait 5
+set vowel 0.1
+set gain 0.7165
+bend 9537
+wait 5
+set vowel 0.0312
+set gain 0.6065
+bend 9006
+wait 5
+set vowel 0
+set gain 0.5134
+bend 8660
+wait 5
+set gain 0.4346
+bend 8435
+wait 5
+set gain 0.3679
+bend 8288
+wait 5
+set gain 0.3114
+bend 8192
+wait 5
+set gain 0.2636
+wait 5
+set gain 0.2231
+wait 5
+set gain 0.1889
+wait 5
+set gain 0.1599
+wait 5
+set gain 0.1353
+wait 5
+set gain 0.1146
+wait 5
+set gain 0.097
+wait 5
+set gain 0.0821
+wait 5
+set gain 0.0695
+wait 5
+set gain 0.0588
+wait 5
+set gain 0.0498
+wait 5
+set gain 0.0421
+wait 5
+set gain 0.0357
+wait 5
+set gain 0.0302
+wait 5
+set gain 0.0256
+wait 5
+set gain 0.0216
+wait 5
+set gain 0.0183
+wait 5
+set gain 0.0087
+wait 5
+set gain 0.0041
+wait 5
+set gain 0.0019
+wait 5
+set gain 0.0009
+wait 5
+set gain 0.0004
+wait 5
+off 45
+wait 5
+set gain 1
+set vowel 0.5
+set breath 0.5
+set voice 0.5

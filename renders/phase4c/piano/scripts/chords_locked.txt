@@ -1,0 +1,196 @@
+hello 1
+set articulator 1
+cc 7 100
+set profile.begin 1
+set profile.reset 1
+set onset.vowel -1
+set onset.time 50
+set onset.curve 3
+set onset.attack 0
+set onset.lips 0
+set onset.burst -1
+set onset.burst_time 0
+set body.vowel 0.75
+set body.decay 900
+set body.sustain 0
+set body.decay_track 0.7
+set body.vowel_time 600
+set ending.vowel 0.15
+set ending.vowel_time -1
+set ending.release 120
+set ending.lips 0
+set phrase.dip_level 0.2
+set phrase.mode 3
+set nucleus.vowel 1
+set range.fit 2
+set range.high 72
+set voice.size 0.6
+set profile.apply 1
+set vibrato.lock 1
+wait 500
+on 60 84 480
+on 64 84 480
+on 67 84 480
+on 72 84 480
+wait 480
+off 60
+off 64
+off 67
+off 72
+wait 120
+on 60 72 480
+on 64 72 480
+on 67 72 480
+on 72 72 480
+wait 480
+off 60
+off 64
+off 67
+off 72
+wait 120
+on 60 84 480
+on 64 84 480
+on 69 84 480
+on 72 84 480
+wait 480
+off 60
+off 64
+off 69
+off 72
+wait 120
+on 60 72 480
+on 64 72 480
+on 69 72 480
+on 72 72 480
+wait 480
+off 60
+off 64
+off 69
+off 72
+wait 120
+on 60 84 480
+on 65 84 480
+on 69 84 480
+on 72 84 480
+wait 480
+off 60
+off 65
+off 69
+off 72
+wait 120
+on 60 72 480
+on 65 72 480
+on 69 72 480
+on 72 72 480
+wait 480
+off 60
+off 65
+off 69
+off 72
+wait 120
+on 59 84 480
+on 62 84 480
+on 67 84 480
+on 71 84 480
+wait 480
+off 59
+off 62
+off 67
+off 71
+wait 120
+on 59 72 480
+on 62 72 480
+on 67 72 480
+on 71 72 480
+wait 480
+off 59
+off 62
+off 67
+off 71
+wait 120
+cc 64 0
+on 48 80 270
+wait 60
+cc 64 127
+wait 210
+off 48
+wait 30
+on 55 70 270
+wait 270
+off 55
+wait 30
+on 60 70 270
+wait 270
+off 60
+wait 30
+on 64 70 270
+wait 270
+off 64
+wait 30
+on 67 70 270
+wait 270
+off 67
+wait 30
+on 72 70 270
+wait 270
+off 72
+wait 30
+on 67 70 270
+wait 270
+off 67
+wait 30
+on 64 70 270
+wait 270
+off 64
+wait 30
+cc 64 0
+on 43 80 270
+wait 60
+cc 64 127
+wait 210
+off 43
+wait 30
+on 50 70 270
+wait 270
+off 50
+wait 30
+on 55 70 270
+wait 270
+off 55
+wait 30
+on 59 70 270
+wait 270
+off 59
+wait 30
+on 62 70 270
+wait 270
+off 62
+wait 30
+on 67 70 270
+wait 270
+off 67
+wait 30
+on 62 70 270
+wait 270
+off 62
+wait 30
+on 59 70 270
+wait 270
+off 59
+wait 30
+cc 64 0
+on 48 76 2280
+on 55 76 2280
+on 60 76 2280
+on 64 76 2280
+on 67 76 2280
+wait 60
+cc 64 127
+wait 2220
+off 48
+off 55
+off 60
+off 64
+off 67
+wait 120
+cc 64 0

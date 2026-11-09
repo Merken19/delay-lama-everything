@@ -1,0 +1,378 @@
+{
+  "format": 1,
+  "title": "Phase 4b round 4: the bass 'doo', and the folded violin",
+  "intro": "The bass: which part of phase 4a's settings makes its 'doo', and can it stay without the laser? The violin: high parts now sing an octave lower by default (your round 3 pick), alone and in K525.",
+  "tests": [
+    {
+      "id": "bass",
+      "title": "Bass: finding phase 4a's 'doo'",
+      "question": "Bass: which have the 'doo', and which have the laser?",
+      "notes": "Round 3: only phase 4a had the 'doo', and the articulator's 'd' had none even with Delay Lama's own formants. 'Like 4a' is phase 4a's settings in the articulator (nucleus 'oo', a 25 ms move from 0.55, no attack, breath 0.25); the others change one thing from it. Every clip at the same loudness.",
+      "clips": [
+        {
+          "file": "bass/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "Reference",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "bass/02_before.wav",
+          "label": "Phase 4a",
+          "desc": "Round 3's best (with the laser)",
+          "condition": "before"
+        },
+        {
+          "file": "bass/03_steady.wav",
+          "label": "Steady (default)",
+          "desc": "No onset vowel move",
+          "condition": "steady"
+        },
+        {
+          "file": "bass/04_like4a.wav",
+          "label": "Like 4a",
+          "desc": "Phase 4a's settings in the articulator",
+          "condition": "like4a"
+        },
+        {
+          "file": "bass/05_like4a_u.wav",
+          "label": "Like 4a, 'u' nucleus",
+          "desc": "The same, with the profile's 'u' instead of 'oo'",
+          "condition": "like4a_u"
+        },
+        {
+          "file": "bass/06_like4a_small.wav",
+          "label": "Like 4a, smaller move",
+          "desc": "Onset from 0.35 instead of 0.55",
+          "condition": "like4a_small"
+        },
+        {
+          "file": "bass/07_like4a_step.wav",
+          "label": "Like 4a, short step",
+          "desc": "Hold 0.55 for 10 ms, then step to 'oo'",
+          "condition": "like4a_step"
+        },
+        {
+          "file": "bass/08_like4a_w3.wav",
+          "label": "Like 4a, wider x3",
+          "desc": "Formants three times as wide during the move",
+          "condition": "like4a_w3"
+        }
+      ],
+      "questions": [
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "before",
+              "label": "Phase 4a",
+              "condition": "before"
+            },
+            {
+              "id": "steady",
+              "label": "Steady (default)",
+              "condition": "steady"
+            },
+            {
+              "id": "like4a",
+              "label": "Like 4a",
+              "condition": "like4a"
+            },
+            {
+              "id": "like4a_u",
+              "label": "Like 4a, 'u' nucleus",
+              "condition": "like4a_u"
+            },
+            {
+              "id": "like4a_small",
+              "label": "Like 4a, smaller move",
+              "condition": "like4a_small"
+            },
+            {
+              "id": "like4a_step",
+              "label": "Like 4a, short step",
+              "condition": "like4a_step"
+            },
+            {
+              "id": "like4a_w3",
+              "label": "Like 4a, wider x3",
+              "condition": "like4a_w3"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "doo",
+          "text": "Which ones have the 'doo'?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "before",
+              "label": "Phase 4a",
+              "condition": "before"
+            },
+            {
+              "id": "steady",
+              "label": "Steady (default)",
+              "condition": "steady"
+            },
+            {
+              "id": "like4a",
+              "label": "Like 4a",
+              "condition": "like4a"
+            },
+            {
+              "id": "like4a_u",
+              "label": "Like 4a, 'u' nucleus",
+              "condition": "like4a_u"
+            },
+            {
+              "id": "like4a_small",
+              "label": "Like 4a, smaller move",
+              "condition": "like4a_small"
+            },
+            {
+              "id": "like4a_step",
+              "label": "Like 4a, short step",
+              "condition": "like4a_step"
+            },
+            {
+              "id": "like4a_w3",
+              "label": "Like 4a, wider x3",
+              "condition": "like4a_w3"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "before",
+              "label": "Phase 4a",
+              "condition": "before"
+            },
+            {
+              "id": "steady",
+              "label": "Steady (default)",
+              "condition": "steady"
+            },
+            {
+              "id": "like4a",
+              "label": "Like 4a",
+              "condition": "like4a"
+            },
+            {
+              "id": "like4a_u",
+              "label": "Like 4a, 'u' nucleus",
+              "condition": "like4a_u"
+            },
+            {
+              "id": "like4a_small",
+              "label": "Like 4a, smaller move",
+              "condition": "like4a_small"
+            },
+            {
+              "id": "like4a_step",
+              "label": "Like 4a, short step",
+              "condition": "like4a_step"
+            },
+            {
+              "id": "like4a_w3",
+              "label": "Like 4a, wider x3",
+              "condition": "like4a_w3"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin",
+      "title": "Violin: folded an octave down (new default)",
+      "question": "Violin: is the folded violin clean, and are glides OK now?",
+      "notes": "Round 3: only the octave-lower violin was clean, and it was the best. High parts now fold down by default: the whole channel moves down by octaves while its middle note is above C5 (this melody: -12 semitones).",
+      "clips": [
+        {
+          "file": "violin/01_gervill.wav",
+          "label": "Gervill",
+          "desc": "Reference",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "violin/02_fold.wav",
+          "label": "Folded, legato (new default)",
+          "desc": "strings.violin as it now is",
+          "condition": "fold"
+        },
+        {
+          "file": "violin/03_fold_no_glides.wav",
+          "label": "Folded, no glides",
+          "desc": "Every note a new onset: sample for sample round 3's pick",
+          "condition": "fold_no_glides"
+        }
+      ],
+      "questions": [
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "fold",
+              "label": "Folded, legato (new default)",
+              "condition": "fold"
+            },
+            {
+              "id": "fold_no_glides",
+              "label": "Folded, no glides",
+              "condition": "fold_no_glides"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "text": "Which sounds most like someone imitating the instrument?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "fold",
+              "label": "Folded, legato (new default)",
+              "condition": "fold"
+            },
+            {
+              "id": "fold_no_glides",
+              "label": "Folded, no glides",
+              "condition": "fold_no_glides"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k525",
+      "title": "Violin 1 in the music, folded (K525)",
+      "question": "Mozart K525, the first 30 s: does the folded monk work as violin 1?",
+      "notes": "A choir of 4 monks sings violin 1 in profile mode, folded -12 semitones by the new default (D37), as loud as your +6 dB pick.",
+      "clips": [
+        {
+          "file": "k525/01_gervill.wav",
+          "label": "Gervill only",
+          "desc": "What midis2jam2 plays without Delay Lama",
+          "condition": "gervill",
+          "reference": true
+        },
+        {
+          "file": "k525/02_plain_p6.wav",
+          "label": "Your pick (+6 dB)",
+          "desc": "Phase 2's monk (plain mode, an octave low), round 3's best",
+          "condition": "plain_p6"
+        },
+        {
+          "file": "k525/03_violin.wav",
+          "label": "Violin, folded (legato)",
+          "desc": "strings.violin as it now is",
+          "condition": "violin"
+        },
+        {
+          "file": "k525/04_violin_detached.wav",
+          "label": "Violin, folded, no glides",
+          "desc": "Every note a new onset",
+          "condition": "violin_detached"
+        },
+        {
+          "file": "k525/05_singer.wav",
+          "label": "Singer, folded",
+          "desc": "Round 3's singer on 'ah', folded",
+          "condition": "singer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "best",
+          "text": "Which works best as violin 1 in the music?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "plain_p6",
+              "label": "Your pick (+6 dB)",
+              "condition": "plain_p6"
+            },
+            {
+              "id": "violin",
+              "label": "Violin, folded (legato)",
+              "condition": "violin"
+            },
+            {
+              "id": "violin_detached",
+              "label": "Violin, folded, no glides",
+              "condition": "violin_detached"
+            },
+            {
+              "id": "singer",
+              "label": "Singer, folded",
+              "condition": "singer"
+            },
+            {
+              "id": "cant_tell",
+              "label": "Can't tell"
+            }
+          ]
+        },
+        {
+          "id": "glitch",
+          "text": "Which clips have a glitch (laser, high pitch at a start, too high between notes, whistle, wobble)?",
+          "multi": true,
+          "choices": [
+            {
+              "id": "plain_p6",
+              "label": "Your pick (+6 dB)",
+              "condition": "plain_p6"
+            },
+            {
+              "id": "violin",
+              "label": "Violin, folded (legato)",
+              "condition": "violin"
+            },
+            {
+              "id": "violin_detached",
+              "label": "Violin, folded, no glides",
+              "condition": "violin_detached"
+            },
+            {
+              "id": "singer",
+              "label": "Singer, folded",
+              "condition": "singer"
+            },
+            {
+              "id": "none",
+              "label": "None of them"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
