@@ -4,7 +4,8 @@ Facts about the two upstream codebases that this project builds on. The
 bases are midis2jam2 `4f817a08` (master, app version 2.2.0) and
 delalalalay-lama `172db87` (main). Our work is on midis2jam2's
 `delay-lama` branch and delalalalay-lama's `voice-helper` branch, and their
-`git log` lists the commits. Neither is pushed yet (D62).
+`git log` lists the commits. `voice-helper` is pushed to Merken19/delalalalay-lama and
+`delay-lama` to the fork Merken19/midis2jam2 (remote `fork`; D62).
 
 Line numbers drift; fix them when a session finds one wrong.
 
@@ -21,8 +22,13 @@ injection. Needs JDK 21 (README). GPL-3.0.
 ### Processes
 
 - The launcher (`dm/main.kt`, Compose) starts the renderer as a **separate
-  JVM process**: `dm/domain/ApplicationService.desktop.kt:324-339`
+  JVM process**: `dm/domain/ApplicationService.desktop.kt:374-391`
   (`ProcessBuilder`, main class `org.wysko.midis2jam2.renderer.RendererMainKt`).
+- One performance at a time: `ApplicationService.startApplication`,
+  `startQueueApplication` and `startRecording` claim `isApplicationRunning`
+  with a compare-and-set (`claimPerformance`), so a second Play that lands
+  before the button is drawn disabled starts nothing; a start that throws
+  releases it. Test: `ApplicationServiceTest` (`home.play.one-at-a-time`).
 - `dm/renderer/RendererMain.kt` decodes its first argument, a base64 JSON
   `RendererBundle` (`dm/renderer/RendererBundle.kt`: `midiFiles`, `config`,
   `recordOptions`), and runs a single file, a queue, or a recording.
@@ -155,7 +161,14 @@ Gervill internals (JDK 21 `com.sun.media.sound`, checked 2026-11-04):
   `BalanceRender` (`:app:delayLamaBalance`: `band.wav`, `full.wav`, each
   monk, and `live.wav`, the band at the config's balance plus the monks; in
   profile mode by default, like live playback; its argument is
-  `<file>;<out dir>;<config, any number of ;-settings>;<seconds>`).
+  `<file>;<out dir>;<config, any number of ;-settings>;<seconds>`), and
+  `ScenePreview` (`:app:delayLamaScenePreview`, phase 5: the 3D scene with
+  the monks standing in it, rendered on jME's `OffscreenSurface`, a hidden
+  GLFW window with dummy input, from a fake frame source; the stage,
+  lights and instruments but no background or camera manager; argument
+  `<file>;<out dir>;<config>;<seconds,...>`; writes `scene_<s>s_wide.png`
+  from camera 1A, `_choir.png` close to the first sung choir, and `_off.png`
+  with the switch off).
 - Profile mode (`dm/delaylama/`, 2026-11-05): `ImitationProfiles.kt` loads
   `profiles/imitation.json` and is a port of `tools/profiles/expand.py`
   (resolve, program map, `setLines`, `fitShift`); `ChannelScore.kt` reads the
@@ -172,7 +185,10 @@ Gervill internals (JDK 21 `com.sun.media.sound`, checked 2026-11-04):
   channels via `ChannelSetupTimeline` and `VoiceCatalogues`),
   `DelayLamaChoices.kt` (`ChannelChoice`, `FileChoices`, `DelayLamaOptions`,
   `DelayLamaStore`), `DelayLamaPanelModel.kt` and `StandaloneLauncher.kt`.
-  Koin singles in `dm/di/UiModule.desktop.kt`; `DesktopHomeScreenModel`
+  `ChannelChoice.initial` is a channel's starting choice (sung, D45);
+  choices are saved only when the user changes one, so an untouched file
+  keeps following it, and `DelayLamaStore.rememberedConfig(file, survey)`
+  falls back to it for a file with nothing saved. Koin singles in `dm/di/UiModule.desktop.kt`; `DesktopHomeScreenModel`
   takes the panel and calls `select` from `setMidiFile` (the file picker
   goes through it too). Desktop stores every `StoreName` in one preferences
   node; the panel keeps its own node, so no `StoreName` (and no Android
@@ -208,19 +224,54 @@ Gervill internals (JDK 21 `com.sun.media.sound`, checked 2026-11-04):
   `MidiPackage.build(showMixer)` wires them (`delayLamaPorts`); only
   `ApplicationService`'s single-file play passes `true`. Tests:
   `DelayLamaMixerTest`; the panel preview also renders `mixer_*.png`.
-- Delay Lama switch (2026-11-08, D60): `DelayLamaMixer.delayLamaOn` /
-  `setDelayLamaOn` / `addSwitchListener`; in `DelayLamaRouterDevice`
-  `isSwitchable` (a mixer is present) sends every sung-channel event to
-  `device` too, `shadowVolume` (CC 7 0 while on), `helperGain` (0 while off)
-  and `applySwitch`; `VoiceHelperManager.followSwitch` sets Gervill's
-  `outputGainDb`. `MidiPackage.delayLamaMixer` and `sungInstrumentsOnStage`
-  reach `Midis2jam2Application` (desktop) and from there
+- Delay Lama switches (2026-11-08, D60; per channel since 2026-11-09):
+  `DelayLamaMixer.Strip.isSwitchOn` / `isDelayLamaOn`, and on the mixer
+  `isDelayLamaOn(key)`, `isAnyDelayLamaOn`, `setDelayLamaOn(key, on)`,
+  `setAllDelayLamaOn` and `addSwitchListener` (gets the keys that changed);
+  the window's `DelayLamaSwitches` card and a `Switch` on each sung strip. In
+  `DelayLamaRouterDevice` `isSwitchable` (a mixer is present) sends every
+  sung-channel event to `device` too, `shadowVolume` (CC 7 0 while on),
+  `helperGain` (0 while off) and `applySwitch(keys)`, all by channel;
+  `VoiceHelperManager.followSwitch` sets Gervill's `outputGainDb` from
+  `isAnyDelayLamaOn`. `MidiPackage.delayLamaMixer` and
+  `sungInstrumentsOnStage` (a function of the channel key) reach
+  `Midis2jam2Application` (desktop) and from there
   `PerformanceManager.sungInstrumentsOnStage`; `InstrumentAssignment` builds
   hidden channels when it is set and gives their instruments
-  `Instrument.stageGate`, which `isVisible` (getter and setter) checks every
-  frame; `CinematicCamPlugin` and `ClassicAutoCamPlugin` test
-  `isAllowedOnStage`. Tests: `DelayLamaMixerTest`, `DelayLamaSetupTest`
+  `Instrument.stageGate` (bound to their channel), which `isVisible`
+  (getter and setter) checks every
+  frame; `CinematicCamPlugin` tests `isPresentable` (since phase 5; it was
+  `isAllowedOnStage`, which `ClassicAutoCamPlugin` still tests). Tests:
+  `DelayLamaMixerTest`, `DelayLamaSetupTest`
   (`HeadlessPerformance.start(sungInstrumentsOnStage = ...)`).
+- Monks in the scene (phase 5, 2026-11-09, D66-D68; branch `monk-sprites`):
+  `MonkView` and `isMonksInScene` in `DelayLamaConfig.kt`;
+  `cm/delaylama/MonkStage.kt` (`MonkStage`, `SungInstrument.spot`/`bounds`
+  (by choir size; the obstacles come from a lazy list in
+  `InstrumentAssignment` through a `MonkFloorPlan`, which also keeps choirs
+  of different channels apart), `MonkFloor` (the stage floor: y 0, radius 140,
+  found by raycasting `Models.Stage.Stage`, whose wall stands at about
+  145-150 and is 40 high), `SungChannel.playing`/`standingAt`, `MonkSize`;
+  a package of the same name as the desktop one); `dm/delaylama/MonkFrames.kt` (per-channel frame state,
+  `parseFrames`, the fallback listeners) and `MonkBillboards.kt` (`MonkScene`,
+  the app state, `cutFaces`). `VoiceHelperManager` got `hasScene`, `canHide`
+  (`knowsHidden`: runs `--help` once per exe and time stamp), `facesBeside`,
+  `monksInScene`, `framesOf`; its `startProcess` is now nullable (`null`
+  starts the real helper with its stdout fed to `MonkFrames.accept`).
+  `DelayLamaRouterDevice` got `monkFrames` (`windowVisible`, `applyWindow`).
+  `MidiPackage.monkScene` reaches `Midis2jam2Application` and
+  `Midis2jam2QueueApplication`, which set `PerformanceManager.monkStage` and
+  attach `MonkBillboards` (not for recordings). In `Instrument`: `standIn`,
+  `standInBounds`, `wouldBeVisible` (the visibility ignoring the gate; the
+  old `isVisible` backing field is now `isWanted`), `isStandInShown`,
+  `isPresentable`, `holdsPlace` (used by `updateInstrumentIndex`,
+  `findSimilarAndVisible` and `atRest`). `SubjectExtraction.kt`:
+  `restingBox` returns the stand-in's box, `ownRestingBox` the instrument's.
+  Panel: `DelayLamaOptions.view`, `ViewRow`, `DelayLamaText.view`. Tests:
+  `DelayLamaSceneTest` (`HeadlessPerformance.start(monkStage = ...)`).
+  `faces.png` frames are 311 × 291 px on a 314 × 311 grid (the helper's
+  `kFaceWidth`/`kFaceHeight`, `kFaceCellWidth`/`kFaceCellHeight` in
+  `Windows/app.h`).
 - The app has no Compose UI tests; `ImageComposeScene` (Compose desktop,
   already on the test classpath) renders a composable offscreen, which the
   `delayLamaPanelPreview` tool uses. `AppTheme` needs Koin; the tool uses
@@ -353,8 +404,10 @@ history). The facts this project depends on:
   frame pre-scaled) in `Windows/monk_art.h`. `MonkWindow`
   (`Windows/monk_window.cpp`) and the helper's `ChoirWindow` use them;
   `ClassicWindow` still has its own face cache.
-- Artwork: `Resources/faces.png` (30 frames, 5 columns × 6 rows; each 314-px
-  column is a 311-px frame plus a 3-px border), `background.png`,
+- Artwork: `Resources/faces.png` (30 frames, 5 columns × 6 rows; each
+  314 × 311-px cell holds a 311 × 291-px frame at its top left: a 3-px
+  border on the right and 20 unused rows below, `kFaceHeight` in
+  `Windows/app.h`), `background.png`,
   `about.png`. `Resources/` must sit next to the exe.
 - No command-line arguments and no single-instance guard. Settings are in
   `%APPDATA%\DelayLamaStandalone\settings.ini` (or a portable `settings.ini`
@@ -362,7 +415,7 @@ history). The facts this project depends on:
 - Licensing: code MIT; DSP derived from MonkSynth (MIT,
   `MONKSYNTH-LICENSE.txt`); artwork is AudioNerdz freeware, not relicensed.
 
-### DelayLamaVoice (`Windows/voice_*`, phases 1 and 4b)
+### DelayLamaVoice (`Windows/voice_*`, phases 1, 4b and 5)
 
 - Console exe built next to the standalone (`Windows/build/Release/`), with
   `Resources/faces.png` copied beside it. Usage and commands:
@@ -375,15 +428,22 @@ history). The facts this project depends on:
   by apply, render and the window's queries. `voice_articulator.*` (phase
   4b): profile mode, the per-note curves, its own allocation, pan and the
   choir echo; its keys are listed once in `voice_profile_keys.inc`.
-  `voice_render.*`: `--render` and the WAV writer. These five are the
-  `delay_lama_voice_core` library that CTest links.
+  `voice_render.*`: `--render` and the WAV writer. `voice_frames.*`
+  (phase 5, D68): `ChoirFrames`, the frame each monk shows (singing frame,
+  closed lips, idle clock) and when a `frames` line is due. These six are
+  the `delay_lama_voice_core` library that CTest links.
 - `voice_window.*`: the choir window (monks side by side, equal cells, one
   shared `FaceCache`; with `--label`, a 20 dip strip under them with the
-  text, D57). `voice_main.cpp`: options, the stdin reader thread
-  (`ReadFile`, never joined), audio, exit codes, and the process priority
-  and power throttling opt-out (D59).
+  text, D57). It draws `ChoirFrames`' frames, updates them on its 30 ms
+  timer also while hidden, and prints the `frames` lines (D68).
+  `voice_main.cpp`: options (`--hidden`), the stdin reader thread
+  (`ReadFile`, never joined), the stdout lock (`reply`), audio, exit codes,
+  and the process priority and power throttling opt-out (D59).
 - Tests: `Tests/voice_*_checks.cpp`, CTest `delay_lama_voice_protocol`,
-  `_allocator`, `_render`, `_render_cli`. Command scripts for renders and
+  `_allocator`, `_render`, `_frames`, `_render_cli`, and `_frames_cli`
+  (`Tests/voice_frames_cli.cmake` runs the live helper `--hidden` and
+  silent on `voice_scripts/frames.txt` and checks its stdout; skipped
+  without an audio device). Command scripts for renders and
   ear checks: `Tests/voice_scripts/`. The articulator checks are in
   `voice_render_checks.cpp` (`articulator_*`: determinism, written pitch,
   first-tick values, the onset flare with and without `onset.mask`,

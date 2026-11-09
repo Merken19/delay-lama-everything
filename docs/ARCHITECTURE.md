@@ -22,8 +22,12 @@ adds the following (`dm/.../delaylama/` and `dm/.../ui/home/delaylama/`):
   the programs (named by the file's GM/GS/XG/GM2 mode), note range, most
   notes at once and note count. Each channel has a switch, the choir size
   (1–8), the imitation (auto, plain, or any profile) and a level in dB. A new
-  channel starts off (D45). Below the channels are the options for every
-  file: balance, offset, imitation strength, keep the 3D instruments, and the
+  channel starts on (D45), so a file sings every channel it can until the
+  user switches some off. A file played from the command line without the
+  environment variable sings the same: its remembered choices, else these
+  starting ones (`DelayLamaStore.rememberedConfig`). Below the channels are the options for every
+  file: balance, offset, imitation strength, where the monks are shown (in
+  the scene, their windows, or both; D67), keep the 3D instruments, and the
   paths of the helper, the standalone and `imitation.json`, each showing the
   file found.
 - `DelayLamaPanelModel` (a Koin single) holds the state. `select(file)`
@@ -80,16 +84,66 @@ Delay Lama hooks in there:
   killed, and a shutdown hook closes any left over.
 - **`VoiceHelperProcess`** (`VoiceHelper.kt`) speaks to one helper. A writer
   thread holds each line back by the offset (D30) and writes it. The
-  helper's stdout and stderr go to the log.
+  helper's stdout and stderr go to the log (`frames` lines only the first
+  and every 200th, with a count when the helper ends), and stdout is read
+  without pause, so the helper never blocks on a full pipe.
 - **Monk windows and window modes.** The helpers start before the 3D window
   exists. Their windows are always on top and open without taking the focus.
   They stay above windowed and borderless performances. A real fullscreen
   window is topmost too and covers them, so while a channel is sung,
   Fullscreen opens as borderless on Windows (D47; `effectiveWindowMode`,
   `cm/.../starter/WindowModes.kt`).
+- **Monks in the scene** (D66–D68; `monk-sprites` branch). With the view in
+  the scene or both (`DelayLamaConfig.view`, default scene) and the
+  instruments hidden, a live performance's `VoiceHelperManager`
+  (`hasScene`, set by `MidiPackage`) puts the monks in the 3D scene if it
+  can: the helper's `--help` lists `--hidden` (asked once per exe) and
+  `Resources/faces.png` is beside it. Each helper then gets `set
+  report.frames 1` after `hello`, and in the scene view starts with
+  `--hidden`. Its `frames` lines go into the channel's `MonkFrames` (read on
+  the render thread). A channel shows its window instead (the router sends
+  `set window.visible 1`, at once) when its helper answers that line with an
+  `error` naming `report.frames`, reports nothing within 5 s, or
+  `faces.png` can't be read; without the helper support or `faces.png`,
+  every channel stays in its window, as do the windows view, `keep3d`, the
+  tools and the tests. Recordings get no monks (D6).
+  - `MonkScene` (dm) is the performance's `MonkStage` (cm): which channels
+    stand in the scene, and whether one is shown now (its frames come and
+    its switch is on). `InstrumentAssignment` then builds those channels'
+    instruments even without a mixer, gated off stage, gives them a
+    `standIn`, and lists them per channel as `SungChannel`s with their note
+    starts (`PerformanceManager.sungChannels`).
+  - `MonkBillboards` (dm, an app state after the performance) cuts
+    `faces.png` into 30 textures as the helper's window does (frame =
+    column × 6 + row at (column × 314, row × 311), 311 × 291 px, opaque and
+    unlit) and gives each channel a node of K quads side by side, turned to
+    the camera about the vertical axis (`BillboardControl`, AxialY). Each
+    frame it stands the choir at the instrument the channel plays now or
+    played last (`SungChannel.standingAt`: the latest note start), while
+    that instrument would be on stage ignoring its gate
+    (`Instrument.wouldBeVisible`). The choir stands on the stage floor
+    (D69; `MonkFloor`: y 0, a disc of radius 140 inside the wall, measured
+    from the stage model) below the middle of the instrument at rest
+    (`ownRestingBox`), brought towards the middle of the stage until all of
+    its footprint, facing the audience, is on the floor, and stepped towards
+    the audience (+Z, up to 160) when something reaching below its top is in
+    the way: every instrument that may be on stage, at rest, measured once,
+    and the choirs of other channels placed before it (`MonkFloorPlan`). The place is
+    kept in the instrument root's own space, so the choir slides across the
+    floor as the instrument would; a slide up or down leaves it on the
+    floor. A monk is 48 units high, a choir at most 208 wide (`MonkSize`;
+    the user's size, D69).
+  - An instrument whose stand-in is shown holds its place
+    (`Instrument.holdsPlace`): instruments of its kind stand beside the
+    choir as they would beside it. `CinematicCamPlugin` takes it as on stage
+    (`isPresentable`), `restingBox` frames the choir's box (`standInBounds`),
+    and a shot of a choir gets the normal lens where it asks for the long
+    one (`baseFov`). `ClassicAutoCamPlugin` chooses its angles for an
+    instrument only while the instrument itself is on stage
+    (`isAllowedOnStage`): they are set for where the instrument floats.
 - **Hidden instruments**: `InstrumentAssignment.assign` skips sung channels
-  unless `keep3d` is set (O7). With a mixer it builds them anyway, gated by
-  the switch (below).
+  unless `keep3d` is set (O7). With a mixer, or monks in the scene, it builds
+  them anyway, kept off stage by `Instrument.stageGate` (the switch, below).
 - **Config**: `DelayLamaConfig` (`cm/.../starter/configuration/`) in
   `PerformanceConfig.delayLama`. The panel makes it for home-tab plays. For
   the command line, the queue and the tools, `PerformanceConfigFactory` reads
@@ -104,21 +158,28 @@ Delay Lama hooks in there:
   gain × level). Any other channel's level scales its CC 7 by the square
   root, and is reapplied after a system reset. The window closes when the
   routers close.
-- **Delay Lama switch** (D60). The card at the top of the mixer chooses who
-  plays the sung channels: the monks (on, at start) or the synthesizer
-  (off), never both. Nothing starts or stops. With a mixer, a router sends
+- **Delay Lama switches** (D60). Each sung channel's strip in the mixer has
+  a switch that chooses who plays that channel: its monks (on, at start) or
+  the synthesizer (off), never both. The card at the top counts how many are
+  on, with a button that switches them all off (when all are on) or all on.
+  `DelayLamaMixer.Strip.isSwitchOn` holds each, and switch listeners get the
+  keys that changed. Nothing starts or stops. With a mixer, a router sends
   every event of a sung channel to its helper **and** to the synthesizer,
-  and the switch only changes levels:
+  and a switch only changes that channel's levels:
   - On: the synthesizer's copy gets CC 7 = 0. The file's CC 7 values are
     held back, and resent after resets.
   - Off: the helper gets `set gain 0` and `set window.visible 0`, the
-    synthesizer's copy gets the file's CC 7 scaled by the mixer, and
-    `VoiceHelperManager.followSwitch` puts Gervill's line back to 0 dB.
+    synthesizer's copy gets the file's CC 7 scaled by the mixer. Once every
+    sung channel is off, `VoiceHelperManager.followSwitch` puts Gervill's
+    line back to 0 dB (and down by the balance when any is on again). The
+    channel's monks in the scene are hidden too. Switched on, a window comes back only
+    where its channel's view shows it (`MonkFrames.isWindowWanted`).
 
   The helper's lines wait the offset, which matches Gervill's longer buffer,
   so both swap at the same moment. The sung channels' 3D instruments are
-  built and kept off stage while the switch is on
-  (`PerformanceManager.sungInstrumentsOnStage`, `Instrument.stageGate`; the
+  built and kept off stage while their channel's switch is on
+  (`PerformanceManager.sungInstrumentsOnStage`, by channel key, and
+  `Instrument.stageGate`; the
   cameras skip them). Their rhythm notes stay off stage, because the drum set
   is shared. Without a mixer (queue, tools, recordings) sung channels never
   reach the synthesizer.
@@ -155,9 +216,18 @@ player (`Windows/audio_engine.h`), the face artwork and the monk frame logic.
   focus. The geometry comes from `--x --y --width --height` (client area,
   physical pixels). Other options: `--no-topmost`, `--no-title-bar`,
   `--title` and `--label` (a strip under the monks naming the instrument,
-  D57). `set window.visible` hides and shows it. Today closing the window
-  ends the helper; D10 changes that to hiding it, shown again from the mixer
-  (not built yet).
+  D57). `set window.visible` hides and shows it, and `--hidden` opens it
+  hidden. Today closing the window ends the helper; D10 changes that to
+  hiding it, shown again from the mixer (not built yet).
+- **Frame reports** (D68, branch `monk-sprites`): the frames the window
+  draws come from `ChoirFrames` (`Windows/voice_frames.*`, in the core
+  library), updated on the window's 30 ms timer whether it is shown or
+  hidden. With `set report.frames 1` the window thread prints a `frames`
+  line when a frame changes; the command reader posts it a message so the
+  first line comes at once, and every `set report.frames 1` gets a full
+  line (a resync). All stdout goes through one lock (`reply` in
+  `voice_main.cpp`), so lines are whole. `--render` accepts the key and
+  prints nothing.
 - It runs at above-normal priority with power throttling off (D59), and
   opens no MIDI inputs: it only listens to its pipe.
 - `--render <in> <out.wav>` renders a command script offline with no audio
@@ -223,12 +293,27 @@ work in both. Keys added since the version's first release (`onset.bandwidth`,
 `window.visible`) are additive: an older helper answers `error` and plays
 on.
 
+`set report.frames` (0/1; both modes; D68, on the `monk-sprites`
+branches) turns the frame reports on or off. On, the helper
+prints one `frames` line at once and then one whenever any monk's frame
+changes on the window's animation tick (30 ms), whether the window is shown
+or hidden. Like the other later keys it is additive.
+
 helper → midis2jam2 (stdout):
 
 ```text
 ready <version>              answer to hello; window open, audio running
 error <message>              a bad line (it is skipped) or a startup failure
+frames <f0> ... <fK-1>       with report.frames on: the faces.png frame (0-29) each of
+                             the K monks shows, in window order, closed lips included
 ```
+
+A frame index is the one the window draws: `faces.png` is 5 columns × 6
+rows, column-major (frame = column × 6 + row), each cell 314 × 311 px
+holding a 311 × 291-px frame at its top left (CODEBASE_NOTES.md "Monk artwork").
+Lines on stdout are whole: `ready`, `error` and `frames` never interleave.
+The helper option `--hidden` opens the window hidden, as if `set
+window.visible 0` had come first.
 
 The helper exits on `quit` or at the end of stdin (today also when its
 window is closed, D10). Exit codes: 0 normal, 1 startup failure (an `error`

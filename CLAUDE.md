@@ -10,7 +10,7 @@ Delay Lama. Each sung channel runs in a native helper process
 (`DelayLamaVoice.exe`) built from the delalalalay-lama sources, which sings
 the channel with a choir of monks and shows them in an always-on-top
 window. While a file plays, a mixer window sets every channel's level and
-switches the sung channels between the monks and midis2jam2's own sound. A
+switches each sung channel between the monks and midis2jam2's own sound. A
 button opens `DelayLamaStandalone.exe` instances for free play. There is no
 recording. The overview is in [README.md](README.md); v1's scope is D61.
 
@@ -40,11 +40,11 @@ recording. The overview is in [README.md](README.md); v1's scope is D61.
 
 - `docs/`: design docs.
 - `external/midis2jam2/`: clone of wyskoj/midis2jam2 (`origin` = upstream).
-  Our work is on its branch `delay-lama`, to be pushed to the user's fork
-  once it exists (D62). Kotlin, Gradle, GPL-3.0.
+  Our work is on its branch `delay-lama`, pushed to the user's fork
+  Merken19/midis2jam2 (remote `fork`; D62). Kotlin, Gradle, GPL-3.0.
 - `external/delalalalay-lama/`: clone of Merken19/delalalalay-lama (the user's
   repo). The helper is a CMake target there (`Windows/voice_*`), on branch
-  `voice-helper` (not pushed). It reuses `DSP/`, the bridge and the monk
+  `voice-helper` (pushed to `origin`). It reuses `DSP/`, the bridge and the monk
   drawing code.
 - `profiles/imitation.json`: the imitation profiles (D19).
   `tools/profiles/expand.py` turns one into the helper's `set` lines.
@@ -59,9 +59,11 @@ recording. The overview is in [README.md](README.md); v1's scope is D61.
   http://127.0.0.1:8740/. Render scripts write a `listening.json` next to
   their WAVs, and the user's answers land in `answers.json`/`answers.md`
   there. The format is in its README.
-- The top-level folder is a git repository (branch `main`, no remote
-  yet). It holds the docs and our glue; `external/` is ignored, since
-  each clone there is its own repository.
+- The top-level folder is a git repository (branch `main`, `origin` =
+  Merken19/delay-lama-everything). It holds the docs and our glue;
+  `external/` is ignored, since each clone there is its own repository.
+- Commits in all three repos use the GitHub no-reply address (repo-local
+  `user.email`); GitHub refuses pushes that carry the private one.
 
 ## Rules
 
@@ -133,6 +135,9 @@ the tools. Its settings are separated by `;`:
   its program (D41)
 - `exaggerate=<0-2>`
 - `profiles=<path>`
+- `view=scene|windows|both`: where the monks are shown (D67; branch
+  `monk-sprites`). The default `scene` stands them in the 3D scene and
+  starts the helper windows hidden; `keep3d` keeps them in their windows
 
 Keep `ImitationProfiles.kt` and `tools/profiles/expand.py` in step (a test
 compares them). The helper is found in
@@ -151,7 +156,12 @@ Checks and tools (all `.\gradlew.bat`):
   It uses profile mode unless the config says `profile=plain`.
 - `:app:delayLamaPanelPreview -PdelayLamaPanelPreview="<file.mid>;<out dir>"`
   renders the launcher's Delay Lama card and panel to PNGs with no window,
-  plus the mixer with its switch on and off (`mixer_*.png`).
+  plus the mixer with one sung channel switched off, and with all of them
+  off (`mixer_*.png`).
+- `:app:delayLamaScenePreview -PdelayLamaScenePreview="<file.mid>;<out dir>;channels=1;8,40"`
+  renders the 3D scene with the monks standing in it to PNGs at those
+  seconds (wide, close to the choir, and switched off), from a fake frame
+  source and a hidden window; no helper runs and no input is sent.
 
 If a stuck test JVM locks `app\build\test-results`, look for an old
 `Gradle Test Executor` java process, or use a Gradle init script that moves
