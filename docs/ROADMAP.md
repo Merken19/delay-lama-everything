@@ -118,7 +118,7 @@ parallel, one per clone; neither touches the other's repository.
   delalalalay-lama into `voice-helper`. Nothing pushed. The temporary drum
   probes in midis2jam2 (`TempDrumProbe.kt`, its attach line in
   `Midis2jam2Application.desktop.kt`, `DrumProbeTest.kt`,
-  `DrumRenderProbe.kt`) were left out and stay uncommitted.
+  `DrumRenderProbe.kt`) were left out, then deleted at the user's request.
 
 - 2026-11-10: The user heard a beep from the drums of some demo MIDIs. Cause:
   their channel-10 notes are Guitar Pro 7 articulation numbers, not General
