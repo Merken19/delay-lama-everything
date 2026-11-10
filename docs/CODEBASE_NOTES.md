@@ -251,10 +251,13 @@ Gervill internals (JDK 21 `com.sun.media.sound`, checked 2026-11-04):
   `InstrumentAssignment` through a `MonkFloorPlan`, which also keeps choirs
   of different channels apart), `MonkFloor` (the stage floor: y 0, radius 140,
   found by raycasting `Models.Stage.Stage`, whose wall stands at about
-  145-150 and is 40 high), `SungChannel.playing`/`standingAt`, `MonkSize`;
+  145-150 and is 40 high), `MonkSpread` (D70: the fan and the tiers, applied
+  in `SungInstrument.spot` through its `spread` function; the slot is the
+  channel's place in `MonkStage.channels` sorted), `SungChannel.playing`/`standingAt`, `MonkSize`;
   a package of the same name as the desktop one); `dm/delaylama/MonkFrames.kt` (per-channel frame state,
-  `parseFrames`, the fallback listeners) and `MonkBillboards.kt` (`MonkScene`,
-  the app state, `cutFaces`). `VoiceHelperManager` got `hasScene`, `canHide`
+  `parseFrames`, `parsePitches` (D71), the fallback listeners), `MonkNod.kt` (D71: how far one
+  monk rises while its pitch moves) and `MonkBillboards.kt` (`MonkScene`,
+  the app state with a `MonkNod` per monk, `liftsOf`, `cutFaces`). `VoiceHelperManager` got `hasScene`, `canHide`
   (`knowsHidden`: runs `--help` once per exe and time stamp), `facesBeside`,
   `monksInScene`, `framesOf`; its `startProcess` is now nullable (`null`
   starts the real helper with its stdout fed to `MonkFrames.accept`).
@@ -357,7 +360,7 @@ history). The facts this project depends on:
   (`dl_create_without_midi`; `dl_set_pitch_bend`, `dl_set_level`,
   `dl_set_vowel`; phase 4b: `dl_set_vibrato_seed`, `dl_set_formant_bandwidth`
   (round 3); phase 4c: `dl_copy_vibrato`, which locks one handle at a time,
-  and `dl_set_formant_scale` (pipes);
+  and `dl_set_formant_scale` (pipes); phase 5: `dl_get_sung_note` (D71);
   and `dl_voice_note_on` /
   `dl_voice_note_off`, one note per handle with no note-stack fallback). The
   macOS bridge has no counterpart.
@@ -375,7 +378,10 @@ history). The facts this project depends on:
   does, with its five vowel points times a factor (1 = the exact default
   table, 0 = silent, since a 0 Hz damped sine is zero), and
   `monk_synth_set_formant_scale` applies it to every unison voice; the voice
-  size still scales the result. None of them is called by the standalone.
+  size still scales the result. Phase 5 (D71): `monk_synth_sung_note`
+  reads the main voice's `current_pitch + pitch_bend_offset` (glided, bent,
+  no vibrato) for the pitch reports. None of them is called by the
+  standalone.
 - Pitch quantization (measured in phase 4c): `grain_period` floors the pitch
   to 1/32 semitone (flat by up to 3 cents), then `monk_voice_process`
   truncates the period to whole samples (sharp). The vibrato floor dithers
@@ -430,12 +436,15 @@ history). The facts this project depends on:
   choir echo; its keys are listed once in `voice_profile_keys.inc`.
   `voice_render.*`: `--render` and the WAV writer. `voice_frames.*`
   (phase 5, D68): `ChoirFrames`, the frame each monk shows (singing frame,
-  closed lips, idle clock) and when a `frames` line is due. These six are
+  closed lips, idle clock) and when a `frames` line is due; also when a
+  `pitches` line is due and what it says (D71, `take_pitch_report`, from
+  `Choir::monk_sung_note`). These six are
   the `delay_lama_voice_core` library that CTest links.
 - `voice_window.*`: the choir window (monks side by side, equal cells, one
   shared `FaceCache`; with `--label`, a 20 dip strip under them with the
   text, D57). It draws `ChoirFrames`' frames, updates them on its 30 ms
-  timer also while hidden, and prints the `frames` lines (D68).
+  timer also while hidden, and prints the `frames` and `pitches` lines
+  (D68, D71).
   `voice_main.cpp`: options (`--hidden`), the stdin reader thread
   (`ReadFile`, never joined), the stdout lock (`reply`), audio, exit codes,
   and the process priority and power throttling opt-out (D59).

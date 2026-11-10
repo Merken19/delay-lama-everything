@@ -59,6 +59,11 @@ recording. The overview is in [README.md](README.md); v1's scope is D61.
   http://127.0.0.1:8740/. Render scripts write a `listening.json` next to
   their WAVs, and the user's answers land in `answers.json`/`answers.md`
   there. The format is in its README.
+- `tools/drumfix/fix_gp_drums.py`: writes fixed copies of MIDI files whose
+  drum notes are Guitar Pro 7 articulation numbers (0 = snare, 8 = kick,
+  22 = crash, ...) instead of General MIDI keys. Those files play silent
+  drums in most soundfonts and a beep (key 22) in Timbres of Heaven. Run
+  `py tools\drumfix\fix_gp_drums.py <in folder> <out folder>`.
 - The top-level folder is a git repository (branch `main`, `origin` =
   Merken19/delay-lama-everything). It holds the docs and our glue;
   `external/` is ignored, since each clone there is its own repository.
@@ -138,6 +143,9 @@ the tools. Its settings are separated by `;`:
 - `view=scene|windows|both`: where the monks are shown (D67; branch
   `monk-sprites`). The default `scene` stands them in the 3D scene and
   starts the helper windows hidden; `keep3d` keeps them in their windows
+- `spread=<0-1>`: how far the choirs in the scene spread around the stage
+  and up (D70; default 0.5, 0 leaves them on the floor). The panel and the
+  mixer have a slider for it
 
 Keep `ImitationProfiles.kt` and `tools/profiles/expand.py` in step (a test
 compares them). The helper is found in
@@ -146,8 +154,11 @@ compares them). The helper is found in
 Checks and tools (all `.\gradlew.bat`):
 
 - `:app:compileKotlinDesktop` compiles only.
-- `:app:desktopTest` runs the tests, about 5 min; add `--rerun` to force a
-  run.
+- `:app:desktopTest` runs the tests in 4 parallel JVMs, under 2 min;
+  `--rerun` forces a run, `-PtestForks=1` runs them in one JVM (about
+  3.5 min). A headless-engine call that takes over 60 s fails with the
+  engine thread's stack attached; such hangs are intermittent (they pass
+  alone).
 - `:app:delayLamaLatency` is the latency probe. Record the system output
   while it plays (ARCHITECTURE.md "Timing and latency").
 - `:app:delayLamaBalance -PdelayLamaBalance="<file.mid>;<out dir>;channels=1;profile=plain;30"`

@@ -166,7 +166,7 @@ $env:MIDIS2JAM2_DELAY_LAMA = 'channels=1'
 `MIDIS2JAM2_DELAY_LAMA` picks the sung channels (one-based, `channels=1,3`)
 for the command line; its other settings are listed in
 [CLAUDE.md](CLAUDE.md#build-and-run). The test suite is
-`.\gradlew.bat :app:desktopTest` (about 5 minutes).
+`.\gradlew.bat :app:desktopTest` (under 2 minutes).
 
 ### 4. Optional: the Windows package
 

@@ -100,10 +100,76 @@ parallel, one per clone; neither touches the other's repository.
 - [x] End to end: play a file with sung channels in each view, and a
       `delayLamaPanelPreview`-style offscreen render of the scene for review
       (`:app:delayLamaScenePreview`; PNGs in `renders/phase5/scene_preview/`)
+- [x] Spread the choirs around the stage and up, with a slider in the
+      panel and the mixer (D70)
+- [x] The monks nod while their pitch moves (D71): `report.pitches` in the
+      helper, `MonkNod` in the scene, catalogue entry and tests
+- [ ] User check: do the nods read well (size, speed, rising for a move
+      either way), live with a file that has glides, bends and leaps?
 - [ ] User check: do the billboards sit well on stage (D69's placement and
-      size), and do the mouths move in time with the singing?
+      size, D70's spread at its default and on the slider), and do the
+      mouths move in time with the singing?
 
 ## Log
+
+- 2026-11-10: At the user's request ("very stable right now"), committed
+  the phase 5 work and merged the `monk-sprites` branches (D65): the
+  top-level repo into `main`, midis2jam2 into `delay-lama`,
+  delalalalay-lama into `voice-helper`. Nothing pushed. The temporary drum
+  probes in midis2jam2 (`TempDrumProbe.kt`, its attach line in
+  `Midis2jam2Application.desktop.kt`, `DrumProbeTest.kt`,
+  `DrumRenderProbe.kt`) were left out and stay uncommitted.
+
+- 2026-11-10: The user heard a beep from the drums of some demo MIDIs. Cause:
+  their channel-10 notes are Guitar Pro 7 articulation numbers, not General
+  MIDI keys, so most soundfonts leave the drums silent, and Timbres of
+  Heaven plays key 22 as "MC-505 Beep2". New
+  `tools/drumfix/fix_gp_drums.py` (table checked against alphaTab's
+  `PercussionMapper`) wrote fixed copies of the 12 affected files to
+  `MusicandSound/demoMidis/drums-fixed/`. A Timbres of Heaven render of the
+  fixed Smells Like Teen Spirit drums has sound in 284 of 301 s (180 before).
+  No ear check yet.
+
+- 2026-11-10: At the user's request, sped up midis2jam2's `desktopTest`.
+  It took about 3.5 min of tests in one JVM, plus up to 3 min more when a
+  headless-engine call hung until its 180 s timeout (`TickStabilityTest`
+  on an empty file this time; it passes alone). In `app/build.gradle.kts`
+  the test classes now run in 4 parallel JVMs (`-PtestForks=n` overrides).
+  In `HeadlessPerformance`, an engine call now times out after 60 s and
+  fails with the engine thread's stack attached. Full suite: 718 tests
+  green, with a 115 s test phase (1 m 44 s end to end once compiled). The
+  hang's cause isn't found yet. These midis2jam2 changes sit uncommitted on
+  `monk-sprites`, alongside that branch's own uncommitted work.
+
+- 2026-11-10: At the user's request, the monks in the scene nod while their
+  pitch moves (D71). delalalalay-lama `monk-sprites`: DSP addition
+  `monk_synth_sung_note`, bridge `dl_get_sung_note`,
+  `Choir::monk_sung_note`, `set report.pitches` and the `pitches` line
+  (`ChoirFrames::take_pitch_report`), new checks in `voice_frames_checks.cpp`
+  and the live `_frames_cli`; CTest 11/11, /W4 clean, release build rebuilt.
+  midis2jam2 `monk-sprites`: `MonkFrames.pitches`/`parsePitches`, the
+  helper manager sends `set report.pitches 1`, `MonkNod` per monk in
+  `MonkBillboards`. New catalogue entry `delaylama.scene.nod` with 3 tests;
+  `DelayLamaSceneTest` (21), `DelayLamaRoutingTest` and `SpecCoverageTest`
+  pass. Full `desktopTest`: 718 tests, 1 failed, 3 skipped; the failure was
+  an engine-thread timeout in `TickStabilityTest` (no Delay Lama in it),
+  which passes alone. Not committed; not tried live, and no render (a still can't show a
+  nod).
+
+- 2026-11-10: At the user's request, the choirs spread around the stage and
+  up (D70, `MonkSpread`): a fan towards the back and sides in channel order,
+  over the wall, every second choir half a monk higher, never lower than on
+  the floor. A 0-100 % spread (50 % by default) in the panel, `spread=` in
+  the environment variable, and a live slider in the mixer that is kept as
+  the panel's. The wall was measured by raycasting the stage model. Previews
+  of `03_band.mid` at 0, 25, 50 and 100 % and K525 at 50 % in
+  `renders/phase5/spread_preview/`; panel and mixer previews re-rendered.
+  New catalogue entry `delaylama.scene.spread` with 3 tests;
+  `DelayLamaSceneTest` (18), `DelayLamaMixerTest`, `DelayLamaPanelTest`,
+  `DelayLamaSetupTest`, `SpecCoverageTest`, `CinematicCameraTest` and
+  `InstrumentAssignmentTest` pass. Not committed. The first draft of
+  `MonkSpread` went into midis2jam2 `c04c2099` (committed by the per-channel
+  switch session); the working tree finishes it. Not tried live.
 
 - 2026-11-10: At the user's request, the mixer's Delay Lama switch is now
   one per sung channel (D60 revised): a switch on each sung strip, and a

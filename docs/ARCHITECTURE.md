@@ -99,9 +99,10 @@ Delay Lama hooks in there:
   (`hasScene`, set by `MidiPackage`) puts the monks in the 3D scene if it
   can: the helper's `--help` lists `--hidden` (asked once per exe) and
   `Resources/faces.png` is beside it. Each helper then gets `set
-  report.frames 1` after `hello`, and in the scene view starts with
-  `--hidden`. Its `frames` lines go into the channel's `MonkFrames` (read on
-  the render thread). A channel shows its window instead (the router sends
+  report.frames 1` and `set report.pitches 1` (D71) after `hello`, and in
+  the scene view starts with `--hidden`. Its `frames` and `pitches` lines
+  go into the channel's `MonkFrames` (read on the render thread); an older
+  helper's `error` for `report.pitches` changes nothing but the nod. A channel shows its window instead (the router sends
   `set window.visible 1`, at once) when its helper answers that line with an
   `error` naming `report.frames`, reports nothing within 5 s, or
   `faces.png` can't be read; without the helper support or `faces.png`,
@@ -132,7 +133,20 @@ Delay Lama hooks in there:
     kept in the instrument root's own space, so the choir slides across the
     floor as the instrument would; a slide up or down leaves it on the
     floor. A monk is 48 units high, a choir at most 208 wide (`MonkSize`;
-    the user's size, D69).
+    the user's size, D69). The performance's spread (D70; `MonkStage.spread`,
+    read every frame: the mixer's slider, else the config's) then moves it
+    from that floor place towards the back and sides in a fan, in channel
+    order, and up in two alternating tiers (`MonkSpread.place`, given to
+    each `SungInstrument` by `InstrumentAssignment`); never lower than on
+    the floor.
+  - Each monk nods (D71, `MonkNod`, one per monk): it rises above its place
+    in the choir while the note it sings (`MonkFrames.pitches`) is away from
+    where its pitch has settled (a follower with a 0.3 s time constant), by
+    up to 12 % of its height (`tanh` of the distance over 3 semitones,
+    eased over 0.06 s), either way, and never below its place. A note begun
+    from silence starts settled. `MonkBillboards.refresh` moves the nods by
+    the performance's time: still while paused, reset after a jump back or
+    while the choir is hidden.
   - An instrument whose stand-in is shown holds its place
     (`Instrument.holdsPlace`): instruments of its kind stand beside the
     choir as they would beside it. `CinematicCamPlugin` takes it as on stage
@@ -225,7 +239,11 @@ player (`Windows/audio_engine.h`), the face artwork and the monk frame logic.
   hidden. With `set report.frames 1` the window thread prints a `frames`
   line when a frame changes; the command reader posts it a message so the
   first line comes at once, and every `set report.frames 1` gets a full
-  line (a resync). All stdout goes through one lock (`reply` in
+  line (a resync). Pitch reports (D71) go the same way: with `set
+  report.pitches 1` the same tick prints a `pitches` line when a monk starts
+  or stops singing or its sung note (`Choir::monk_sung_note`: the DSP's
+  glided pitch plus bend, without vibrato) moves 0.05 semitone from the last
+  line's. All stdout goes through one lock (`reply` in
   `voice_main.cpp`), so lines are whole. `--render` accepts the key and
   prints nothing.
 - It runs at above-normal priority with power throttling off (D59), and
@@ -299,6 +317,12 @@ prints one `frames` line at once and then one whenever any monk's frame
 changes on the window's animation tick (30 ms), whether the window is shown
 or hidden. Like the other later keys it is additive.
 
+`set report.pitches` (0/1; both modes; D71, on the `monk-sprites`
+branches) turns the pitch reports on or off. On, the helper prints one
+`pitches` line at once and then one on the animation tick whenever a monk
+starts or stops singing or its sung note has moved 0.05 semitone from the
+last line's. Additive too: an older helper answers `error`.
+
 helper → midis2jam2 (stdout):
 
 ```text
@@ -306,12 +330,17 @@ ready <version>              answer to hello; window open, audio running
 error <message>              a bad line (it is skipped) or a startup failure
 frames <f0> ... <fK-1>       with report.frames on: the faces.png frame (0-29) each of
                              the K monks shows, in window order, closed lips included
+pitches <p0> ... <pK-1>      with report.pitches on: the note each monk's synth sings,
+                             two decimals, glide and bend included, no vibrato; - while
+                             it is silent. Profile mode's notes sit an octave or more
+                             above plain mode's, so only the changes mean anything
 ```
 
 A frame index is the one the window draws: `faces.png` is 5 columns × 6
 rows, column-major (frame = column × 6 + row), each cell 314 × 311 px
 holding a 311 × 291-px frame at its top left (CODEBASE_NOTES.md "Monk artwork").
-Lines on stdout are whole: `ready`, `error` and `frames` never interleave.
+Lines on stdout are whole: `ready`, `error`, `frames` and `pitches` never
+interleave.
 The helper option `--hidden` opens the window hidden, as if `set
 window.visible 0` had come first.
 

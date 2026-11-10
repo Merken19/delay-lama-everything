@@ -3,3 +3,6 @@
 
 # Packages built by tools/package/make_package.ps1.
 /dist/
+
+# Python bytecode.
+__pycache__/
