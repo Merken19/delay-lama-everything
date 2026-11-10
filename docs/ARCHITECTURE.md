@@ -202,6 +202,28 @@ Delay Lama hooks in there:
   line (`dm/domain/LineGain.kt`, set from `VoiceHelperManager.balance` before
   the ports open). The gain comes after Gervill's limiter and outside MIDI.
   Other MIDI devices get no balance.
+- **Camera focus** (D72; `camera-focus` branch). While it is on, the
+  channels the camera is close to and looks at get louder and the rest
+  quieter. `MidiPackage` makes one `ChannelFocus` whenever Delay Lama
+  sings, on or off as the config says (`focus`; the panel's option, the
+  variable for the queue), and shares it with the routers and the mixer,
+  whose switch flips it at once. `CameraFocusState`, an app state of a live
+  performance (single file or each queue song; never recordings), works
+  every frame from the camera and where each channel's things stand
+  (`FocusSubjects`: a sung channel shown in the scene is its choir, any
+  other channel its instruments on stage): each channel's presence (how
+  much closer than camera 1A, squared, times how much of it is in the
+  picture against 1A's picture), how unevenly it is spread (0 from 1A),
+  and how near the most present one is, and from that each channel's
+  offset: the near one stands out by up to 12 dB, rising by 6 at most
+  itself while the rest comes off every channel (a full +12 clipped the
+  monks), and the unseen fall by up to 21 (`CameraFocus.offsets`). The offsets
+  are eased (0.3 s) and sent at most 20 times a second in 0.25 dB steps.
+  The routers multiply them into the mixer's level (`levelOf`): a sung
+  channel's helper `set gain` (capped at 4; the helper smooths it over
+  about 5 ms), any other channel's CC 7 (capped at 127), with a mixer or
+  without. Sliders, mute, solo and the switches are unchanged. Switched
+  off, the offsets glide back to 0 dB; the app state's end puts them to 0.
 
 ### 3. DelayLamaVoice.exe (the helper)
 

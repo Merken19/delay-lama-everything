@@ -146,6 +146,9 @@ the tools. Its settings are separated by `;`:
 - `spread=<0-1>`: how far the choirs in the scene spread around the stage
   and up (D70; default 0.5, 0 leaves them on the floor). The panel and the
   mixer have a slider for it
+- `focus=0|1`: camera focus (D72; branch `camera-focus`), off by default.
+  The channels the camera is close to and looks at get louder, the rest
+  quieter. The panel and the mixer have a switch for it
 
 Keep `ImitationProfiles.kt` and `tools/profiles/expand.py` in step (a test
 compares them). The helper is found in
@@ -172,7 +175,12 @@ Checks and tools (all `.\gradlew.bat`):
 - `:app:delayLamaScenePreview -PdelayLamaScenePreview="<file.mid>;<out dir>;channels=1;8,40"`
   renders the 3D scene with the monks standing in it to PNGs at those
   seconds (wide, close to the choir, and switched off), from a fake frame
-  source and a hidden window; no helper runs and no input is sent.
+  source and a hidden window; no helper runs and no input is sent. With
+  `focus:<start>-<end>` in place of the seconds it plays the file with
+  camera focus on and a scripted move in to the first choir and out (D72),
+  writing `focus_timeline.csv` and `focus_<s>s.png`;
+  `:app:delayLamaBalance` replays that file with a `timeline=<csv>`
+  setting.
 
 If a stuck test JVM locks `app\build\test-results`, look for an old
 `Gradle Test Executor` java process, or use a Gradle init script that moves

@@ -275,6 +275,34 @@ Gervill internals (JDK 21 `com.sun.media.sound`, checked 2026-11-04):
   `faces.png` frames are 311 × 291 px on a 314 × 311 grid (the helper's
   `kFaceWidth`/`kFaceHeight`, `kFaceCellWidth`/`kFaceCellHeight` in
   `Windows/app.h`).
+- Camera focus (2026-11-10, D72; branch `camera-focus`):
+  `cm/delaylama/CameraFocus.kt` holds the pure part: `FocusView` (camera
+  place, rotation and half angles; `of(Camera)`, `of(LegacyCameraAngle)`),
+  `FocusSubject`, `CameraFocus` (`closeness`, `seen`, `inView`,
+  `presence`, `amount`, `nearness`, `offsets`; the reference is camera 1A's location,
+  handed out as a copy because `LegacyCameraAngle`'s vectors are shared and
+  mutable), `FocusSmoother`, `FocusSender` and `FocusSubjects` (a sung
+  channel shown in the scene is its choir from `SungChannel.standingAt`;
+  other channels are their visible instruments by `ownRestingBox`, measured
+  again every second, three a frame). It needs
+  `PerformanceManager.channelInstruments` (channel key to instruments, the
+  drums under every channel with rhythm notes), set by
+  `InstrumentAssignment`. `dm/delaylama/ChannelFocus.kt`: `ChannelFocus`
+  (the switch as a `StateFlow`, the published offsets, listeners) and
+  `CameraFocusState` (the app state; detached, it puts every offset back to
+  0). `MidiPackage.build` makes one `ChannelFocus` whenever Delay Lama
+  sings (`channelFocus`), shares it with the routers
+  (`VoiceHelperManager.route(focus = ...)`) and the mixer
+  (`DelayLamaMixer.focus`), and `Midis2jam2Application` and
+  `Midis2jam2QueueApplication` attach the app state (not for recordings).
+  In `DelayLamaRouterDevice`: `focus`, `hasLevels`, `levelOf` (the mixer's
+  level times the focus gain), used by `helperGain`, `mixedVolume`,
+  `applyMix` and the reset path. UI: `FocusRow` in the mixer window (with
+  `rememberFocus`), the strips' `focus +3` text, the panel's switch row,
+  `DelayLamaOptions.focus`, `DelayLamaText.FOCUS*`. Tests:
+  `DelayLamaFocusTest`. Tools: `ScenePreview`'s `focus:<start>-<end>` mode
+  (a scripted move, `focus_timeline.csv`, `focus_<s>s.png`) and
+  `BalanceRender`'s `timeline=<csv>`.
 - The app has no Compose UI tests; `ImageComposeScene` (Compose desktop,
   already on the test classpath) renders a composable offscreen, which the
   `delayLamaPanelPreview` tool uses. `AppTheme` needs Koin; the tool uses

@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "title": "Phase 5: camera focus (D72)",
+  "intro": "tests/midi/03_band.mid, 0-34 s, alto sax lead on channel 1 sung by Delay Lama (profile mode), the band 6 dB down as live. Rendered offline as live playback mixes it (live.wav). 'Focus on' replays a scripted camera move recorded from the real 3D scene (focus_timeline.csv; PNGs focus_*.png): camera 1A until 16 s, a glide in to 60 units from the choir's face (16-19.6 s), held until 24.4 s, a glide back out, 1A from 28 s. Round 2, after your answer to round 1 ('too small', +12 dB when near): the near choir now stands out by 12 dB. It rises 6 dB itself (+12 clipped the monks: 346 samples at full scale) and the other 6 dB come off everything else. Measured over the hold (19-25 s): monks +6.0 dB (peak -3.4 dBFS, no clipping), band -9.3 dB (bass, guitar, pad -21 dB; the drums, half in the picture, -2.1 dB); the monks stand 15.3 dB further out against the band than without focus. Outside the move the two files are identical.",
+  "tests": [
+    {
+      "id": "focus_move_2",
+      "title": "Camera focus on a sung choir (round 2: 12 dB)",
+      "question": "While the camera is close to the choir, does the mix follow it the way you want?",
+      "notes": "Loop 14-30 s to hear the move in and out. Listen for the size of the change and whether the glides (about a second) pump or click.",
+      "blind": false,
+      "clips": [
+        {
+          "file": "without_focus/live.wav",
+          "label": "Focus off",
+          "condition": "off",
+          "reference": true,
+          "desc": "Live mix as today"
+        },
+        {
+          "file": "with_focus/live.wav",
+          "label": "Focus on",
+          "condition": "on",
+          "desc": "The same, with the camera move's focus offsets"
+        }
+      ],
+      "questions": [
+        {
+          "id": "amount",
+          "text": "How big is the change while close?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "right",
+              "label": "About right"
+            },
+            {
+              "id": "more",
+              "label": "Too small: the choir should stand out more"
+            },
+            {
+              "id": "less",
+              "label": "Too big"
+            }
+          ]
+        },
+        {
+          "id": "glide",
+          "text": "How do the glides in and out sound?",
+          "multi": false,
+          "choices": [
+            {
+              "id": "smooth",
+              "label": "Smooth"
+            },
+            {
+              "id": "slow",
+              "label": "Too slow"
+            },
+            {
+              "id": "fast",
+              "label": "Too fast, or pumping"
+            },
+            {
+              "id": "clicks",
+              "label": "Clicks or steps"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

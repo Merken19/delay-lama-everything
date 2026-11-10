@@ -110,7 +110,60 @@ parallel, one per clone; neither touches the other's repository.
       size, D70's spread at its default and on the slider), and do the
       mouths move in time with the singing?
 
+## Camera focus (branches `camera-focus`, D72)
+
+At the user's request, while phase 5 waits for its user checks. midis2jam2
+and the top-level docs only; the helper needed no change.
+
+- [x] The focus model (`CameraFocus`, `FocusSmoother`, `FocusSender`,
+      `FocusSubjects`), `ChannelFocus` and `CameraFocusState`, applied in
+      the routers on top of the mixer, also without a mixer (the queue)
+- [x] The switches: panel option, mixer switch kept as the panel's,
+      `focus=0|1`; the mixer's strips show the offset
+- [x] Catalogue entries `delaylama.focus.*` and `DelayLamaFocusTest`
+- [x] A scripted camera move recorded from the scene and replayed into a
+      render (`:app:delayLamaScenePreview` `focus:` mode,
+      `:app:delayLamaBalance` `timeline=`): `renders/phase5/focus/`, with a
+      `listening.json`
+- [x] User check (ears), round 1: glides smooth, change too small; the
+      user asked for +12 dB when near (now D72's 12 dB)
+- [ ] User check (ears), round 2: the listening set in
+      `renders/phase5/focus/` (`focus_move_2`). Is 12 dB the right size?
+- [ ] User check (live): play a file with focus on, fly the free camera to
+      a choir and away, let the cinematic camera cut, and switch focus off
+      and on in the mixer. Does it follow the camera without pumping?
+
 ## Log
+
+- 2026-11-10: The user answered the camera focus listening set: glides
+  smooth, the change too small, "make the change +12db when near an
+  element". `CameraFocus` now lets the most present channel's own
+  nearness carry the focus (`nearness`), sets its contrast to 12 dB, never
+  raises the channels' average, and caps a channel's own rise at 6 dB with
+  the rest taken off every channel: at a full +12 the monks clipped (346
+  samples at full scale over the hold). Re-rendered: monks +6.0 dB (peak
+  -3.4 dBFS), band -9.3 dB, 15.3 dB more contrast; the set is now round 2
+  (`focus_move_2`). `DelayLamaFocusTest` (17) and `SpecCoverageTest` pass.
+  Committed at the user's request on the `camera-focus` branches
+  (midis2jam2 `54d58e31`, with the renders here). Not pushed.
+
+- 2026-11-10: At the user's request, camera focus (D72) on the
+  `camera-focus` branches (midis2jam2 from `delay-lama` 92310132, the
+  top-level repo from `main`). New `cm/delaylama/CameraFocus.kt` and
+  `dm/delaylama/ChannelFocus.kt`; the router, `VoiceHelperManager.route`,
+  `MidiPackage`, the mixer and its window, the panel, `DelayLamaConfig`
+  (`focus=`), `DelayLamaOptions`, `InstrumentAssignment`
+  (`PerformanceManager.channelInstruments`) and both applications changed.
+  The first model (distance plus a wide 30° margin) hardly moved anything
+  in the scene, so what is in the picture now carries most of it. Four
+  catalogue entries, 16 tests in `DelayLamaFocusTest`. Scripted move on
+  `03_band.mid` (sax sung, 10-34 s): monks +2.6 dB and band -4.7 dB over
+  the hold, identical elsewhere; panel and mixer previews re-rendered.
+  Full `desktopTest`: 734 tests, 1 failed, 3 skipped; the failure is
+  `BankSelectAssignmentTest`'s catalogue sweep (Jazz, Brush, Orchestra and
+  SFX Sets timed out on a terminated headless engine), which stalls on this
+  machine without the change too. Not committed; not tried live; not
+  heard.
 
 - 2026-11-10: At the user's request ("very stable right now"), committed
   the phase 5 work and merged the `monk-sprites` branches (D65): the
