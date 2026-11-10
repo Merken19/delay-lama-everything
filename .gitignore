@@ -12,3 +12,5 @@ __pycache__/
 /bundle/*
 !/bundle/README.md
 !/bundle/NOTICE.txt
+
+notes.txt
