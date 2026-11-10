@@ -19,7 +19,7 @@ and shown on the index page.
 
 - **Index** (`/`): by default, only the tests that still need an answer
   (no answer saved yet; a skip counts as answered) in folders that have a
-  `listening.json`, grouped by phase. Sets with a manifest problem are shown
+  `listening.json`, grouped by their top folder under `renders/`. Sets with a manifest problem are shown
   too. **Show all** (remembered per browser) lists every set, including
   answered tests and folders without a manifest, with the latest answers.
 - **Comparison page**: the question, every clip with its description, and a
@@ -43,8 +43,8 @@ Next to the manifest (or the WAVs, for folders without one):
 
 - `answers.json`: the data. `tests.<test id>` is a list of entries, oldest
   first, the last one current.
-- `answers.md`: a readable summary for later sessions, regenerated on every
-  save (don't edit it).
+- `answers.md`: a readable summary, regenerated on every save (don't edit
+  it).
 
 An entry:
 
@@ -77,7 +77,7 @@ Render scripts should write it next to their output.
 ```json
 {
   "format": 1,
-  "title": "Phase 4a A/B: Delay Lama vs. Gervill",
+  "title": "A/B: Delay Lama vs. Gervill",
   "intro": "Shown on the index and under 'About this set'.",
   "tests": [
     {
@@ -131,4 +131,4 @@ the clips of one test the same length when switching between them matters.
 
 **Folders without a manifest**: any folder with WAVs that no manifest uses
 becomes one test listing its WAVs (except `all.wav`) with a generic "Which
-is best?" question. `renders/phase1/` works that way.
+is best?" question.

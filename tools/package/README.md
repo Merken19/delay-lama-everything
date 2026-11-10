@@ -1,4 +1,4 @@
-# Windows package (roadmap phase 6)
+# Windows package
 
 `make_package.ps1` builds Delay Lama Everything's Windows package: one folder,
 zipped, that runs without this source tree.
@@ -69,4 +69,5 @@ temp folder, then from a folder outside the package:
   `external\delalalalay-lama\Tests\voice_scripts\chord.txt` and checks the WAV.
 
 Not checked headlessly: playing a file with the monks, Add Delay Lama, and
-recording. Those need the user (see the roadmap's phase 6 entry).
+recording. Check those by hand in the unzipped package before handing a zip
+out.

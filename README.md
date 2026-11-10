@@ -1,25 +1,122 @@
 # Delay Lama Everything
 
-Play any MIDI file through Delay Lama.
+Play any MIDI file through Delay Lama. Version 1.0, for Windows x64.
 
 [midis2jam2](https://github.com/wyskoj/midis2jam2) plays the file and animates
 its 3D band as usual. Any instrument you pick becomes a Delay Lama instead:
 its notes are sung by the Delay Lama vocal synth from
 [delalalalay-lama](https://github.com/Merken19/delalalalay-lama), shaped to
-imitate that instrument, and a monk window named after the instrument sings
-along. A choir of monks sings the chords. While the file plays, a mixer
-window mutes, solos or turns up or down any channel, sung or not. Each sung
-channel has its own **Delay Lama** switch there, which flips that channel at
-any moment between the monks and midis2jam2's own sound (never both at
-once). Every channel Delay Lama can sing is sung until you switch it off in
-the panel. An **Add Delay Lama**
-button opens extra Delay Lama standalone instances so you can jam along by
-hand. There is no recording.
+imitate that instrument, and a choir of monks sings the chords. The monks
+stand on the stage in the 3D scene, where the instrument would have been,
+spread around the stage and up so the choirs don't hide each other, and nod
+while their pitch moves. They can be shown in their own always-on-top
+windows instead, or both.
 
-> **Status (2026-11-08)**: everything above works on Windows and ships as
-> one zip (`tools/package/`). What is left for v1 is in
-> [docs/ROADMAP.md](docs/ROADMAP.md): tuning the remaining instrument
-> families, two monk-window changes, the fork, and the user's checks.
+While the file plays, a mixer window mutes, solos or turns up or down any
+channel, sung or not. Each sung channel has its own **Delay Lama** switch
+there, which flips that channel at any moment between the monks and
+midis2jam2's own sound (never both at once). Every channel Delay Lama can
+sing is sung until you switch it off in the panel. With **camera focus** on,
+the channels the camera is close to and looks at get louder and the rest
+quieter. An **Add Delay Lama** button opens extra Delay Lama standalone
+instances so you can jam along by hand. There is no recording.
+
+## Using it
+
+### The Delay Lama card and panel
+
+Pick a MIDI file on the launcher's home tab. The **Delay Lama** card shows
+what will be sung in it; **Choose channels** opens the panel, which lists
+every channel Delay Lama can sing (every port's channels with melodic notes;
+drums on channel 10 always stay with midis2jam2). For each channel it shows
+the programs, the note range, the most notes played at once and the note
+count, and it has:
+
+- a switch: sung or not (every channel starts sung)
+- the choir size, 1 to 8 monks (a new channel gets one monk per note it
+  plays at once, up to 4)
+- the imitation: *auto* (follow the channel's program), *plain* (Delay Lama's
+  own sound, no imitation) or any one profile
+- a level in dB
+
+Below the channels are the options for every file: balance (how many dB the
+band comes down while a channel is sung), offset, imitation strength, where
+the monks are shown (in the scene, their windows, or both), the spread of the
+choirs, camera focus, keeping the 3D instruments, and the paths of the
+helper, the standalone and `imitation.json`, each showing the file found.
+Every change is saved at once; the channel choices are remembered per file
+(by its contents), the options for every file.
+
+### Playing a file
+
+Press Play. Each sung channel gets its own `DelayLamaVoice.exe` helper, its
+3D instrument leaves the stage (unless *keep the 3D instruments* is on) and
+its choir stands there instead. The band plays 6 dB quieter by default, so
+the monks are heard over it. On Windows, Fullscreen opens as borderless while
+Delay Lama sings, because a real fullscreen window would cover the monk
+windows.
+
+### The mixer
+
+A single file played with sung channels, from the launcher or the command
+line, opens the mixer, an always-on-top window with a strip per channel the
+file plays: mute, solo, volume from −30 to +6 dB, and Reset. A sung channel's
+strip also has its **Delay Lama** switch: off hands the channel to
+midis2jam2's own sound, hides its monks and puts its 3D instrument back on
+stage, all at once and mid-note too. A card at the top counts the channels
+switched on, with one button for all off or all on. The mixer also has the
+spread slider and the camera focus switch, which work at once and are kept
+as the panel's. The levels and switches are not remembered: each play starts
+with every sung channel on.
+
+### Camera focus
+
+Off by default; switch it on in the panel or the mixer. The channel the
+camera is nearest to and sees best stands out by up to 12 dB: it rises by up
+to 6 dB and the rest comes off the other channels, while channels with
+nothing in the picture fall further. From the wide camera 1A, or with the
+camera near several things alike, nothing changes. The changes glide over
+about a third of a second and come on top of the mixer's levels without
+moving its sliders.
+
+### Add Delay Lama
+
+**Add Delay Lama** on the card or the panel opens one more
+`DelayLamaStandalone.exe` to play by hand with the mouse or a MIDI keyboard.
+It is not tied to the file and stays open after midis2jam2 closes. Every
+instance shares the standalone's settings
+(`%APPDATA%\DelayLamaStandalone\settings.ini`) and opens every MIDI input.
+
+### Command-line settings
+
+The home tab always uses the panel. A file played from the command line
+(`midis2jam2.exe <file.mid>`, or `gradlew run --args=<file>` in a source
+checkout) uses the `MIDIS2JAM2_DELAY_LAMA` environment variable if it is
+set, else the panel's remembered choices for that file (for a new file,
+every channel it can sing). The queue reads the variable too. Its settings
+are separated by `;`:
+
+| Setting | Meaning |
+| --- | --- |
+| `channels=1,2.4` | The sung channels, one-based, `port.channel`; channel 10 is refused |
+| `monks=2` | Choir size, 1 to 8 (default 4) |
+| `gain=0.8` | Level of the sung channels (default 1) |
+| `balance=6` | How many dB the band (Gervill) comes down while a channel is sung, 0 to 30 (default 6) |
+| `offset=175` | Milliseconds the monks' notes are held back to stay in time with the band (default 175 on Gervill, 0 on other MIDI devices) |
+| `keep3d` | Keep the sung channels' 3D instruments; the monks then stay in their windows |
+| `exe=<path>` | The `DelayLamaVoice.exe` to use |
+| `profile=auto\|plain\|<name>` | Imitation: `auto` (default) makes each channel imitate its program, `plain` is Delay Lama's own sound, a name picks one profile for every channel |
+| `exaggerate=<0-2>` | Imitation strength (default 1) |
+| `profiles=<path>` | The `imitation.json` to use |
+| `view=scene\|windows\|both` | Where the monks are shown (default `scene`: on stage, with the helper windows hidden) |
+| `spread=<0-1>` | How far the choirs spread around the stage and up (default 0.5; 0 leaves them on the floor) |
+| `focus=0\|1` | Camera focus (default off) |
+
+For example, in PowerShell:
+
+```powershell
+$env:MIDIS2JAM2_DELAY_LAMA = 'channels=1,2;monks=2;view=both'
+```
 
 ## How it fits together
 
@@ -27,25 +124,29 @@ hand. There is no recording.
  midis2jam2 launcher (Compose UI)            pick file and Delay Lama channels:
         │                                     choir size, imitation, level
         ▼
- midis2jam2 performance (jMonkeyEngine) ──3D band (sung channels hidden)──▶ screen
-        │  sequencer events
-        ▼
-   Delay Lama router (MidiDevice wrapper)       ◀── mixer window: levels, Delay Lama switches
+ midis2jam2 performance (jMonkeyEngine) ──3D band, choirs on stage──────────▶ screen
+        │  sequencer events                  ▲ frame and pitch reports
+        ▼                                    │
+   Delay Lama router (MidiDevice wrapper)    │  ◀── mixer window: levels, Delay Lama
+        │                                    │       switches, spread, camera focus
         ├── other channels ──────────▶ Gervill (Java synth) ───────────────▶ speakers
         └── sung channels ──pipe─────▶ DelayLamaVoice.exe  (one per channel)
                                          choir of monk synths ─────────────▶ speakers
                                          monk window, always on top ───────▶ screen
+                                         (hidden in the scene view)
 
  "Add Delay Lama" button ─────────────▶ DelayLamaStandalone.exe (free play, not tied to the file)
 ```
 
-- **midis2jam2 fork**: reads and plays the file, draws the band, and sends
-  the chosen channels to Delay Lama instead of Gervill.
+- **midis2jam2 fork**: reads and plays the file, draws the band and the
+  choirs, and sends the chosen channels to Delay Lama instead of Gervill.
 - **DelayLamaVoice.exe** (built from the delalalalay-lama sources): one
   process per sung channel. It sings the channel through a choir of monk
   synths, shapes each note with an *instrument imitation profile*
-  ([docs/IMITATION.md](docs/IMITATION.md)), and shows the monks.
-- **DelayLamaStandalone.exe** (existing): opened by **Add Delay Lama** for
+  ([docs/IMITATION.md](docs/IMITATION.md)), shows the monks in its window and
+  reports which face each monk shows, so the choir on stage matches the
+  singing.
+- **DelayLamaStandalone.exe** (unchanged): opened by **Add Delay Lama** for
   playing by hand.
 
 Details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
@@ -55,17 +156,15 @@ Details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 | Path | Contents |
 | --- | --- |
 | `README.md` | This overview |
-| `CLAUDE.md` | Working guidance for coding sessions, with the build commands |
-| `docs/ROADMAP.md` | What is done, what is left for v1, and a log |
-| `docs/DECISIONS.md` | Decisions, and open questions with proposals |
+| `CLAUDE.md` | Maintenance guidance for coding sessions, with the build commands and tools |
 | `docs/ARCHITECTURE.md` | Components, pipe protocol, timing |
-| `docs/IMITATION.md` | How Delay Lama imitates each instrument, and how to tune it |
-| `docs/CODEBASE_NOTES.md` | Facts about both upstream codebases, with file references |
+| `docs/IMITATION.md` | How Delay Lama imitates each instrument, and how a profile is tuned |
+| `docs/BUILDING_LINUX_MACOS.md` | Notes on building on Linux and macOS |
 | `profiles/imitation.json` | The imitation profiles and the program map |
-| `tests/midi/` | Test MIDI files and the play-check list |
-| `renders/` | WAV renders for ear checks, and the tuning tools |
-| `tools/` | Package script, profile expander, test-file generator, listening website |
-| `external/midis2jam2/` | Clone of wyskoj/midis2jam2 (GPL-3.0), branch `delay-lama`, pushed to the fork Merken19/midis2jam2 |
+| `tests/midi/` | Test MIDI files and a manual play check |
+| `renders/` | WAV renders, listening sets and the profile tuning tools |
+| `tools/` | Package script, profile expander, test-file generator, GP7 drum fixer, listening website |
+| `external/midis2jam2/` | Clone of the midis2jam2 fork (GPL-3.0), branch `delay-lama` |
 | `external/delalalalay-lama/` | Clone of Merken19/delalalalay-lama (MIT code, freeware artwork), branch `voice-helper` |
 
 ## Building from source (Windows)
@@ -163,9 +262,8 @@ $env:MIDIS2JAM2_DELAY_LAMA = 'channels=1'
 .\gradlew.bat run --args="$PWD\..\..\tests\midi\01_melody.mid"
 ```
 
-`MIDIS2JAM2_DELAY_LAMA` picks the sung channels (one-based, `channels=1,3`)
-for the command line; its other settings are listed in
-[CLAUDE.md](CLAUDE.md#build-and-run). The test suite is
+`MIDIS2JAM2_DELAY_LAMA` takes the settings listed under
+[Command-line settings](#command-line-settings). The test suite is
 `.\gradlew.bat :app:desktopTest` (under 2 minutes).
 
 ### 4. Optional: the Windows package
@@ -181,6 +279,40 @@ It writes `dist\DelayLamaEverything\` and
 `dist\DelayLamaEverything-<date>-windows-x64.zip`, which runs without the
 source tree and brings its own Java runtime. Options are in
 [tools/package/README.md](tools/package/README.md).
+
+### Linux and macOS
+
+Version 1.0 is built and tested on Windows only: the helper uses Win32 and
+WinMM, and the monk windows, the window layout and the package are
+Windows-specific. Guidance for porting and building on other systems is in
+[docs/BUILDING_LINUX_MACOS.md](docs/BUILDING_LINUX_MACOS.md).
+
+## Known limits
+
+- **Imitation is tuned for some instruments only.** Piano (GM 1–8), the
+  pipes and flutes (73–80), trumpet (57), tenor sax (67), violin and viola
+  (41–42) and string ensembles 1–2 (49–50, both sung as a singer on "ah"),
+  and finger bass (34) have tuned profiles. Every other instrument plays a
+  first-guess profile for its family, with levels not matched to the band:
+  guitars, the other basses, organs, chromatic percussion, cello and
+  contrabass, harp, timpani, choirs, trombone, tuba, the other saxes, reeds,
+  synth leads and pads, and GM 97–128. Trombone, tuba and horn sound much
+  brighter than midis2jam2's own sound, and the French horn has no profile
+  of its own (it plays the brass section's).
+- **Closing a monk window ends that channel's helper**, so the channel goes
+  silent; the window can't be brought back from the mixer. In the default
+  scene view the windows are hidden, so this concerns the windows and both
+  views.
+- **Add Delay Lama is only on the launcher's card and panel**, not in the
+  mixer.
+- **The queue has no mixer**: its songs take their Delay Lama settings,
+  camera focus included, from `MIDIS2JAM2_DELAY_LAMA`.
+- **Drums are never sung**: rhythm channels (channel 10) stay with
+  midis2jam2.
+- **No words**: the monks never sing lyrics.
+- **No recording**: midis2jam2's video recording works as before but leaves
+  the sung channels and the monks out.
+- **Windows x64 only** (see [Linux and macOS](#linux-and-macos)).
 
 ## Licensing
 

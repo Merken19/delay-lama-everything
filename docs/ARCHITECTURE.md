@@ -1,9 +1,8 @@
 # Architecture
 
-How the parts fit, following [DECISIONS.md](DECISIONS.md). File references
-are relative to `external/midis2jam2/app/src/` (Kotlin, `cm` = commonMain,
-`dm` = desktopMain) or `external/delalalalay-lama/` (C/C++). More detail is
-in [CODEBASE_NOTES.md](CODEBASE_NOTES.md).
+How the parts fit together. File references are relative to
+`external/midis2jam2/app/src/` (Kotlin, `cm` = commonMain, `dm` =
+desktopMain) or `external/delalalalay-lama/` (C/C++).
 
 ## Components
 
@@ -22,29 +21,36 @@ adds the following (`dm/.../delaylama/` and `dm/.../ui/home/delaylama/`):
   the programs (named by the file's GM/GS/XG/GM2 mode), note range, most
   notes at once and note count. Each channel has a switch, the choir size
   (1–8), the imitation (auto, plain, or any profile) and a level in dB. A new
-  channel starts on (D45), so a file sings every channel it can until the
+  channel starts on, so a file sings every channel it can until the
   user switches some off. A file played from the command line without the
   environment variable sings the same: its remembered choices, else these
-  starting ones (`DelayLamaStore.rememberedConfig`). Below the channels are the options for every
-  file: balance, offset, imitation strength, where the monks are shown (in
-  the scene, their windows, or both; D67), keep the 3D instruments, and the
-  paths of the helper, the standalone and `imitation.json`, each showing the
+  starting ones (`DelayLamaStore.rememberedConfig`). Below the channels
+  are the options for every file: balance, offset, imitation strength, where
+  the monks are shown (in the scene, their windows, or both), the choirs'
+  spread, camera focus, keep the 3D instruments, and the paths of the helper, the standalone and `imitation.json`, each showing the
   file found.
 - `DelayLamaPanelModel` (a Koin single) holds the state. `select(file)`
   reads the channels off the UI thread and restores the file's remembered
   choices. Every change is saved at once in `DelayLamaStore`, a preferences
   node of its own: the options as JSON, and each file's `FileChoices` under
-  the SHA-256 of its contents (O12).
+  the SHA-256 of its contents.
 - Play hands the panel's `DelayLamaConfig` to the performance
   (`ExecutionState.delayLama`, `PerformanceConfigFactory.create`).
   Per-channel settings are in `DelayLamaConfig.options` (choir, gain,
-  profile). D44 says where choices come from in each kind of start.
+  profile). Where the choices come from: a home-tab play uses the panel
+  (the environment variable is ignored); the command line uses
+  `MIDIS2JAM2_DELAY_LAMA` if set, else the panel's remembered choices; the
+  queue, recordings and the Gradle tools use the variable. Choir, level and
+  imitation are per channel; balance, offset, exaggeration, `keep3d` and the
+  three paths apply to every file.
 - **Add Delay Lama** (`StandaloneLauncher`) starts one more
   `DelayLamaStandalone.exe` in its own folder (beside its `Resources/`). It
   looks at the options' path, then next to the app, next to the helper, and
-  in a development checkout. The standalone is not tied to the file (D7) and
+  in a development checkout. The standalone is not tied to the file and
   outlives the app.
-- The panel's words are English only (`DelayLamaText`, D43).
+- The panel's words are English only (`DelayLamaText`): midis2jam2's
+  `LocalizationTest` requires every string in `strings.xml` in all its
+  locales.
 
 ### 2. midis2jam2 renderer (jMonkeyEngine)
 
@@ -65,13 +71,13 @@ Delay Lama hooks in there:
     the selection) and puts it back to 2 on a GM, GM2, GS or XG reset.
   - It tracks bank select, so `program` carries `msb × 128 + lsb`.
   - It passes every CC on as `cc` and drops aftertouch.
-  - In **profile mode** (the default, D41) it sends, once the helper is up,
+  - In **profile mode** (the default) it sends, once the helper is up,
     `set articulator 1`, `exaggerate`, the staged profile of the channel's
     program and bank (`ImitationProfiles`, the Kotlin port of
     `tools/profiles/expand.py`) and `set range.shift`, the channel's octave
-    fit (D37). It sends them again at a program change or reset that maps to
+    fit (high parts fold down by octaves, IMITATION.md §7.1). It sends them again at a program change or reset that maps to
     another profile. Each `on` carries the note's length in the file
-    (`ChannelScore`). `profile=plain` sends phase 2's lines.
+    (`ChannelScore`). `profile=plain` sends the plain-mode lines instead.
 
   A channel whose helper can't start plays on the device instead.
 - **`VoiceHelperManager`** finds `DelayLamaVoice.exe` (the config's `exe`,
@@ -79,11 +85,13 @@ Delay Lama hooks in there:
   `external` folder above the working directory). It starts one helper per
   channel when the ports open, with `--monks`, a title, a `--label` naming
   the channel's instruments (`ChannelSurvey.instrumentNames`), and a place
-  from `MonkWindowLayout` (D57). The ports close when the performance ends,
+  from `MonkWindowLayout` (columns on the main screen's work area,
+  all shrinking alike, down to 35 %, when they don't fit across, leaving
+  the mixer's width free). The ports close when the performance ends,
   which sends `quit` and closes stdin. A helper still running 2 s later is
   killed, and a shutdown hook closes any left over.
 - **`VoiceHelperProcess`** (`VoiceHelper.kt`) speaks to one helper. A writer
-  thread holds each line back by the offset (D30) and writes it. The
+  thread holds each line back by the offset ("Timing and latency") and writes it. The
   helper's stdout and stderr go to the log (`frames` lines only the first
   and every 200th, with a count when the helper ends), and stdout is read
   without pause, so the helper never blocks on a full pipe.
@@ -91,23 +99,25 @@ Delay Lama hooks in there:
   exists. Their windows are always on top and open without taking the focus.
   They stay above windowed and borderless performances. A real fullscreen
   window is topmost too and covers them, so while a channel is sung,
-  Fullscreen opens as borderless on Windows (D47; `effectiveWindowMode`,
+  Fullscreen opens as borderless on Windows (`effectiveWindowMode`,
   `cm/.../starter/WindowModes.kt`).
-- **Monks in the scene** (D66–D68; `monk-sprites` branch). With the view in
+- **Monks in the scene**. With the view in
   the scene or both (`DelayLamaConfig.view`, default scene) and the
   instruments hidden, a live performance's `VoiceHelperManager`
   (`hasScene`, set by `MidiPackage`) puts the monks in the 3D scene if it
   can: the helper's `--help` lists `--hidden` (asked once per exe) and
   `Resources/faces.png` is beside it. Each helper then gets `set
-  report.frames 1` and `set report.pitches 1` (D71) after `hello`, and in
+  report.frames 1` and `set report.pitches 1` after `hello`, and in
   the scene view starts with `--hidden`. Its `frames` and `pitches` lines
   go into the channel's `MonkFrames` (read on the render thread); an older
-  helper's `error` for `report.pitches` changes nothing but the nod. A channel shows its window instead (the router sends
+  helper's `error` for `report.pitches` changes nothing but the nod. A
+  channel shows its window instead (the router sends
   `set window.visible 1`, at once) when its helper answers that line with an
   `error` naming `report.frames`, reports nothing within 5 s, or
   `faces.png` can't be read; without the helper support or `faces.png`,
   every channel stays in its window, as do the windows view, `keep3d`, the
-  tools and the tests. Recordings get no monks (D6).
+  tools and the tests. Recordings get no monks: midis2jam2's video recording is unchanged and
+  leaves the sung channels out.
   - `MonkScene` (dm) is the performance's `MonkStage` (cm): which channels
     stand in the scene, and whether one is shown now (its frames come and
     its switch is on). `InstrumentAssignment` then builds those channels'
@@ -123,7 +133,7 @@ Delay Lama hooks in there:
     played last (`SungChannel.standingAt`: the latest note start), while
     that instrument would be on stage ignoring its gate
     (`Instrument.wouldBeVisible`). The choir stands on the stage floor
-    (D69; `MonkFloor`: y 0, a disc of radius 140 inside the wall, measured
+    (`MonkFloor`: y 0, a disc of radius 140 inside the wall, measured
     from the stage model) below the middle of the instrument at rest
     (`ownRestingBox`), brought towards the middle of the stage until all of
     its footprint, facing the audience, is on the floor, and stepped towards
@@ -132,14 +142,14 @@ Delay Lama hooks in there:
     and the choirs of other channels placed before it (`MonkFloorPlan`). The place is
     kept in the instrument root's own space, so the choir slides across the
     floor as the instrument would; a slide up or down leaves it on the
-    floor. A monk is 48 units high, a choir at most 208 wide (`MonkSize`;
-    the user's size, D69). The performance's spread (D70; `MonkStage.spread`,
+    floor. A monk is 48 units high, a choir at most 208 wide (`MonkSize`).
+    The performance's spread (`MonkStage.spread`,
     read every frame: the mixer's slider, else the config's) then moves it
     from that floor place towards the back and sides in a fan, in channel
     order, and up in two alternating tiers (`MonkSpread.place`, given to
     each `SungInstrument` by `InstrumentAssignment`); never lower than on
     the floor.
-  - Each monk nods (D71, `MonkNod`, one per monk): it rises above its place
+  - Each monk nods (`MonkNod`, one per monk): it rises above its place
     in the choir while the note it sings (`MonkFrames.pitches`) is away from
     where its pitch has settled (a follower with a 0.3 s time constant), by
     up to 12 % of its height (`tanh` of the distance over 3 semitones,
@@ -156,14 +166,15 @@ Delay Lama hooks in there:
     instrument only while the instrument itself is on stage
     (`isAllowedOnStage`): they are set for where the instrument floats.
 - **Hidden instruments**: `InstrumentAssignment.assign` skips sung channels
-  unless `keep3d` is set (O7). With a mixer, or monks in the scene, it builds
+  unless `keep3d` is set. With a mixer, or monks in the scene, it builds
   them anyway, kept off stage by `Instrument.stageGate` (the switch, below).
 - **Config**: `DelayLamaConfig` (`cm/.../starter/configuration/`) in
   `PerformanceConfig.delayLama`. The panel makes it for home-tab plays. For
   the command line, the queue and the tools, `PerformanceConfigFactory` reads
   the `MIDIS2JAM2_DELAY_LAMA` environment variable or the
-  `midis2jam2.delayLama` system property (D44; syntax in CLAUDE.md).
-- **Mixer** (D58). A launcher performance with sung channels opens
+  `midis2jam2.delayLama` system property (settings in README.md,
+  "Command-line settings").
+- **Mixer**. A single-file performance with sung channels opens
   `DelayLamaMixerWindow` (Compose, always on top, at the right of the main
   screen; `MidiPackage.build(showMixer = true)` from `ApplicationService`
   only). `DelayLamaMixer` holds a strip per channel the file plays, with
@@ -172,7 +183,7 @@ Delay Lama hooks in there:
   gain × level). Any other channel's level scales its CC 7 by the square
   root, and is reapplied after a system reset. The window closes when the
   routers close.
-- **Delay Lama switches** (D60). Each sung channel's strip in the mixer has
+- **Delay Lama switches**. Each sung channel's strip in the mixer has
   a switch that chooses who plays that channel: its monks (on, at start) or
   the synthesizer (off), never both. The card at the top counts how many are
   on, with a button that switches them all off (when all are on) or all on.
@@ -197,12 +208,14 @@ Delay Lama hooks in there:
   cameras skip them). Their rhythm notes stay off stage, because the drum set
   is shared. Without a mixer (queue, tools, recordings) sung channels never
   reach the synthesizer.
-- **Balance** (D34, D36). While any channel is sung, every Gervill plays
+- **Balance**. While any channel is sung, every Gervill plays
   `balance` dB quieter (default 6), through the master gain of its Java Sound
   line (`dm/domain/LineGain.kt`, set from `VoiceHelperManager.balance` before
-  the ports open). The gain comes after Gervill's limiter and outside MIDI.
-  Other MIDI devices get no balance.
-- **Camera focus** (D72; `camera-focus` branch). While it is on, the
+  the ports open). The gain comes after Gervill's limiter and outside MIDI,
+  so resets, seeks and master volume messages can't undo it. It puts the
+  monks 6 dB louder against the band than plain playback had them; the
+  whole mix is about 4.4 dB quieter. Other MIDI devices get no balance.
+- **Camera focus**. While it is on, the
   channels the camera is close to and looks at get louder and the rest
   quieter. `MidiPackage` makes one `ChannelFocus` whenever Delay Lama
   sings, on or off as the config says (`focus`; the panel's option, the
@@ -231,45 +244,50 @@ A Win32 console program, a CMake target beside the standalone in
 `external/delalalalay-lama/Windows/` (`voice_*`). It reuses `DSP/`, the WinMM
 player (`Windows/audio_engine.h`), the face artwork and the monk frame logic.
 
-- **One process per sung channel** (D1). It hosts up to *K* monk synths (the
-  choir, D3), mixes them into **one** waveOut stream, and shows them side by
-  side in one window (O4).
+- **One process per sung channel**. It hosts up to *K* monk synths (the
+  choir: each simultaneous note goes to another monk), mixes them into
+  **one** waveOut stream, and shows them side by side in one window.
 - **Voice allocator** (plain mode): a note goes to the lowest-numbered
-  silent monk. When none is free it steals per O3 and D11, taking
-  pedal-held notes first, and the stolen monk glides. Choir size is
+  silent monk. When none is free it takes the monk released longest
+  ago, or else steals the oldest note, never the current highest or lowest,
+  taking notes held only by the pedal first; the stolen monk glides. CC 1,
+  5, 12 and 13 are not routed to the DSP. Choir size is
   `--monks` 1–8 (default 4).
-- **Levels**: velocity, CC7 and CC11 on the GM curve times `gain` (D8). A
-  released monk only gets quieter (D27). Profile mode uses the moderate
-  velocity curve (D21) and 4× headroom (D35).
+- **Levels**: velocity, CC7 and CC11 on the GM curve (squared) times `gain`;
+  the default volume is 0.09, so four monks at full velocity and CC7 127
+  stay just under full scale. A released monk only gets quieter, since the
+  DSP still plays its last grains after a note-off. Profile mode uses the
+  moderate velocity curve ((velocity/127)^1) and 4× headroom: each synth's
+  DSP volume is raised up to 4× and the articulator's levels lowered by the
+  same factor.
 - **Articulator** (`Windows/voice_articulator.*`, profile mode): applies the
   channel's profile to each note ([IMITATION.md](IMITATION.md)). The choir
   renders 1 ms sub-blocks and the articulator sets every monk's values
-  between them (D20). It allocates voices itself (connected notes stay on
+  between them. It allocates voices itself (connected notes stay on
   one monk) and sings the written pitch plus the router's `range.shift`. The
   DSP envelope and the synths' echo are off, and one echo runs on the mix.
-  In profile mode the mouth follows the vowel and shows closed lips (D16).
+  In profile mode the mouth follows the vowel and shows closed lips.
 - **Window**: frameless or titled, always on top, opened without taking the
   focus. The geometry comes from `--x --y --width --height` (client area,
   physical pixels). Other options: `--no-topmost`, `--no-title-bar`,
-  `--title` and `--label` (a strip under the monks naming the instrument,
-  D57). `set window.visible` hides and shows it, and `--hidden` opens it
-  hidden. Today closing the window ends the helper; D10 changes that to
-  hiding it, shown again from the mixer (not built yet).
-- **Frame reports** (D68, branch `monk-sprites`): the frames the window
+  `--title` and `--label` (a strip under the monks naming the instrument). `set window.visible` hides and shows it, and `--hidden` opens it
+  hidden. Closing the window ends the helper.
+- **Frame reports**: the frames the window
   draws come from `ChoirFrames` (`Windows/voice_frames.*`, in the core
   library), updated on the window's 30 ms timer whether it is shown or
   hidden. With `set report.frames 1` the window thread prints a `frames`
   line when a frame changes; the command reader posts it a message so the
   first line comes at once, and every `set report.frames 1` gets a full
-  line (a resync). Pitch reports (D71) go the same way: with `set
+  line (a resync). Pitch reports go the same way: with `set
   report.pitches 1` the same tick prints a `pitches` line when a monk starts
   or stops singing or its sung note (`Choir::monk_sung_note`: the DSP's
   glided pitch plus bend, without vibrato) moves 0.05 semitone from the last
   line's. All stdout goes through one lock (`reply` in
   `voice_main.cpp`), so lines are whole. `--render` accepts the key and
   prints nothing.
-- It runs at above-normal priority with power throttling off (D59), and
-  opens no MIDI inputs: it only listens to its pipe.
+- It runs at above-normal priority with power throttling off, so its audio
+  keeps up when its window is covered or off screen, and opens no MIDI
+  inputs: it only listens to its pipe.
 - `--render <in> <out.wav>` renders a command script offline with no audio
   device. Commands take effect at the exact sample the `wait`s reach, so the
   output depends only on the script and options. CTest and the ear-check
@@ -278,8 +296,7 @@ player (`Windows/audio_engine.h`), the face artwork and the monk frame logic.
 ### 4. DelayLamaStandalone.exe (existing, unchanged)
 
 Add Delay Lama starts it with no arguments. Instances share
-`%APPDATA%\DelayLamaStandalone\settings.ini`, and each opens every MIDI input
-(O13: left as is).
+`%APPDATA%\DelayLamaStandalone\settings.ini`, and each opens every MIDI input.
 
 ## Pipe protocol (version 1)
 
@@ -333,14 +350,12 @@ work in both. Keys added since the version's first release (`onset.bandwidth`,
 `window.visible`) are additive: an older helper answers `error` and plays
 on.
 
-`set report.frames` (0/1; both modes; D68, on the `monk-sprites`
-branches) turns the frame reports on or off. On, the helper
+`set report.frames` (0/1; both modes) turns the frame reports on or off. On, the helper
 prints one `frames` line at once and then one whenever any monk's frame
 changes on the window's animation tick (30 ms), whether the window is shown
 or hidden. Like the other later keys it is additive.
 
-`set report.pitches` (0/1; both modes; D71, on the `monk-sprites`
-branches) turns the pitch reports on or off. On, the helper prints one
+`set report.pitches` (0/1; both modes) turns the pitch reports on or off. On, the helper prints one
 `pitches` line at once and then one on the animation tick whenever a monk
 starts or stops singing or its sung note has moved 0.05 semitone from the
 last line's. Additive too: an older helper answers `error`.
@@ -360,14 +375,14 @@ pitches <p0> ... <pK-1>      with report.pitches on: the note each monk's synth 
 
 A frame index is the one the window draws: `faces.png` is 5 columns × 6
 rows, column-major (frame = column × 6 + row), each cell 314 × 311 px
-holding a 311 × 291-px frame at its top left (CODEBASE_NOTES.md "Monk artwork").
+holding a 311 × 291-px frame at its top left.
 Lines on stdout are whole: `ready`, `error`, `frames` and `pitches` never
 interleave.
 The helper option `--hidden` opens the window hidden, as if `set
 window.visible 0` had come first.
 
-The helper exits on `quit` or at the end of stdin (today also when its
-window is closed, D10). Exit codes: 0 normal, 1 startup failure (an `error`
+The helper exits on `quit` or at the end of stdin (and when its window is
+closed). Exit codes: 0 normal, 1 startup failure (an `error`
 line says which), 2 bad command line or an unsupported `hello` version.
 
 ## Timing and latency
@@ -378,11 +393,12 @@ line says which), 2 bad command line or an unsupported `hello` version.
 - **Measured** on a loopback recording of the system mix: a helper sounds
   **169 ms before** Gervill (Gervill reports 120 ms; its Java sound line adds
   the rest). The default offset is therefore **175 ms on Gervill** and 0 on
-  other devices (D30). The router delays every helper line by it, stop and
+  other devices. The router delays every helper line by it, stop and
   seek included. To measure again, run `./gradlew :app:delayLamaLatency
   [-PdelayLamaLatency=<offset>]` while recording the output: each woodblock is
   followed 500 ms later by a monk note.
 - Seek: midis2jam2 sends note-offs, then *chases* CCs, programs and pitch
   bend up to the new position (`JwSequencerImpl.chaseEvents`), and the router
   passes the chased values on. RPNs and NRPNs are rebuilt as number then data
-  (`cm/.../midi/system/ParameterChase.kt`, D31).
+  (`cm/.../midi/system/ParameterChase.kt`), so the bend range survives a
+  seek.
