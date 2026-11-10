@@ -48,6 +48,10 @@ ARCHITECTURE.md and IMITATION.md give the current behaviour and its reasons.
   `tools/profiles/expand.py` turns one into the helper's `set` lines.
 - `renders/`: WAV renders and listening sets, and the profile tuning tools
   (`renders/phase4c/`, IMITATION.md §15).
+- `bundle/`: what the package ships beside the app (a soundfont, a cube map,
+  songs, their licenses and `NOTICE.txt`). Git-ignored but for its
+  `README.md` and `NOTICE.txt`; keep the NOTICE true to the files. The app
+  side is `DelayLamaBundle` (catalogue entry `delaylama.package.bundle`).
 - `tests/midi/`: test files (`tools/testmidi/make_test_midis.py`), with
   `PLAY_CHECK.md`, a manual play check.
 - `tools/package/`: the Windows package script and its check. Output goes

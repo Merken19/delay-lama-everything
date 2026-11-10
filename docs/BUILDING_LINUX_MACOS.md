@@ -138,7 +138,9 @@ change `locateHelper` and `EXE_NAME` in
 `app/src/desktopMain/kotlin/org/wysko/midis2jam2/delaylama/VoiceHelperManager.kt`,
 and `locate` in `StandaloneLauncher.kt` beside it for the standalone. The
 packaged lookup uses the jpackage launcher's folder (`DelayLamaInstall.kt`);
-inside a macOS `.app` that is likely `Contents/MacOS`.
+inside a macOS `.app` that is likely `Contents/MacOS`. The package bundle
+(`DelayLamaBundle.kt`: `soundfonts/`, `backgrounds/`, `midi/`) is read from
+that same folder.
 
 ## The macOS standalone
 

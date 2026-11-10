@@ -7,9 +7,10 @@
     external\midis2jam2 as it is checked out), then adds next to its midis2jam2.exe:
     DelayLamaVoice.exe, DelayLamaStandalone.exe and their Resources\ (copied from
     external\delalalalay-lama\Windows\build\Release\, built beforehand unless -BuildDelayLama),
-    profiles\imitation.json, the license notices and the source of our midis2jam2 changes.
-    The launcher finds the three Delay Lama files next to itself (catalogue entry
-    delaylama.package.locate). See tools\package\README.md.
+    profiles\imitation.json, the license notices and the source of our midis2jam2 changes, plus the bundle
+    (soundfonts, cube maps and songs from bundle\ unless -NoBundle). The launcher finds the three Delay Lama files
+    next to itself (catalogue entry delaylama.package.locate) and uses the bundle on its first start
+    (delaylama.package.bundle). See tools\package\README.md.
 
 .EXAMPLE
     .\tools\package\make_package.ps1
@@ -30,7 +31,11 @@ param(
     # Also build external\delalalalay-lama with CMake first (off by default: another session may own that build).
     [switch]$BuildDelayLama,
     # Leave the folder in dist\ but don't zip it.
-    [switch]$NoZip
+    [switch]$NoZip,
+    # The extras to ship: soundfonts\, backgrounds\<cube map>\, midi\, licenses\ and NOTICE.txt. Default: bundle\.
+    [string]$Bundle,
+    # Ship without the bundle.
+    [switch]$NoBundle
 )
 
 $ErrorActionPreference = 'Stop'
@@ -42,6 +47,7 @@ $Dl = Join-Path $Root 'external\delalalalay-lama'
 $Release = Join-Path $Dl 'Windows\build\Release'
 $Image = Join-Path $M2j 'app\build\compose\binaries\main\app\midis2jam2'
 if (-not $OutDir) { $OutDir = Join-Path $Root 'dist' }
+if (-not $Bundle) { $Bundle = Join-Path $Root 'bundle' }
 $PackageName = 'DelayLamaEverything'
 $Stage = Join-Path $OutDir $PackageName
 $Zip = Join-Path $OutDir "$PackageName-$Version-windows-x64.zip"
@@ -130,6 +136,34 @@ Copy-Item (Join-Path $Dl 'MONKSYNTH-LICENSE.txt') (Join-Path $licenses 'MonkSynt
 $notices = Join-Path $M2j 'app\src\commonMain\composeResources\files\THIRD-PARTY-NOTICES.txt'
 if (Test-Path $notices) { Copy-Item $notices (Join-Path $licenses 'midis2jam2-THIRD-PARTY-NOTICES.txt') }
 
+# The bundle: soundfonts, cube maps and songs the app picks up on its first start (DelayLamaBundle).
+$bundleNotice = ''
+$bundleReadme = ''
+if (-not $NoBundle) {
+    Step "Adding the bundle from $Bundle"
+    if (-not (Test-Path $Bundle)) { throw "No bundle folder at $Bundle (pass -Bundle, or -NoBundle)" }
+    $shipped = @()
+    foreach ($part in 'soundfonts', 'backgrounds', 'midi') {
+        $from = Join-Path $Bundle $part
+        if (-not (Test-Path $from)) { continue }
+        Copy-Item -LiteralPath $from -Destination (Join-Path $Stage $part) -Recurse
+        $shipped += $part
+    }
+    if (Test-Path (Join-Path $Bundle 'licenses')) {
+        Copy-Item -Path (Join-Path $Bundle 'licenses\*') -Destination $licenses -Recurse
+    }
+    if (-not $shipped) { throw "The bundle at $Bundle has no soundfonts\, backgrounds\ or midi\ (pass -NoBundle to ship without)" }
+    $noticeFile = Join-Path $Bundle 'NOTICE.txt'
+    if (-not (Test-Path $noticeFile)) { throw "The bundle at $Bundle has no NOTICE.txt saying whose its files are" }
+    $bundleNotice = "`n" + [IO.File]::ReadAllText($noticeFile).TrimEnd()
+    $bundleReadme = "`n" + [IO.File]::ReadAllText((Join-Path $PSScriptRoot 'package-README-bundle.txt')).TrimEnd() + "`n"
+    $sizes = foreach ($part in $shipped) {
+        $mb = (Get-ChildItem -LiteralPath (Join-Path $Stage $part) -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
+        '{0} {1:N0} MB' -f $part, $mb
+    }
+    Write-Host "  $($sizes -join ', ')"
+}
+
 # --- 3. Source of our midis2jam2 changes (GPL-3.0) ------------------------------------------------
 
 Step 'Writing the source of the midis2jam2 changes'
@@ -163,6 +197,7 @@ $fill = @{
     '{{VERSION}}' = $Version; '{{BUILT}}' = $built
     '{{M2J_BASE}}' = $base; '{{M2J_BRANCH}}' = $branch; '{{M2J_STATE}}' = $state
     '{{DL_BRANCH}}' = $dlBranch; '{{DL_STATE}}' = $dlState
+    '{{BUNDLE_NOTICE}}' = $bundleNotice; '{{BUNDLE_README}}' = $bundleReadme
 }
 foreach ($name in 'README.txt', 'NOTICE.txt') {
     $text = [IO.File]::ReadAllText((Join-Path $templates "package-$name"))

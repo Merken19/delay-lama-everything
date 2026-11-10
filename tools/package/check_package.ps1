@@ -53,6 +53,21 @@ foreach ($f in 'midis2jam2.exe', 'runtime\bin\java.exe', 'DelayLamaVoice.exe', '
         'licenses\delalalalay-lama-MIT.txt', 'licenses\MonkSynth-MIT.txt', 'source\midis2jam2-delay-lama.patch') {
     Check (Test-Path (Join-Path $pkg $f)) "has $f"
 }
+# The bundle (DelayLamaBundle), when the package ships one.
+$soundfonts = @(Get-ChildItem (Join-Path $pkg 'soundfonts') -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.sf2', '.dls' })
+$cubeMaps = @(Get-ChildItem (Join-Path $pkg 'backgrounds') -Directory -ErrorAction SilentlyContinue | Where-Object {
+        $names = @(Get-ChildItem $_.FullName -File | ForEach-Object { $_.BaseName.ToLower() })
+        @('north', 'east', 'south', 'west', 'up', 'down' | Where-Object { $_ -notin $names }).Count -eq 0
+    })
+$songs = @(Get-ChildItem (Join-Path $pkg 'midi') -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.mid', '.midi', '.kar' })
+$hasBundle = ($soundfonts.Count + $cubeMaps.Count + $songs.Count) -gt 0
+if ($hasBundle) {
+    Write-Host ('  bundle: {0} soundfont(s), {1} cube map(s), {2} song(s)' -f $soundfonts.Count, $cubeMaps.Count, $songs.Count)
+    $notice = [IO.File]::ReadAllText((Join-Path $pkg 'NOTICE.txt'))
+    Check ($notice -match 'Bundled extras') 'NOTICE.txt says whose the bundled files are'
+} else {
+    Write-Host '  no bundle (soundfonts\, backgrounds\, midi\)'
+}
 
 Write-Host '== Starting the launcher (from a folder outside the package)'
 $err = Join-Path $work 'launcher.err.log'
@@ -86,6 +101,18 @@ if ($line) {
         Check ($m.Groups['helper'].Value -ieq (Join-Path $full 'DelayLamaVoice.exe')) 'helper is the packaged DelayLamaVoice.exe'
         Check ($m.Groups['standalone'].Value -ieq (Join-Path $full 'DelayLamaStandalone.exe')) 'standalone is the packaged DelayLamaStandalone.exe'
         Check ($m.Groups['profiles'].Value -ieq (Join-Path $full 'profiles\imitation.json')) 'profiles are the packaged imitation.json'
+    }
+}
+if ($hasBundle) {
+    $bundleLine = Get-Content $err -ErrorAction SilentlyContinue | Where-Object { $_ -match 'Delay Lama: package bundle in' } |
+        Select-Object -First 1
+    Check ([bool]$bundleLine) 'the launcher reads the bundle'
+    if ($bundleLine) {
+        Write-Host "  $bundleLine"
+        $full = (Resolve-Path $pkg).Path.TrimEnd('')
+        Check ($bundleLine.Contains("package bundle in $full")) 'the bundle is the package''s own'
+        foreach ($sf in $soundfonts) { Check ($bundleLine.Contains($sf.Name)) "the launcher found soundfont $($sf.Name)" }
+        foreach ($cm in $cubeMaps) { Check ($bundleLine -match "cube maps \[([^\]]*, )?$([regex]::Escape($cm.Name))(,|\])") "the launcher found cube map $($cm.Name)" }
     }
 }
 $errors = @(Get-Content $err -ErrorAction SilentlyContinue | Where-Object { $_ -match ' ERROR ' })

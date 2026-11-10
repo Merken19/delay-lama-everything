@@ -6,3 +6,9 @@
 
 # Python bytecode.
 __pycache__/
+
+# The package's bundled extras (soundfonts, cube maps, songs): large and third-party.
+# Only the folder's README and NOTICE are tracked; see bundle/README.md.
+/bundle/*
+!/bundle/README.md
+!/bundle/NOTICE.txt

@@ -1,0 +1,14 @@
+4. Bundled extras (soundfonts\, backgrounds\, midi\)
+----------------------------------------------------
+
+These are not part of midis2jam2 or Delay Lama; they are included so the
+package plays well out of the box.
+
+Timbres of Heaven (XGM) 4.00(G) (soundfonts\) is by Don Allen and others,
+licensed under the GNU General Public License, version 2:
+licenses\Timbres-of-Heaven-GPL-2.0.txt. Its patch list and changelog are next
+to it.
+
+The cube map images (backgrounds\tibet\) and the MIDI files (midi\) are
+third-party works and belong to their authors. The MIDI files' drum notes
+were remapped to General MIDI with Delay Lama Everything's drum fix tool.

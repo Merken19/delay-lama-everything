@@ -28,7 +28,7 @@ Run
 midis2jam2 finds DelayLamaVoice.exe, DelayLamaStandalone.exe and
 profiles\imitation.json next to midis2jam2.exe. The panel's options can point
 to other copies instead.
-
+{{BUNDLE_README}}
 Nothing is installed: delete the folder to remove it. midis2jam2 keeps its
 settings in your user profile; the standalone keeps its own in
 %APPDATA%\DelayLamaStandalone\settings.ini.
@@ -43,6 +43,9 @@ Resources\                       AudioNerdz' Delay Lama artwork and manual
 profiles\imitation.json          how the monks imitate each instrument
 licenses\, NOTICE.txt            licenses and where the source code is
 source\                          our changes to midis2jam2, as a patch
+soundfonts\                      the bundled soundfont (if any)
+backgrounds\                     the bundled cube map (if any)
+midi\                            songs to try (if any)
 
 Requirements: Windows 10 or 11, 64-bit, OpenGL graphics.
 

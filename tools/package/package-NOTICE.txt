@@ -1,7 +1,7 @@
 Delay Lama Everything {{VERSION}}: notices
 =========================================
 
-This package combines three works under different terms. Delay Lama
+This package combines several works under different terms. Delay Lama
 Everything is not affiliated with or endorsed by AudioNerdz or the authors of
 midis2jam2.
 
@@ -48,3 +48,4 @@ file in Resources\ with any copy of this package.
 
 The imitation profiles (profiles\imitation.json) are Delay Lama
 Everything's own data, read by the modified midis2jam2.
+{{BUNDLE_NOTICE}}

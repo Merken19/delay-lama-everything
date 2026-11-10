@@ -9,7 +9,8 @@ zipped, that runs without this source tree.
 ```
 
 Output: `dist\DelayLamaEverything\` and
-`dist\DelayLamaEverything-<date>-windows-x64.zip` (about 190 MB; `dist/` is
+`dist\DelayLamaEverything-<date>-windows-x64.zip` (about 190 MB without the
+bundle; with the current one, a 420 MB soundfont, about 530 MB; `dist/` is
 git-ignored).
 
 ## What it does
@@ -35,7 +36,13 @@ git-ignored).
    checkout against upstream (`git merge-base HEAD origin/master`), committed
    or not, new files included. `NOTICE.txt` names the upstream commit, so the
    two make the GPL source.
-6. Zips the folder (`DelayLamaEverything\` at the zip's top).
+6. Copies the bundle (`bundle\` at the top, or `-Bundle <folder>`):
+   `soundfonts\`, `backgrounds\` and `midi\` next to `midis2jam2.exe`, its
+   `licenses\` into the package's, and appends its `NOTICE.txt` to the
+   package's and `package-README-bundle.txt` to the README. It refuses a
+   bundle without a `NOTICE.txt`. `-NoBundle` leaves it all out. What the
+   app does with it is in [bundle/README.md](../../bundle/README.md).
+7. Zips the folder (`DelayLamaEverything\` at the zip's top).
 
 midis2jam2 finds the three Delay Lama files next to `midis2jam2.exe`: the
 jpackage launcher sets `jpackage.app-path`, and `DelayLamaInstall` turns it into
@@ -53,6 +60,8 @@ the app folder the locators look in first, after the panel's own paths
 | `-SkipBuild` | off | reuse the app image already built |
 | `-BuildDelayLama` | off | build delalalalay-lama with CMake first |
 | `-NoZip` | off | stop after the folder |
+| `-Bundle` | `bundle` | the soundfonts, cube maps and songs to ship |
+| `-NoBundle` | off | ship without them |
 
 ## The check
 
@@ -65,6 +74,12 @@ temp folder, then from a folder outside the package:
   and stops it. The launcher opens its window for a few seconds; nothing is
   clicked or typed. Paths set in the panel's options would override the
   package's and fail this check;
+- when the package ships a bundle, checks `NOTICE.txt` covers it and the
+  launcher's `Delay Lama: package bundle in ...` log line names the
+  package's folder, each soundfont and each complete cube map. Starting the
+  launcher applies the bundle to this Windows user's settings like any first
+  start would (`DelayLamaBundle`), so on a machine whose settings already
+  have a soundfont and background it changes nothing visible;
 - runs the packaged `DelayLamaVoice.exe --render` on
   `external\delalalalay-lama\Tests\voice_scripts\chord.txt` and checks the WAV.
 

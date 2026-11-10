@@ -162,6 +162,7 @@ Details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 | `docs/BUILDING_LINUX_MACOS.md` | Notes on building on Linux and macOS |
 | `profiles/imitation.json` | The imitation profiles and the program map |
 | `tests/midi/` | Test MIDI files and a manual play check |
+| `bundle/` | The soundfont, cube map and songs the package ships (git-ignored but for its README and NOTICE) |
 | `renders/` | WAV renders, listening sets and the profile tuning tools |
 | `tools/` | Package script, profile expander, test-file generator, GP7 drum fixer, listening website |
 | `external/midis2jam2/` | Clone of the midis2jam2 fork (GPL-3.0), branch `delay-lama` |
@@ -277,7 +278,13 @@ From the top folder, with the same `JAVA_HOME` and `ANDROID_HOME`:
 
 It writes `dist\DelayLamaEverything\` and
 `dist\DelayLamaEverything-<date>-windows-x64.zip`, which runs without the
-source tree and brings its own Java runtime. Options are in
+source tree and brings its own Java runtime. It also ships what is in
+`bundle/`: a soundfont, a cube map background and songs to try. On its first
+start for a user, the packaged app selects that soundfont and cube map
+(unless the user already chose others) and its MIDI picker opens in the
+songs; [bundle/README.md](bundle/README.md) has the layout and the rules.
+The bundle's files are git-ignored, so a fresh clone fills `bundle/` itself
+or packages with `-NoBundle`. Options are in
 [tools/package/README.md](tools/package/README.md).
 
 ### Linux and macOS
