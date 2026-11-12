@@ -71,11 +71,18 @@ midis2jam2's own sound, hides its monks and puts its 3D instrument back on
 stage, all at once and mid-note too. A sung channel that is muted, or left
 out while another channel is soloed, hides its monks (in the scene and in
 their window) without bringing its instrument on stage; they come back as
-soon as it is heard again. A card at the top counts the channels
+soon as it is heard again. With the monks in the scene, a sung channel's
+strip also has an **F** button: it brings that channel's choir to the front
+of the stage, standing on the floor in the middle of the opening camera's
+picture, whatever the spread, and pressed again sends it back where the
+spread puts it. Several choirs at the front stand side by side in channel
+order; a row too wide for the opening camera's picture steps back until it
+fits, no further than the middle of the stage. A card at the top counts the channels
 switched on, with one button for all off or all on. The mixer also has the
 spread slider, the camera focus switch and the focus strength slider below
-it, which work at once and are kept as the panel's. The levels and switches are not remembered: each play starts
-with every sung channel on.
+it, which work at once and are kept as the panel's. The levels, switches and
+F buttons are not remembered: each play starts with every sung channel on and
+none at the front.
 
 ### Camera focus
 

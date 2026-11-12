@@ -224,6 +224,23 @@ Delay Lama hooks in there:
       It is worked out every frame from where the choirs stand at the
       spread, so wider spreads keep the steps. From 1A the choirs at the
       front stand off the sides of the picture or reach past them.
+    - The front of the stage (`MonkFront`). A choir whose channel is
+      brought to the front (the mixer's F button, `DelayLamaMixer.front`,
+      read as `MonkStage.front`) stands there instead of where the spread
+      puts it, at any spread: on the floor, in one row with the others
+      brought there, in channel order, 8 apart, the row centred on 1A's
+      middle (x −2). The row stands at z 20, the furthest forward from which
+      1A shows the feet (114 from it in plan) and a vocal's nodding head;
+      a row wider than 1A's picture there (about 190: four monks, or two
+      choirs of two) steps back until 1A's picture (45° high, 16:9) is as
+      wide at the row's middle, but no further than z 0, the middle of the
+      stage, where a vocal of four still reaches past the sides. Only the
+      choirs shown now count (`MonkScene.front`), so one hidden by its
+      switch, mute or solo leaves no gap. The other choirs stay where they
+      are; the cameras and camera focus take the choir where it stands
+      (`SungInstrument.bounds`). Taken away, it is back at its spread place
+      in the next frame. The scene preview's `scene_<s>s_front_wide.png`
+      and `_front_top.png` show the first sung channel's choir there.
     - A choir travels from the floor to its place in a straight line as the
       spread goes from 0 to 0.5, and stands there at 0.5 (the default,
       `MonkSpread.travel`). From 0.5 to 1 every choir moves further out to
@@ -266,7 +283,11 @@ Delay Lama hooks in there:
   changed. A sung channel's level goes to its helper as `set gain` (panel
   gain × level). Any other channel's level scales its CC 7 by the square
   root, and is reapplied after a system reset. The window closes when the
-  routers close.
+  routers close. With the monks in the scene (`hasScene`), a sung
+  channel's strip has an F button that brings its choir to the front of
+  the stage and back (`DelayLamaMixer.front`, below in "Monks in the
+  scene"); it changes no level, and Reset and the switches leave it as it
+  is.
   - A sung channel the mixer doesn't let be heard (`isHeard`: muted, or
     left out while another channel is soloed) hides its monks
     (`areMonksShown` is false): they leave the scene, where its place is
