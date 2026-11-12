@@ -229,12 +229,11 @@ Delay Lama hooks in there:
       read as `MonkStage.front`) stands there instead of where the spread
       puts it, at any spread: on the floor, in one row with the others
       brought there, in channel order, 8 apart, the row centred on 1A's
-      middle (x −2). The row stands at z 20, the furthest forward from which
-      1A shows the feet (114 from it in plan) and a vocal's nodding head;
-      a row wider than 1A's picture there (about 190: four monks, or two
-      choirs of two) steps back until 1A's picture (45° high, 16:9) is as
-      wide at the row's middle, but no further than z 0, the middle of the
-      stage, where a vocal of four still reaches past the sides. Only the
+      middle (x −2). The row stands at z 60, however wide it is: 106 in
+      front of the drums (the user's choice, 2026-11-12; at z 20, stepping
+      back to z 0 for a wide row, it stood too close to them). 1A, 74 from
+      it in plan, shows the choir down to about its hands, and a wide row
+      reaches past its picture's sides; the cameras can be moved. Only the
       choirs shown now count (`MonkScene.front`), so one hidden by its
       switch, mute or solo leaves no gap. The other choirs stay where they
       are; the cameras and camera focus take the choir where it stands
