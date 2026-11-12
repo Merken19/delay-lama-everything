@@ -120,7 +120,8 @@ Delay Lama hooks in there:
   leaves the sung channels out.
   - `MonkScene` (dm) is the performance's `MonkStage` (cm): which channels
     stand in the scene, and whether one is shown now (its frames come and
-    its switch is on). `InstrumentAssignment` then builds those channels'
+    `DelayLamaMixer.areMonksShown`: its switch is on and the mixer lets it
+    be heard). `InstrumentAssignment` then builds those channels'
     instruments even without a mixer, gated off stage, gives them a
     `standIn`, and lists them per channel as `SungChannel`s with their note
     starts (`PerformanceManager.sungChannels`).
@@ -142,13 +143,74 @@ Delay Lama hooks in there:
     and the choirs of other channels placed before it (`MonkFloorPlan`). The place is
     kept in the instrument root's own space, so the choir slides across the
     floor as the instrument would; a slide up or down leaves it on the
-    floor. A monk is 48 units high, a choir at most 208 wide (`MonkSize`).
-    The performance's spread (`MonkStage.spread`,
+    floor. A monk is 48 units high, a choir at most 208 wide (`MonkSize`);
+    a vocal's are twice that (below).
+  - The vocals. `MidiPackage` (and the scene preview) finds which sung
+    channels carry the song's vocals (`ChannelSurvey.vocals`) and gives
+    them to `MonkScene` (`MonkStage.vocals`). The package's songs, exported
+    from a tab site, name no tracks and give each vocal line whatever
+    program the tab's author chose: a baritone, tenor or alto sax, a
+    clarinet, a trumpet, a flute, a viola, Synth Voice or Lead 6 (voice).
+    So a channel is a vocal when the program that plays most of its notes
+    is a solo string, a voice (Choir Aahs, Voice Oohs, Synth Voice), brass,
+    a reed, a pipe or a synth lead (programs 41–45, 53–55, 57–88 one-based),
+    at most 20 % of its notes start while another of its notes sounds
+    (`ChannelSummary.overlapping`), and it stays between E2 and C6. That
+    leaves out the guitars' solos (one note at a time, but a guitar), the
+    choirs in chords, recorder consorts, string sections, pianos and
+    glockenspiels. In the twelve songs it finds every lead vocal, the
+    backing vocals of Can't Stop, Do I Wanna Know?, Back in Black,
+    Californication and Smells Like Teen Spirit, and nothing else; Where
+    Is My Mind?'s "ooh" (Voice Oohs in two-note harmony, 66 % overlapping)
+    counts as a choir, and Little Wing has no vocal track. A vocal's monks
+    are `MonkSize.VOCAL_SCALE` (2) times the size, twice as tall and wide
+    (`MonkStage.scale`, used by `SungInstrument` for its place and box and
+    by `MonkBillboards` for the quads and the nod), still on the floor.
+  - The performance's spread (`MonkStage.spread`,
     read every frame: the mixer's slider, else the config's) then moves it
     from that floor place towards the back and sides in a fan, in channel
-    order, and up in two alternating tiers (`MonkSpread.place`, given to
-    each `SungInstrument` by `InstrumentAssignment`); never lower than on
-    the floor.
+    order, and up in two alternating tiers (`MonkSpread.place`); never
+    lower than on the floor. The vocals' choirs and those of instruments
+    that rest on the right of the stage in front of the back wall
+    (`MonkWing.isMember`: the middle of the resting box at x ≥ 30 and
+    z ≥ −66, which takes in the guitars, bass guitars, banjo and shamisen
+    and the small instruments beside them) take no part in the fan.
+    - The front of the stage (`MonkFront`). The vocals stand in the middle,
+      where the wing's front row stood: on the floor at z −4, side by side
+      in channel order 8 apart, the middle of their line at x −2. A vocal of
+      one monk (103 × 96) shows whole in camera 1A at rest; a full nod can
+      lift the top of its picture past the top of 1A's, and a vocal of two
+      or more reaches past the sides. The channels with a bass guitar stand
+      to their right, still at the front: the first from where a bass guitar
+      rests (x 52), each at least 8 clear of the choir to its left, in the
+      vocals' line unless 1A would cut it off at the right there, and then
+      as far behind the line as it needs to show whole (0.4 to the right
+      per unit of depth, as the rows), up to 25. Where 25 is not enough (a
+      bass of two monks or more beside a vocal) it stands 25 behind and
+      only as far right as it shows whole, behind the vocals' right end,
+      which covers part of it; never off the floor. A bass of one beside a
+      vocal of one stands at x 83, z −24, and the vocal's top, nearer the
+      camera, covers less than 1 % of 1A's width of its picture's top
+      corner. Without a vocal the bass stands at x 52, z −4.
+    - The rows (`MonkWing`). The wing's other channels stand in rows from
+      the front of the stage to the back, like a choir on risers, in channel
+      order, behind the front when a vocal or a bass guitar stands there,
+      else from the front row. The front row stands on the floor at x −2,
+      z −4, as far forward as a choir of four shows whole in camera 1A's
+      picture (16:9, 45°), where it is as wide as the picture; each row
+      behind stands 50 further back and 40 higher (more than four rows share
+      a depth of 150, more than two a height of 52), and to the right only
+      as far as it stays in that picture (0.4 per unit of depth). The
+      picture is too low for rows that don't cover each other: each row
+      covers the lower part of the one behind (of four rows, the back ones
+      show 66 %, 45 % and 39 %).
+    - A choir travels to its row or its place at the front in a straight
+      line as the spread goes from 0 to 0.5 and stays there above that
+      (`MonkWing.travel`). `MonkSpreadPlan` decides which way each
+      instrument's choir goes and counts the fan's slots among the channels
+      that are not vocals and have an instrument outside the wing;
+      `InstrumentAssignment` makes it when the first choir stands, since it
+      measures every sung instrument at rest.
   - Each monk nods (`MonkNod`, one per monk): it rises above its place
     in the choir while the note it sings (`MonkFrames.pitches`) is away from
     where its pitch has settled (a follower with a 0.3 s time constant), by
@@ -183,6 +245,16 @@ Delay Lama hooks in there:
   gain × level). Any other channel's level scales its CC 7 by the square
   root, and is reapplied after a system reset. The window closes when the
   routers close.
+  - A sung channel the mixer doesn't let be heard (`isHeard`: muted, or
+    left out while another channel is soloed) hides its monks
+    (`areMonksShown` is false): they leave the scene, where its place is
+    not held and the cameras skip it, and the router sends
+    `set window.visible 0` with the gain. Its 3D instrument stays off
+    stage, since its switch is still on. Heard again, the monks come back
+    where its view shows them (`set window.visible` as for the switch). The
+    router sends the window line only when being heard changes
+    (`SungChannel.wasHeard`), not on every level change, so volume moves
+    and camera focus don't repeat it.
 - **Delay Lama switches**. Each sung channel's strip in the mixer has
   a switch that chooses who plays that channel: its monks (on, at start) or
   the synthesizer (off), never both. The card at the top counts how many are
@@ -218,9 +290,10 @@ Delay Lama hooks in there:
 - **Camera focus**. While it is on, the
   channels the camera is close to and looks at get louder and the rest
   quieter. `MidiPackage` makes one `ChannelFocus` whenever Delay Lama
-  sings, on or off as the config says (`focus`; the panel's option, the
-  variable for the queue), and shares it with the routers and the mixer,
-  whose switch flips it at once. `CameraFocusState`, an app state of a live
+  sings, on or off and at the strength the config says (`focus`,
+  `focusScale`; the panel's options, the variable's `focus` and
+  `focusstrength` for the queue), and shares it with the routers and the
+  mixer, whose switch flips it and whose strength slider moves it at once. `CameraFocusState`, an app state of a live
   performance (single file or each queue song; never recordings), works
   every frame from the camera and where each channel's things stand
   (`FocusSubjects`: a sung channel shown in the scene is its choir, any
@@ -230,8 +303,25 @@ Delay Lama hooks in there:
   and how near the most present one is, and from that each channel's
   offset: the near one stands out by up to 12 dB, rising by 6 at most
   itself while the rest comes off every channel (a full +12 clipped the
-  monks), and the unseen fall by up to 21 (`CameraFocus.offsets`). The offsets
-  are eased (0.3 s) and sent at most 20 times a second in 0.25 dB steps.
+  monks), and the unseen fall by up to 21 (`CameraFocus.offsets`). The
+  strength (`scale`, 0–2, 1 by default; "Focus strength" in the panel and
+  the mixer, in 5 % steps) multiplies the 12 dB boost and the 15 dB cut, so
+  every gap between channels scales with it and 0 is no focus; the 6 dB
+  rise does not scale (the helper has about 9 dB of headroom), so above 1
+  the extra comes off the other channels (at 2, the unseen fall by up to
+  48), and at 1 the offsets are as without it. `CameraFocusState` reads it
+  every frame, so a new strength moves the targets and the offsets glide to
+  them. The offsets are eased (0.1 s: a 12 dB cut is 90 % there in 0.23 s,
+  against 0.7 s with v1.0's 0.3 s and 20 a second) and sent at most every
+  15 ms (every frame at 60 frames a second, every third at 144) in 0.25 dB
+  steps. The first batch after a cut is the largest step: about 1.8 dB of a
+  12 dB cut at 60 frames a second, 3.4 dB at 30, which the helper's 5 ms
+  gain smoothing and CC 7's whole steps take as they come. Nothing else on
+  the path waits: the camera is read every frame (`FocusSubjects` remeasures
+  instruments' boxes at most once a second, three a frame, but that is where
+  they stand, not where the camera is), a send goes straight to the routers
+  on the render thread, and a helper's `set gain` waits only the offset that
+  every helper line waits, which lands it with Gervill's CC 7.
   The routers multiply them into the mixer's level (`levelOf`): a sung
   channel's helper `set gain` (capped at 4; the helper smooths it over
   about 5 ms), any other channel's CC 7 (capped at 127), with a mixer or

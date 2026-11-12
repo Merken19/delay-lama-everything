@@ -9,8 +9,10 @@ its notes are sung by the Delay Lama vocal synth from
 imitate that instrument, and a choir of monks sings the chords. The monks
 stand on the stage in the 3D scene, where the instrument would have been,
 spread around the stage and up so the choirs don't hide each other, and nod
-while their pitch moves. They can be shown in their own always-on-top
-windows instead, or both.
+while their pitch moves. The song's vocals, found from the file, sing with
+monks twice the size at the front of the stage, in the middle, with the
+bass, when it is sung, beside them on the right. They can be shown in their
+own always-on-top windows instead, or both.
 
 While the file plays, a mixer window mutes, solos or turns up or down any
 channel, sung or not. Each sung channel has its own **Delay Lama** switch
@@ -63,10 +65,13 @@ line, opens the mixer, an always-on-top window with a strip per channel the
 file plays: mute, solo, volume from −30 to +6 dB, and Reset. A sung channel's
 strip also has its **Delay Lama** switch: off hands the channel to
 midis2jam2's own sound, hides its monks and puts its 3D instrument back on
-stage, all at once and mid-note too. A card at the top counts the channels
+stage, all at once and mid-note too. A sung channel that is muted, or left
+out while another channel is soloed, hides its monks (in the scene and in
+their window) without bringing its instrument on stage; they come back as
+soon as it is heard again. A card at the top counts the channels
 switched on, with one button for all off or all on. The mixer also has the
-spread slider and the camera focus switch, which work at once and are kept
-as the panel's. The levels and switches are not remembered: each play starts
+spread slider, the camera focus switch and the focus strength slider below
+it, which work at once and are kept as the panel's. The levels and switches are not remembered: each play starts
 with every sung channel on.
 
 ### Camera focus
@@ -76,8 +81,14 @@ camera is nearest to and sees best stands out by up to 12 dB: it rises by up
 to 6 dB and the rest comes off the other channels, while channels with
 nothing in the picture fall further. From the wide camera 1A, or with the
 camera near several things alike, nothing changes. The changes glide over
-about a third of a second and come on top of the mixer's levels without
-moving its sliders.
+about a third of a second (90 % of the way in about a quarter second) and
+come on top of the mixer's levels without moving its sliders.
+
+**Focus strength**, the slider below the switch in the panel and the mixer,
+scales the effect from 0 to 200 % (default 100 %): at 200 % the near
+channel stands out by up to 24 dB, at 50 % by 6, at 0 % nothing changes. A
+channel's own level still rises by at most 6 dB; the rest comes off the
+other channels. It can be set while focus is off.
 
 ### Add Delay Lama
 
@@ -111,6 +122,7 @@ are separated by `;`:
 | `view=scene\|windows\|both` | Where the monks are shown (default `scene`: on stage, with the helper windows hidden) |
 | `spread=<0-1>` | How far the choirs spread around the stage and up (default 0.5; 0 leaves them on the floor) |
 | `focus=0\|1` | Camera focus (default off) |
+| `focusstrength=<0-2>` | Camera focus strength (default 1, that is 100 %) |
 
 For example, in PowerShell:
 
@@ -129,6 +141,7 @@ $env:MIDIS2JAM2_DELAY_LAMA = 'channels=1,2;monks=2;view=both'
         ▼                                    │
    Delay Lama router (MidiDevice wrapper)    │  ◀── mixer window: levels, Delay Lama
         │                                    │       switches, spread, camera focus
+        │                                    │       and its strength
         ├── other channels ──────────▶ Gervill (Java synth) ───────────────▶ speakers
         └── sung channels ──pipe─────▶ DelayLamaVoice.exe  (one per channel)
                                          choir of monk synths ─────────────▶ speakers

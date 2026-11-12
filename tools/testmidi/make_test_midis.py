@@ -36,6 +36,7 @@ NAMES = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
 
 # General MIDI, zero-based (as in the file).
 PIANO, CLEAN_GUITAR, OVERDRIVE_GUITAR, FINGER_BASS = 0, 27, 29, 33
+BANJO = 105
 VIOLIN, CELLO, STRINGS, VOICE_OOHS = 40, 42, 48, 53
 ALTO_SAX, DRAWBAR_ORGAN, WARM_PAD = 65, 16, 89
 
@@ -501,6 +502,54 @@ def multiport():
     return [song, violin, drums, cello, piano]
 
 
+def guitars():
+    """The right side of the stage: a clean guitar, an overdrive guitar, a banjo and a finger bass (the bass on the
+    highest of their channels), with a piano on the left and drums. Everyone plays from the first bar."""
+    song = conductor("07 Guitars", 110, [(0, "Verse"), (8 * BAR, "Chorus")])
+    roots = ["C2", "A1", "F2", "G2"] * 3 + ["C2", "G2"]
+    triads = ["C4+E4+G4", "A3+C4+E4", "A3+C4+F4", "B3+D4+G4"] * 3 + ["C4+E4+G4", "B3+D4+G4"]
+    bars = len(triads)
+
+    piano = Track("Piano")
+    piano.setup(0, 0, PIANO, volume=90, pan=40)
+    chord_hits(piano, 0, 0, [chord.replace("4", "3") for chord in triads], (0, 2), 75, H - E)
+
+    rhythm = Track("Clean guitar")
+    rhythm.setup(0, 1, CLEAN_GUITAR, volume=85, pan=80)
+    chord_hits(rhythm, 1, 0, triads, (1, 3), 80, E)
+
+    lead = Track("Overdrive guitar")
+    lead.setup(0, 2, OVERDRIVE_GUITAR, volume=95, pan=95)
+    line = [("G4", DQ), ("E4", E), ("G4", Q), ("A4", Q),
+            ("C5", H), ("A4", Q), ("G4", Q),
+            ("A4", E, "l"), ("C5", E, "l"), ("A4", E, "l"), ("F4", E), ("G4", Q), ("A4", Q),
+            ("G4", DH), ("D5", Q)]
+    tick = 0
+    for _ in range(3):
+        tick = lead.phrase(tick, 2, line, velocity=92)
+    lead.phrase(tick, 2, [("E5", Q), ("D5", Q), ("C5", Q), ("G4", Q), ("D5", W, "t")], velocity=92)
+
+    banjo = Track("Banjo")
+    banjo.setup(0, 3, BANJO, volume=80, pan=105)
+    for bar, chord in enumerate(triads):
+        low, middle, high = chord.split("+")
+        for i, key in enumerate((low, high, middle, high, low, high, middle, high)):
+            banjo.note(bar * BAR + i * E, 3, n(key) + 12, 78, E * 9 // 10)
+
+    bass = Track("Bass")
+    bass.setup(0, 4, FINGER_BASS, volume=110)
+    for bar, root in enumerate(roots):
+        r = n(root)
+        for at, length, key in ((0, Q, r), (Q, E, r), (Q + E, E, r), (2 * Q, Q, r + 7), (3 * Q, E, r + 12),
+                                (3 * Q + E, E, r + 7)):
+            bass.note(bar * BAR + at, 4, key, 95, length * 9 // 10)
+
+    drums = Track("Drums")
+    drums.setup(0, DRUMS, 0, volume=95)
+    drum_bars(drums, 0, bars, crash_bars=(0, 8))
+    return [song, piano, rhythm, lead, banjo, bass, drums]
+
+
 FILES = {
     "01_melody.mid": melody,
     "02_chords.mid": chords,
@@ -508,6 +557,7 @@ FILES = {
     "04_bends.mid": bends,
     "05_lyrics.mid": lyrics,
     "06_multiport.mid": multiport,
+    "07_guitars.mid": guitars,
 }
 
 

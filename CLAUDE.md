@@ -155,6 +155,10 @@ the tools. Its settings are separated by `;`:
 - `focus=0|1`: camera focus, off by default. The channels the camera is
   close to and looks at get louder, the rest quieter. The panel and the
   mixer have a switch for it
+- `focusstrength=<0-2>`: camera focus strength, default 1 (100 %). It
+  scales how far focus moves the channels (0 changes nothing); a channel's
+  own rise stays at most 6 dB. The panel and the mixer have a slider for
+  it, below the focus switch
 
 Keep `ImitationProfiles.kt` and `tools/profiles/expand.py` in step (a test
 compares them). The helper is found in
@@ -186,7 +190,10 @@ Checks and tools (all `.\gradlew.bat`):
   camera focus on and a scripted move in to the first choir and out,
   writing `focus_timeline.csv` and `focus_<s>s.png`;
   `:app:delayLamaBalance` replays that file with a `timeline=<csv>`
-  setting.
+  setting. A `smoothing=<time constant s>,<send interval s>` setting
+  among the scene preview's eases and sends the offsets with other values
+  than the app's (`smoothing=0.3,0.05` is v1.0's), for before/after
+  renders (`renders/focus_speed/`).
 
 If a stuck test JVM locks `app\build\test-results`, look for an old
 `Gradle Test Executor` java process, or use a Gradle init script that moves
