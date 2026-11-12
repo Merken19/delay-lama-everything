@@ -16,5 +16,5 @@ the fan and the right wing's rows to the whole-stage layout (ARCHITECTURE.md,
   each choir standing behind another is 1.1 monks higher.
 
 The other renders made with them (every pose, `layout.txt` with each choir's
-place and every instrument's resting box, floor maps) were not kept; re-render
-with the scene preview.
+place and every instrument's resting box, floor maps) are not in the
+repository; re-render them with the scene preview.
