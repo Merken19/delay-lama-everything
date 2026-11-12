@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "comment": "Delay Lama Everything imitation profiles (D19). Spec: docs/IMITATION.md sections 7, 14, 15. Values are first guesses for phase 4c tuning. Onsets are steady (D33): a vowel move at a note's start is heard as a laser or a high pitch, so onset tokens keep their vowel only as 'colour' (ignored by the expander) and a profile opts in with an explicit onset.vowel. Map programs are 0-based, as in MIDI data (the doc's table is 1-based). Expand with tools/profiles/expand.py.",
+  "comment": "Delay Lama Everything imitation profiles. Spec: docs/IMITATION.md sections 7, 13, 14 and 15. Onsets are steady: a vowel move at a note's start is heard as a laser or a high pitch, so onset tokens keep their vowel only as 'colour' (ignored by the expander) and a profile opts in with an explicit onset.vowel. Map programs are 0-based, as in MIDI data (the doc's table is 1-based). Expand with tools/profiles/expand.py.",
   "syllables": {
     "onsets": {
       "b":  {"onset": {"time": 40, "attack": 5, "lips": 1}, "colour": {"vowel": 0.0}},
@@ -88,7 +88,7 @@
       "phrase": {"mode": 1}, "vibrato": {"depth": 0.35, "delay": 250, "fade": 300},
       "ensemble": {"unison": 3, "detune": 10}},
     "choir.oohs": {"extends": "choir.aahs", "syllable": "u"},
-    "lead.singer": {"extends": "choir.aahs", "comment": "A singer on 'ah' instead of an imitation; the K525 round 4 pick for violin 1 (D39).",
+    "lead.singer": {"extends": "choir.aahs", "comment": "A singer on 'ah' instead of an imitation; the listening pick for K525's violin 1.",
       "onset": {"attack": 40}, "ending": {"release": 120}, "phrase": {"mode": 0},
       "ensemble": {"unison": 1}, "voice": {"size": 0.5}},
 
@@ -114,7 +114,7 @@
     "sax.tenor": {"extends": "sax.alto", "syllable": "d-u>o", "body": {"breath": 0.6}, "voice": {"size": 0.4}},
 
     "flute": {"extends": "default", "syllable": "h-u",
-      "comment": "Phase 4c pipes round 1 pick (D56): third formant off, breath 0.3, slurs legato on a quick glide; dyn.gain 1.8 keeps the level the profile had before.",
+      "comment": "The listening pick for pipes: third formant off, breath 0.3, slurs legato on a quick glide; dyn.gain 1.8 keeps the level the profile had before.",
       "onset": {"attack": 40}, "body": {"sustain": 1, "breath": 0.3}, "ending": {"release": 100},
       "phrase": {"mode": 0, "glide": 0.1, "dip_level": 0.4},
       "vibrato": {"depth": 0.35, "delay": 250, "fade": 300}, "voice": {"size": 0.75, "formant3": 0},

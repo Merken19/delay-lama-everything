@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Writes the Delay Lama Everything test MIDI set into tests/midi/.
 
-Roadmap phase 0, "Gather test MIDI files": a melody, chords, a band, pitch
-bends (with RPN 0 bend-range changes), lyrics and a multi-port file. Every
+A melody, chords, a band, pitch bends (with RPN 0 bend-range changes),
+lyrics, a multi-port file and the guitars of the stage's right wing. Every
 file is composed here, from scratch and deterministically, so the set can be
 remade anywhere with the standard library only:
 

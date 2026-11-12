@@ -1,7 +1,7 @@
 """Expand Delay Lama Everything imitation profiles into DelayLamaVoice `set` lines.
 
-profiles/imitation.json (D19) holds the syllable table, the profiles (with
-`extends`) and the program map; docs/IMITATION.md sections 7 and 14 are the
+profiles/imitation.json holds the syllable table, the profiles (with
+`extends`) and the program map; docs/IMITATION.md sections 7 and 13 are the
 spec. midis2jam2's router does the same expansion (`ImitationProfiles.kt`,
 whose test compares it with `--dump`; change both together); this tool serves
 render scripts and tuning, and fixes the expansion order:
@@ -23,7 +23,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DEFAULT_PATH = ROOT / "profiles" / "imitation.json"
 # 'colour' holds an onset token's vowel for reference only: onsets are steady
-# (D33) unless a profile gives onset.vowel itself.
+# unless a profile gives onset.vowel itself.
 META = ("extends", "syllable", "comment", "colour")
 # The keys syllable tokens set, at their built-in defaults (None = null).
 SYLLABLE_DEFAULTS = {
@@ -129,8 +129,8 @@ def profile_for_program(data, program, bank=0):
 def fit_shift(sections, notes):
     """range.shift (semitones) for a channel from its written note numbers
     (one per note-on), as the router computes it (IMITATION.md 7.1).
-    fit 2 (default, D37): down by whole octaves while the median is above
-    range.high, never up, so parts already in range sing as written (D14).
+    fit 2 (default): down by whole octaves while the median is above
+    range.high, never up, so parts already in range sing as written.
     fit 1: whole octaves putting the median nearest range.target. 0: none."""
     rng = sections.get("range", {})
     fit = rng.get("fit", 0)

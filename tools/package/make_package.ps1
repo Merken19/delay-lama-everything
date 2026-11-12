@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Builds Delay Lama Everything's Windows package (roadmap phase 6) into dist\ and zips it.
+    Builds Delay Lama Everything's Windows package into dist\ and zips it.
 
 .DESCRIPTION
     Builds midis2jam2's jpackage app image (Compose Desktop's :app:createDistributable, from

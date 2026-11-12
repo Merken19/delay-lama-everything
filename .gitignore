@@ -4,6 +4,9 @@
 # Packages built by tools/package/make_package.ps1.
 /dist/
 
+# Render output (WAVs, previews, listening sets); remake it with the tools.
+/renders/
+
 # Python bytecode.
 __pycache__/
 

@@ -1,30 +1,29 @@
 # Instrument imitation
 
-How Delay Lama imitates each instrument, as implemented by the articulator
-in `DelayLamaVoice.exe` (profile mode) and the data in
-`profiles/imitation.json`. Profiles use all of Delay Lama's parameters. §15
-is the tuning method, and §16 what the DSP's limits mean for profiles and
-where the tuned families stand.
+How Delay Lama imitates each instrument: the articulator in
+`DelayLamaVoice.exe` (profile mode) and the data in `profiles/imitation.json`.
+§15 is the tuning method, and §16 what the DSP's limits mean for profiles.
+Code comments cite these section numbers, so keep them stable.
 
 ## 1. The goal
 
-When a person "plays" an instrument with their voice, they don't hold a
-vowel. They shape each note like a syllable: a guitar riff becomes
+When people "play" an instrument with their voice, they don't hold a vowel.
+They shape each note like a syllable: a guitar riff becomes
 "nyeow-nyeow-dang", a bass line "dum dum doon", a flute "hoo-too-hoo". The
 imitation lives in how each note **starts**, **moves** and **ends**, in the
 voice's register and vibrato, and in how notes join. Since the monk's mouth
-follows the vowel, the monks also *look* like they are imitating.
+follows the vowel, the monks also look like they are imitating.
 
-The character is **musical**: profiles imitate the way a good a
-cappella singer would. An **exaggeration** amount (0–2, default 1, one
-value for all channels) scales the expressive moves.
+Profiles aim to sound like a good a cappella singer. An **exaggeration** amount
+(0–2, default 1, one value for all channels) scales the expressive moves.
 
 ## 2. The palette
 
-These are the DSP facts that matter for imitation (`external/delalalalay-lama/DSP/`). The voice sounds like singing from sounding
-C2 to C5. Outside that range it still works for imitation.
+The DSP facts that matter for imitation (`external/delalalalay-lama/DSP/`).
+The voice sounds like singing from sounding C2 to C5; outside that range it
+still works for imitation.
 
-| Parameter | Range | What it really does | Consequence for the articulator |
+| Parameter | Range | What it does | For the articulator |
 | --- | --- | --- | --- |
 | Pitch | MIDI note + bend ±12 st | **Sounds one octave below the note** (`grain_period` uses `note − 12`). Mean error +2 to +11 cents, about a piano's stretch | The helper adds 12 to sing the written pitch; profiles talk in written pitch |
 | Low limit | | Grains are 20 ms long, so below a sounding ~50 Hz they stop overlapping and the voice becomes a pulse train | The lowest bass notes buzz |
@@ -43,43 +42,38 @@ C2 to C5. Outside that range it still works for imitation.
 | Unison | 1–10, cents, spread | Detuned copies, gain 1/√n | Ensembles and pads |
 | Velocity | | Ignored by the DSP | The helper turns it into level (§7.10) |
 
-**What it can't do**: no unvoiced sound (no "t", "k", "s" noise), no nasal
+**What it can't do**: no unvoiced sound (no "t", "k" or "s" noise), no nasal
 murmur as such, only three formants, one note per synth. Consonants are
-**suggested** by a level dip, the attack, closed lips and a pitch scoop. A
-noise layer lost to pure Delay Lama by ear, and onset vowel moves glitch
-(§16).
+**suggested** by a level dip, the attack, closed lips and a pitch scoop. A noise
+layer sounded worse than pure Delay Lama, and onset vowel moves glitch (§16).
 
 ## 3. How people imitate instruments
 
-- Imitators reproduce a sound's **loudness envelope, tail length, pitch
-  contour and brightness**, and simplify the attack
-  ([Lemaitre et al.](https://hal.archives-ouvertes.fr/hal-01256126);
-  [Delgado et al. 2020](https://comma.eecs.qmul.ac.uk/assets/pdf/delgado_timbre_2020.pdf)).
-  Priority for profiles: envelope and tail first, then pitch contour, then
-  brightness.
-- A cappella syllables follow their role: soft onsets (d, l, n, w) for
-  legato, hard ones (t, k, p, b) for accents, nasal endings (m, n, ng) for
-  ringing notes, stop endings for damped ones, and brighter vowels for higher
-  and harder notes
-  ([Bauer](https://journals.library.columbia.edu/index.php/currentmusicology/article/download/4828/2177/8416)).
-  Arrangers use "dum" for bass and "wah"/"bow" for distorted guitar.
-- The Mills Brothers made the tuba with "the largest possible room in the
-  mouth": a dark vowel and a big voice.
+Imitators reproduce a sound's **loudness envelope, tail length, pitch contour
+and brightness**, and simplify the attack
+([Lemaitre et al.](https://hal.archives-ouvertes.fr/hal-01256126);
+[Delgado et al. 2020](https://comma.eecs.qmul.ac.uk/assets/pdf/delgado_timbre_2020.pdf)),
+so profiles get those right in that order. A cappella syllables follow their
+role ([Bauer](https://journals.library.columbia.edu/index.php/currentmusicology/article/download/4828/2177/8416)):
+soft onsets (d, l, n, w) for legato, hard ones (t, k, p, b) for accents, nasal
+endings (m, n, ng) for ringing notes, stop endings for damped ones, brighter
+vowels for higher and harder notes, "dum" for bass, "wah"/"bow" for distorted
+guitar, and a dark vowel with a big voice for a tuba.
 
 ## 4. The model
 
 A **profile** is data. The **articulator** applies the profile of the
 channel's current program to every note, per monk.
 
-- Each note runs through **onset → nucleus → body → ending**. Consecutive
-  notes on one monk are joined by a **phrasing** transition: new,
-  re-articulated or legato.
-- Every 1 ms tick it computes each monk's vowel, breath, level, pitch
-  offset, vibrato, voice size and mouth, calls the DSP setters, and renders
-  that monk's next 1 ms. The DSP envelope and echo are off. Notes are shaped
-  through the level, and one echo runs on the choir mix.
-- A note **snapshots** its profile at the onset, so a profile change applies
-  to notes that start later. Ensemble, choir and space keys apply at once.
+- Each note runs through **onset → nucleus → body → ending**. Consecutive notes
+  on one monk are joined by a **phrasing** transition: new, re-articulated or
+  legato.
+- Every 1 ms tick it computes each monk's vowel, breath, level, pitch offset,
+  vibrato, voice size and mouth, calls the DSP setters, and renders that monk's
+  next 1 ms. The DSP envelope and echo are off: notes are shaped through the
+  level, and one echo runs on the choir mix.
+- A note **snapshots** its profile at the onset, so a profile change applies to
+  notes that start later. Ensemble, choir and space keys apply at once.
 - A profile is numbers, optionally with a **syllable** shorthand ("d-a-ng")
   that expands to numbers. Explicit numbers win.
 
@@ -102,65 +96,64 @@ A move from *a* to *b* over *T* is *a* + (*b* − *a*) × *s*(*x*), with
 | 3 | `ease` | 3x² − 2x³ | vowel moves and glides |
 | 4 | `late` | x² | falls and closures |
 
-Level **decays** are exponential toward a floor: level(*t*) = *s* + (1 − *s*)
-× e^(−3*t*/*T*). Releases use the same form toward 0. A note ends (the DSP
-note-off) 40 dB below where its ending started, or at 1.5 × the release
-time.
+Level **decays** are exponential toward a floor: level(*t*) = *s* + (1 − *s*) ×
+e^(−3*t*/*T*). Releases use the same form toward 0. A note ends (the DSP
+note-off) 40 dB below where its ending started, or at 1.5 × the release time.
 
 ## 6. Per-note behaviour
 
 For a note with written pitch *n*, velocity *v* and sounding pitch
 *n*s = *n* + `range.shift`:
 
-1. **Pitch**: the DSP note is *n*s + 12. The pitch offset combines the
-   file's bend (pitch bend is pitch bend, not the standalone's vowel wheel), the onset scoop and the ending fall (plus a drawn glide
-   when `phrase.glide_mode` is 1). It goes out as one bend, clamped to
-   ±12 st. A legato note sets the DSP glide to `phrase.glide` just before it
-   starts; new and re-articulated notes set the glide to 0.
+1. **Pitch**: the DSP note is *n*s + 12. The pitch offset combines the file's
+   bend (pitch bend is pitch bend, not the standalone's vowel wheel), the onset
+   scoop and the ending fall, plus a drawn glide when `phrase.glide_mode` is 1.
+   It goes out as one bend, clamped to ±12 st. A legato note sets the DSP glide
+   to `phrase.glide` just before it starts; new and re-articulated notes set
+   the glide to 0.
 2. **Nucleus vowel** *V* = `nucleus.vowel` + `nucleus.pitch_track` ×
-   (*n*s − 60) / 12 + `nucleus.velocity_track` × (*v* − 64) / 63, clamped
-   to 0–1.
-3. **Vowel**: the note starts on *V* (onsets are steady, §16). A profile
-   can set `onset.vowel` to move from it over `onset.time`. The vowel then
-   drifts toward `body.vowel` (`exp`, `body.vowel_time`). In the ending it
-   moves toward `ending.vowel` over `ending.vowel_time` (`ease`). On a
-   legato note it moves from the previous vowel over
-   `phrase.legato_vowel_time`.
+   (*n*s − 60) / 12 + `nucleus.velocity_track` × (*v* − 64) / 63, clamped to
+   0–1.
+3. **Vowel**: the note starts on *V* (onsets are steady, §16). A profile can
+   set `onset.vowel` to move from it over `onset.time`. The vowel then drifts
+   toward `body.vowel` (`exp`, `body.vowel_time`). In the ending it moves
+   toward `ending.vowel` over `ending.vowel_time` (`ease`). On a legato note it
+   moves from the previous vowel over `phrase.legato_vowel_time`.
 4. **Level**: a re-articulated note first holds `phrase.dip_level` for
    `phrase.dip_time`. The attack rises linearly over `onset.attack` to
    `onset.peak`; 0 is crisp, with the level preset before the note-on. Then
    comes an exponential decay toward `body.sustain` × peak over `body.decay`
    (scaled by `body.decay_track` per octave above sounding C4), times the
-   tremolo, then the release. A legato note keeps the previous level and
-   moves to the body level over 40 ms.
+   tremolo, then the release. A legato note keeps the previous level and moves
+   to the body level over 40 ms.
 5. **Breath**: `onset.burst` falls to `body.breath` over `onset.burst_time`.
    During the release the breath is `ending.breath` if set. The burst grows
    with velocity by `dyn.burst_velocity`.
 6. **Vibrato**: the floor until `vibrato.delay`, then a linear rise to
    `vibrato.depth` over `vibrato.fade`, plus `vibrato.modwheel` × CC1/127.
-7. **Exaggeration** *x* (0–2) scales the distance from the plain value of
-   the vowels, the scoop and fall, the vibrato above the floor, the burst,
-   the dip depth and the tracking amounts.
-8. **Fast notes**: with `phrase.compress` on, the onset, scoop, attack,
-   burst and dip times are multiplied by *k* = clamp(*d* / (3 × *T*), 0.25, 1).
-   *T* is the longest of those times and *d* the note's length (from `on`, or
-   else the last inter-onset interval).
+7. **Exaggeration** *x* (0–2) scales the distance from the plain value of the
+   vowels, the scoop and fall, the vibrato above the floor, the burst, the dip
+   depth and the tracking amounts.
+8. **Fast notes**: with `phrase.compress` on, the onset, scoop, attack, burst
+   and dip times are multiplied by *k* = clamp(*d* / (3 × *T*), 0.25, 1). *T*
+   is the longest of those times and *d* the note's length (from `on`, or else
+   the last inter-onset interval).
 
 ## 7. Profile parameters
 
 JSON nests the keys by section, and `set` keys are `section.param`. "null"
-means "follow the nucleus" and is sent as −1. The full list with ranges is
-`Windows/voice_profile_keys.inc` in delalalalay-lama.
+means "follow the nucleus" and is sent as −1. The full list with ranges and
+defaults is `Windows/voice_profile_keys.inc` in delalalalay-lama.
 
 ### 7.1 `range`
 
 | Key | Range | Default | Meaning |
 | --- | --- | --- | --- |
 | `octave` | −3..+3 | 0 | Shift from the written pitch |
-| `fit` | 0 off, 1 octaves, 2 down | 2 | Router-side shift of the whole channel by octaves. 2: down while the channel's median is above `high` (C5 by default); it never shifts up, so a line keeps its shape. 1: median nearest `target` |
+| `fit` | 0 off, 1 octaves, 2 down | 2 | Router-side shift of the whole channel by octaves. 2: down while the channel's median is above `high`; it never shifts up, so a line keeps its shape. 1: the median nearest `target` |
 | `target` | sounding note | 57 | For `fit` 1 |
-| `low`, `high` | sounding notes | 36, 72 | `high` is `fit` 2's ceiling; both bound `fold` |
-| `fold` | 0/1 | 0 | Fold single notes outside `low`..`high` (breaks a line's shape, so off) |
+| `low`, `high` | sounding notes | 36, 72 | `high` (C5) is `fit` 2's ceiling; both bound `fold` |
+| `fold` | 0/1 | 0 | Fold single notes outside `low`..`high`. Off, because it breaks a line's shape |
 
 The router computes the fit from the whole file, one shift per channel and
 profile (`ImitationProfiles.fitShift`, `fit_shift` in `expand.py`), and sends
@@ -181,7 +174,7 @@ profile (`ImitationProfiles.fitShift`, `fit_shift` in `expand.py`), and sends
 | `attack` | 0–2000 | 0 | Level rise; 0 = crisp |
 | `peak` | 0–1.5 | 1 | Level at the end of the attack |
 | `lips` | 0/1 | 0 | Closed-lips mouth during the onset (b, p, m, w) |
-| `mask`, `bandwidth`, `after_rest` | | 0, 1, 0 | Experiment keys, off, since none saved a glitch or consonant by ear: a masking attack, wider formants during an onset move, a move only after a rest |
+| `mask`, `bandwidth`, `after_rest` | 0–3, 1–8, 0–5000 | 0, 1, 0 | Experiment keys, left off because none fixed the onset glitch or made a consonant: a masking attack, wider formants during an onset move, a move only after a rest |
 
 ### 7.3 `nucleus`
 
@@ -284,16 +277,16 @@ The sustain pedal defers note-offs.
    by at least `phrase.overlap`, otherwise re-articulated. *legato*,
    *rearticulate* and *detached* force a type. A repeated pitch is always
    re-articulated, and a note that isn't connected starts new.
-3. **Legato**: no new onset, burst or scoop. The pitch slides on the DSP
-   glide (or through the bend in mode 1), the vowel moves to the new nucleus,
-   and the level carries on.
+3. **Legato**: no new onset, burst or scoop. The pitch slides on the DSP glide
+   (or through the bend in mode 1), the vowel moves to the new nucleus, and the
+   level carries on.
 4. **Re-articulation**: the dip, then the new onset. The pitch jumps at the
    bottom of the dip.
-5. **Overlaps without durations** (live input): an overlapping note is
-   legato if exactly one note is held on that monk's line and the mode
-   allows legato. Otherwise it is a chord note.
-6. **Voice stealing**: a stolen monk makes the transition its profile
-   would make for a connected note.
+5. **Overlaps without durations** (live input): an overlapping note is legato
+   if exactly one note is held on that monk's line and the mode allows legato.
+   Otherwise it is a chord note.
+6. **Voice stealing**: a stolen monk makes the transition its profile would
+   make for a connected note.
 7. **Sustain pedal**: note-offs wait for the pedal to lift, while the body
    decay keeps running.
 8. **`allnotesoff`**: every monk fades out in 10 ms.
@@ -314,27 +307,29 @@ that must hold its chords in tune sets `vibrato.lock`.
 ## 10. The mouth
 
 The singing frame follows the sung vowel. The mouth shows **closed lips**
-(sheet column 0, same row) in these cases:
+(sheet column 0, same row):
 
-- during the onset when `onset.lips` is set
-- for the last 60 % of the release when `ending.lips` is set
-- during a dip whose vowel is below 0.1
-- whenever the level falls below `mouth.closed_below` (0–1, default 0.15)
-  in a dip or an ending
+- during the onset when `onset.lips` is set;
+- for the last 60 % of the release when `ending.lips` is set;
+- during a dip whose vowel is below 0.1;
+- whenever the level falls below `mouth.closed_below` (0–1, default 0.15) in
+  a dip or an ending.
 
 ## 11. Space
 
-One `MonkDelay` per helper on the choir mix, with each synth's own echo at
-0: `space.echo` (0–1, default 0; most profiles have no echo), `space.echo_time` (0–1, default 0.5),
-`space.echo_feedback` (0–0.95, default 0.5).
+One `MonkDelay` per helper runs on the choir mix, with each synth's own echo
+at 0. Keys: `space.echo` (0–1, default 0; most profiles have no echo),
+`space.echo_time` (0–1, default 0.5), `space.echo_feedback` (0–0.95, default
+0.5).
 
 ## 12. Interface
 
-Protocol 1 (ARCHITECTURE.md) carries the profile:
+Protocol 1 ([ARCHITECTURE.md](ARCHITECTURE.md#pipe-protocol-version-1))
+carries the profile:
 
 - `set articulator 1` switches to profile mode; the router always sends it.
-- Keys between `set profile.begin 1` and `set profile.apply 1` are staged
-  and take effect together for later notes; `profile.reset 1` restores the
+- Keys between `set profile.begin 1` and `set profile.apply 1` are staged and
+  take effect together for later notes; `profile.reset 1` restores the
   defaults first.
 - `on` takes the note's length.
 - `next <key> <value>` overrides a key for the next note only.
@@ -386,93 +381,106 @@ two.
 }
 ```
 
-- **Syllable grammar**: `onset-nucleus[-ending]`. The nucleus may be two
-  vowels joined by `>`, and the second becomes `body.vowel` ("d-i>e"). A
-  missing onset means a soft start. Expansion order: the `extends` chain,
-  then the syllable, then the profile's own numbers. A syllable sets every
-  key that syllables control, with unnamed ones at their defaults, so a parent profile's syllable never leaks into a child's. So a
-  child's syllable also resets values its parent set inside that set of keys
-  (as with `sax.tenor`, §16).
-- **Onset tokens** set attack, lips, step time and dip. Their vowel is only
-  `colour`, which the expander ignores (§16). Onsets: `b`, `p`, `d`, `t`,
-  `g`, `k`, `n`, `m`, `ny`, `w`, `y`, `l`, `h`, `j`/`ch`, `f`. Endings: none,
-  `m`, `n`, `ng`, `t`/`k`, `w`, `y`.
-- **Map**: `bank` is MSB × 128 + LSB, as in the `program` line. Entries with
-  a bank match first, then plain program entries, then a family default by
-  program range, then `default`. Rhythm channels are never mapped: drums stay with Gervill. The
-  panel can override the profile per channel.
+**Syllable grammar**: `onset-nucleus[-ending]`. The nucleus may be two vowels
+joined by `>`, and the second becomes `body.vowel` ("d-i>e"). A missing onset
+means a soft start. Expansion order is the `extends` chain, then the syllable,
+then the profile's own numbers. A syllable sets every key that syllables
+control, with unnamed ones at their defaults, so a parent profile's syllable
+never leaks into a child's. It follows that a child's syllable also resets
+values its parent set among those keys (as with `sax.tenor`, §16).
 
-## 14. Family defaults
+**Tokens**: onset tokens set attack, lips, step time and dip. Their vowel is
+only `colour`, which the expander ignores (§16). Onsets: `b`, `p`, `d`, `t`,
+`g`, `k`, `n`, `m`, `ny`, `w`, `y`, `l`, `h`, `j`/`ch`, `f`. Endings: none,
+`m`, `n`, `ng`, `t`/`k`, `w`, `y`.
 
-GM programs are 1-based here (MIDI data is 0-based). For every family:
-written pitch with high parts folded (§7.1), breath 0.75 unless given,
-no echo, the moderate velocity curve, steady onsets and DSP glide 0.5 for
-legato. **Tuned** rows have been tuned against Gervill (§15) and match
-`imitation.json`. The others are first-guess designs; `imitation.json` is
-what actually plays, and a program it has no profile for takes its family
-default or `default` (§13).
+**Map**: programs in the JSON are 0-based, as in MIDI data. `bank` is MSB ×
+128 + LSB, as in the `program` line. Entries with a bank match first, then
+plain program entries, then `default`. Rhythm channels are never mapped: drums
+stay with Gervill. The panel can override the profile per channel.
 
-| Family (programs) | Syllable | Onset | Body | Ending | Phrase | Vibrato | Voice |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **Piano (1–8), tuned** | d-i>e | crisp | decay 900, sustain 0, track 0.7, drift 600 | release 120, no "ng" | detached | straight | 0.6 |
-| Chromatic perc. (9–16) | t-i (glock, celesta, music box); b-o (marimba, xylophone); d-o>u-ng (bells) | crisp | decay 450 / 200 / 2500, sustain 0 | –, 40 | detached | straight; vibraphone tremolo 5 Hz | 1.0 / 0.45 / 0.5 |
-| Organ (17–24) | u (drawbar), d-u (percussive), a (rock: tremolo 6.5 Hz), o (church, unison 3), e (reed, accordion), w-a (harmonica) | attack 5 | sustain 1 | release 15 | legato | straight | 0.5 |
-| Guitar, clean (25–28) | d-o-ng (nylon), d-a-ng (steel, clean), d-u-m (jazz) | crisp | decay 1300, sustain 0.1, drift to 0.4 | ng, 140 | auto, glide 0.15 | straight | 0.5 |
-| Guitar, muted (29) | d-u | crisp | max 60, decay 50 | –, 20 | rearticulate | straight | 0.4 |
-| Guitar, overdrive/distortion (30–31) | ny-a-w | scoop −1/90, attack 15 | decay 1500, sustain 0.75, breath 0.6 | w, fall −0.7/300 | legato, glide 0.15 | lead, delay 450; distortion 24 Hz growl, unison 2 | 0.45 |
-| Guitar harmonics (32) | t-i-ng | crisp | decay 1500, sustain 0 | ng | detached | straight | 0.9 |
-| Bass (33–40); **finger tuned** | d-oo-m (finger, no vowel tracking), d-o-m (pick), w-u (fretless, legato), b-a (slap, max 80) | crisp | decay 300, sustain 0.3 | m, 50 | detached; fretless legato | straight | 0.35 |
-| Strings, solo (41–44); **violins tuned** | violin, viola (41–42): `lead.singer` "a"; `strings.violin` n-i without glides; m-o (cello), m-u (contrabass) | attack 120 (cello 150; singer 40) | sustain 1, breath 0.5 | release 200 (singer 120) | singer glides on slurs, cello legato | lead, 6.5 Hz, delay 300, fade 400 | 0.7 / 0.6 / 0.3 / 0.1 |
-| Tremolo strings (45) | n-a | attack 60 | tremolo 0.6 at 12 Hz | release 150 | legato | straight | 0.6 |
-| Pizzicato (46), harp (47) | p-i (max 80); d-i-ng (decay 1500) | crisp | decay 120 / 1500, sustain 0 | – | detached | straight | 0.7 |
-| Timpani (48) | b-o-m | crisp, scoop +2/40 | decay 600 | m | detached | straight | 0.2 |
-| Ensembles (49–52); **49–50 tuned** | 49–50: `lead.singer`; 51–52 synth strings: a (`strings.ensemble`) | attack 300 | sustain 1 | release 500 | legato | straight | 0.5, unison 4, 12 ct |
-| Choir aahs (53), voice oohs (54), synth voice (55) | a; u; u>a | attack 150 | sustain 1 | release 300 | legato | lead | 0.5, unison 3 |
-| Orchestra hit (56) | b-a | crisp, peak 1.3 | decay 300, sustain 0 | – | detached | straight | 0.5, unison 6 |
-| **Trumpet (57), tuned** | t-a | scoop −0.4/40, attack 6, peak 1.15, burst 0.6/30 | decay 150, sustain 0.8 | release 100 | rearticulate | lead, delay 350 | 0.6 |
-| Trombone (58) | b-a | scoop −1.5/120, attack 25 | sustain 1 | o, 120 | auto, glide 0.5 | lead, delay 400 | 0.35 |
-| Tuba (59) | b-o-m | attack 30 | sustain 0.9 | m, 100 | rearticulate | straight | 0.0 |
-| Muted trumpet (60) | w-a-w | onset time 180 | breath 0.6 | w, 200 | rearticulate | lead | 0.6 |
-| French horn (61) | d-o (no profile of its own: it plays `brass.section`) | attack 40 | sustain 1 | release 150 | legato | lead | 0.4 |
-| Brass section, synth brass (62–64) | b-a; b-a-w | attack 20 | sustain 0.85 | release 120 | rearticulate | straight | 0.5, unison 4, 8 ct |
-| Saxes (65–68); **tenor tuned** | d-u>a (soprano, alto), d-u>o (tenor, breath 0.6), b-u>o (baritone) | scoop −0.8/100, attack 20 | drift over 500 | o, 120 | legato | lead, delay 350 | 0.6 / 0.55 / 0.4 / 0.2 |
-| Oboe, English horn (69–70) | n-i; n-e | attack 30 | breath 0.5 | release 100 | legato | lead, delay 250 | 0.7 / 0.6 |
-| Bassoon (71) | b-o | attack 30 | breath 0.5 | release 100 | legato | straight | 0.3 |
-| Clarinet (72) | d-oo | attack 25 | | release 100 | legato | straight | 0.45 |
-| **Flute (73–80), tuned** | h-u (one `flute` profile for every pipe) | attack 40 | sustain 1, breath 0.3, F3 off, `dyn.gain` 1.8 | release 100 | auto, slurs legato on glide 0.1, dip 0.4 | lead, delay 250, fade 300 | 0.75 |
-| Synth lead (81–88) | b-o (square), ny-a (saw), u (calliope), t-u (chiff), ny-a-w (charang), a (voice, fifths), b-a (bass + lead) | attack 10 | sustain 1 | release 60 | legato, glide 0.15 | straight | 0.5 |
-| Synth pad (89–96) | u>a swells | attack 600 | drift over 2000 | release 800 | legato | straight | 0.5, unison 5, 15 ct |
-| Synth FX (97–104) | pad-like; d-i-ng for crystal (99) | | | | | | |
-| Ethnic (105–112) | ny-i-ng (sitar), p-i-ng (banjo), t-e-ng (shamisen), d-i-ng (koto, kalimba), a (bagpipe, unison 2), n-i (fiddle, shanai) | | | | | | |
-| Percussive (113–120) | t-i (tinkle bell), k-o (agogo), b-o-ng (steel drums), t-o (woodblock), d-o-m (taiko), d-u-m (melodic tom, fall −3), b-u (synth drum, fall −5), h-a reversed (reverse cymbal) | | | | | | |
-| Sound effects (121–128) | novelty only (breath h, bird w-i with 24 Hz vibrato, telephone i with tremolo, helicopter b-u with tremolo) | | | | | | |
-| Drums (rhythm channels) | not sung: they stay with Gervill | | | | | | |
+§14 lists every profile with the programs the map sends to it.
+
+## 14. The profiles
+
+Every profile in `imitation.json`, with the programs the map (§13) sends to
+it. Programs are 1-based here. Unless a row says otherwise, a profile sings
+at written pitch with high parts folded (§7.1), breath 0.75, no echo, the
+moderate velocity curve, a steady onset and DSP glide 0.5 for legato.
+
+The row gives a profile's own values; the JSON has the rest. A profile that
+extends another keeps its parent's numbers, except that its own syllable
+resets the values syllables control (§13). **Tuned** profiles have been tuned
+against Gervill (§15, §16); the others are first guesses.
+
+| Profile | Programs | Syllable | Notes join | Own values |
+| --- | --- | --- | --- | --- |
+| `default` | 47–48, 56, 97–128 | d-a | auto | Every program with no entry of its own |
+| `piano`, **tuned** | 1–8 | d-i>e | detached | Crisp start, decay 900 to silence (track 0.7), vowel drift over 600, release 120, size 0.6 |
+| `chromatic.bells` | 9–11, 15 | t-i | detached | Extends `piano`: decay 450, release 40, size 1.0 |
+| `chromatic.mallets` | 12–14, 16 | b-o | detached | Extends `piano`: decay 200, release 40, size 0.45 |
+| `organ` | 17, 20–21, 23–24 | u | legato | Attack 5, full sustain, release 15, size 0.5 |
+| `organ.rock` | 18–19 | a | legato | Extends `organ`: tremolo 0.3 at 6.5 Hz |
+| `organ.church` | none (pick it in the panel) | o | legato | Extends `organ`: unison 3, 8 ct |
+| `organ.reed` | 22 | e | legato | Extends `organ`: unison 2, 10 ct |
+| `guitar.clean` | 26, 28, 32 | d-a-ng | auto, glide 0.15 | Decay 1300 to 0.1, vowel drift to 0.4 over 800, release 140, size 0.5 |
+| `guitar.nylon` | 25 | d-o-ng | auto, glide 0.15 | Extends `guitar.clean` |
+| `guitar.jazz` | 27 | d-u-m | auto, glide 0.15 | Extends `guitar.clean` |
+| `guitar.muted` | 29 | d-u | rearticulate | At most 60 long, decay 50 to silence, release 20, size 0.4 |
+| `guitar.overdrive` | 30 | ny-a-w | legato, glide 0.15 | Scoop −1 st over 90, decay 1500 to 0.75, breath 0.6, fall −0.7 over 300, vibrato at 6 Hz after 450, size 0.45 |
+| `guitar.distortion` | 31 | ny-a-w | legato, glide 0.15 | Extends `guitar.overdrive`: vibrato at 24 Hz (a growl), unison 2, 8 ct |
+| `bass.finger`, **tuned** | 33–34, 39–40 | d-oo-m | detached | No vowel tracking, decay 300 to 0.3, release 50, size 0.35 |
+| `bass.pick` | 35 | d-o-m | detached | Extends `bass.finger` |
+| `bass.fretless` | 36 | w-u | legato | Extends `bass.finger` |
+| `bass.slap` | 37–38 | b-a | detached | Extends `bass.finger`: at most 80 long |
+| `lead.singer`, **tuned** | 41–42, 49–50 | a | auto | Extends `choir.aahs`: a singer on "ah", not an imitation. One voice, attack 40, release 120, size 0.5 |
+| `strings.violin` | none (pick it in the panel) | n-ih | detached | Attack 120, full sustain, breath 0.5, release 200, vibrato at 6.5 Hz after 300, size 0.7 |
+| `strings.cello` | 43–44 | m-o | legato | Extends `strings.violin`: attack 150, size 0.3 |
+| `strings.ensemble` | 45–46, 51–52 | a | legato | Attack 300, full sustain, release 500, unison 4, 12 ct |
+| `choir.aahs` | 53 | a | legato | Attack 150, full sustain, release 300, vibrato after 250, unison 3, 10 ct |
+| `choir.oohs` | 54–55 | u | legato | Extends `choir.aahs` |
+| `trumpet`, **tuned** | 57, 60 | t-a | rearticulate | Scoop −0.4 st over 40, attack 6 to a peak of 1.15, breath burst 0.6 for 30, decay 150 to 0.8, release 100, vibrato after 350, size 0.6 |
+| `trombone` | 58 | b-a | auto, glide 0.5 | Scoop −1.5 st over 120, attack 25, full sustain, ends on "o", release 120, vibrato after 400, size 0.35 |
+| `tuba` | 59 | b-o-m | rearticulate | Attack 30, sustain 0.9, release 100, size 0 |
+| `brass.section` | 61–64 | b-a | rearticulate | Attack 20, sustain 0.85, release 120, unison 4, 8 ct |
+| `sax.alto` | 65–66 | d-u>a | legato | Scoop −0.8 st over 100, attack 20, vowel drift over 500, ends on "o", release 120, vibrato after 350, size 0.55 |
+| `sax.tenor`, **tuned** | 67–68 | d-u>o | legato | Extends `sax.alto`: breath 0.6, size 0.4 (§16) |
+| `clarinet` | 69–72 | d-oo | legato | Attack 25, release 100, size 0.45 |
+| `flute`, **tuned** | 73–80 | h-u | auto, glide 0.1, dip 0.4 | Attack 40, full sustain, breath 0.3, third formant off, release 100, vibrato after 250, `dyn.gain` 1.8, size 0.75 |
+| `lead.synth` | 81–88 | ny-a | legato, glide 0.15 | Attack 10, full sustain, release 60 |
+| `pad` | 89–96 | u>a | legato | Attack 600, vowel drift over 2000, release 800, unison 5, 15 ct |
+
+Times are in ms. Drums (rhythm channels) are not sung: they stay with Gervill.
 
 ## 15. Tuning method
 
 1. Write the family's test phrases as MIDI (scale, repeated notes, legato
-   line, fast run, chord, long notes, and a short band piece), render them
-   with Gervill and with the real articulator, and **measure first**: level,
-   spectrum against Gervill's, onset and ending flares, decay, fold. Write
-   the numbers to `measure/measurements.md` in the family's folder.
-2. **Set the level by measurement**. Match the profile's integrated
-   loudness (ITU-R BS.1770, gated) to Gervill's part at the live balance,
-   through `dyn.gain`. Never ask the ear about loudness.
-3. Fix what the measurement shows with existing keys first. A new key needs
-   a helper change (additive to protocol 1, ARCHITECTURE.md), and a DSP
-   change must be an add-only addition, since the macOS build shares `DSP/`.
-4. Ask the user's ear (a listening set, `tools/listening/`) only where a
-   choice of sound is left: which of a few candidates sounds most like the
+   line, fast run, chord, long notes, and a short band piece). Render them with
+   Gervill and with the real articulator, and **measure first**: level,
+   spectrum against Gervill's, onset and ending flares, decay, fold. The
+   numbers go to `renders/tuning/<family>/measure/measurements.md`.
+2. **Set the level by measurement.** Match the profile's integrated loudness
+   (ITU-R BS.1770, gated) to Gervill's part at the live balance, through
+   `dyn.gain`. Never ask the ear about loudness.
+3. Fix what the measurement shows with existing keys first. A new key needs a
+   helper change (additive to protocol 1, see
+   [ARCHITECTURE.md](ARCHITECTURE.md#pipe-protocol-version-1)), and a DSP
+   change must only add functions, since the macOS build shares `DSP/`.
+4. Ask the user's ear (a listening set, `tools/listening/`) only where a choice
+   of sound is left: which of a few candidates sounds most like the
    instrument, and whether anything glitches. Loudness-match the clips.
-5. Fold the pick into `profiles/imitation.json`, and check that
+5. Fold the pick into `profiles/imitation.json` and check that
    `DelayLamaProfilesTest` still passes (run it with `--rerun` after a
    JSON-only change).
 
-The tools to copy are in `renders/phase4c/piano/`: `piano_phrases.py`
-(phrases, MIDI writer, Gervill render, script builder),
-`measure_4c_piano.py` and `make_4c_piano.py`. `pipe_phrases.py` and
-`brass_phrases.py` show how other families reuse them, adding the router's
-`range.shift`.
+The tools are in `tools/tuning/` and write to `renders/tuning/<family>/`.
+`dl.py` is shared (renders a helper script, reads and writes WAVs, tracks
+pitch) and `GervillRender.java` renders the Gervill side. Start from
+`tools/tuning/piano/`: `piano_phrases.py` (phrases, MIDI writer, Gervill
+render, script builder), `measure_4c_piano.py` (for example
+`py tools\tuning\piano\measure_4c_piano.py`) and `make_4c_piano.py`. The
+`pipe/` and `brass/` folders show how other families reuse them, adding the
+router's `range.shift`.
 
 ## 16. What the DSP means for profiles
 
@@ -480,36 +488,35 @@ The tools to copy are in `renders/phase4c/piano/`: `piano_phrases.py`
 
 These hold for every family, so check new profiles against them.
 
-- **Any vowel move at a note's start is heard as a glitch**: a "laser",
-  a "pew" or a high pitch, whether it moves brighter or darker, fast or
-  slow. The formants are narrow and equally strong, so the ear follows one
-  as a pitch. On low notes each grain is a separate formant ping. On high
-  notes, the harmonic that the moving colour crosses flares by up to +24 dB.
-  A masking attack, wider formants and "only after a rest" did not help
-  (the experiment keys of §7.2). Keep onsets steady and make consonants from attack, dip, lips
-  and scoop.
+- **Any vowel move at a note's start is heard as a glitch**: a "laser", a
+  "pew" or a high pitch, whether it moves brighter or darker, fast or slow. The
+  formants are narrow and equally strong, so the ear follows one as a pitch.
+  On low notes each grain is a separate formant ping; on high notes the
+  harmonic the moving colour crosses flares by up to +24 dB. The experiment
+  keys of §7.2 did not help. Keep onsets steady and make consonants from
+  attack, dip, lips and scoop.
 - **Ending vowel moves do the same at the end**: the "ng" sweep lifts a
-  harmonic 24–43 dB as a note fades, heard as a high pitch. Avoid
-  closing-vowel moves on ringing notes.
+  harmonic 24–43 dB as a note fades, heard as a high pitch. Avoid closing-vowel
+  moves on ringing notes.
 - **High notes move in steps.** The grain period is whole samples, so above
-  about sung C5 pitch moves in 30–50 cent steps (17 at A4). Vibrato and
-  glides become staircases there, which is why violins glitched at their
-  written F5–E6 and why high parts fold down (§7.1).
-- **F3 makes high notes buzz or whistle.** The third formant (2.2–2.9 kHz,
-  as loud as F1 and F2) lifts whichever harmonic meets it. `voice.formant3`
-  0 fixed the flute; 0.6 fills a sax's 800–1600 Hz hole.
+  about sung C5 pitch moves in 30–50 cent steps (17 at A4). Vibrato and glides
+  become staircases there, which is why violins glitched at their written
+  F5–E6 and why high parts fold down (§7.1).
+- **F3 makes high notes buzz or whistle.** The third formant (2.2–2.9 kHz, as
+  loud as F1 and F2) lifts whichever harmonic meets it. `voice.formant3` 0
+  fixes the flute; 0.6 fills a sax's 800–1600 Hz hole.
 - **The breath partials ring on a harmonic** (3.8 and 4.95 kHz; trumpet A4's
   11th harmonic stands +18 dB over its neighbours). Lower `body.breath` to
-  quiet them. A possible DSP addition, if breath 0.3 sounds too dry, is a
-  scale for the partials' frequency.
+  quiet them. If breath 0.3 sounds too dry, a possible DSP addition is a scale
+  for the partials' frequency.
 - **The vibrato floor detunes chords.** Each monk wobbles ±0.2 st on its own
   LFO, so a chord's intervals swing by ~75 cents. `vibrato.lock` holds them,
   but in a band the piano sounds better with each monk's own wobble.
-- **A drifting vowel swings loudness by 5–10 dB** as formants cross
-  harmonics. A steady vowel stays within 2–3 dB.
-- **Vowel tracking darkens low notes.** `nucleus.pitch_track` 0.05 per
-  octave turned the bass's "oo" into "u" and lost its "doo", so the bass
-  has it at 0. Check it on other low instruments.
+- **A drifting vowel swings loudness by 5–10 dB** as formants cross harmonics.
+  A steady vowel stays within 2–3 dB.
+- **Vowel tracking darkens low notes.** `nucleus.pitch_track` 0.05 per octave
+  turns the bass's "oo" into "u" and loses its "doo", so the bass has it at 0.
+  Check it on other low instruments.
 - **Choir size**: four monks steal pedal-held notes in piano arpeggios,
   starting with the bass (the pedal rule comes before "never the lowest").
 
@@ -519,22 +526,22 @@ These hold for every family, so check new profiles against them.
 | --- | --- | --- |
 | Piano (GM 1–8) | `piano` "d-i>e", 900 ms decay, own wobble, no "ng" ending | A longer decay is muddy, and locked chords sound detuned |
 | Pipes (GM 73–80) | `flute`: F3 off, breath 0.3, slurs legato on glide 0.1, `dyn.gain` 1.8 | Slow slurs would rather re-articulate; kept legato |
-| Trumpet (GM 57) | `trumpet`; no high-pitch ring heard | One glitch in a band clip, accepted. A lead whose median is above C5 (one a tone above the test line) folds an octave down; a per-profile `range.high` of about 76 would keep it as written (untested) |
+| Trumpet (GM 57) | `trumpet`; no high-pitch ring heard | One accepted glitch in a band clip. A lead whose median is above C5 folds an octave down; a per-profile `range.high` of about 76 would keep it as written (untested) |
 | Tenor sax (GM 67) | `sax.tenor` | Its syllable resets the alto's attack 20, release 120 and "o" ending (§13); kept that way |
-| Violins, string ensembles (GM 41–42, 49–50) | `lead.singer` on "ah", folded; it beat the violin imitation, and `strings.violin` stays for picking per channel | None heard |
+| Violins, string ensembles (GM 41–42, 49–50) | `lead.singer` on "ah", folded; it sounds better than the violin imitation, and `strings.violin` stays for picking per channel | None heard |
 | Finger bass (GM 34) | `bass.finger` "d-oo-m", no vowel tracking | None heard |
 
 ### The other families
 
-- **Trombone, tuba and horn** measure much brighter than Gervill (energy
-  above 1.5 kHz / spectral centroid, Gervill against the monk): trombone
-  -9.0 dB / 948 Hz against -4.8 / 1612, tuba -21.8 / 415 against -5.4 / 967,
-  horn -21.9 / 430 against -6.4 / 1561. On held notes, F3 off with breath
-  0.3 matches the tuba, F3 off matches the trombone, and an "o" with F3 off
-  and breath 0.3 comes nearest the horn. The horn has no profile of its
-  own and plays `brass.section`.
+- **Trombone, tuba and horn** measure much brighter than Gervill (energy above
+  1.5 kHz / spectral centroid, Gervill against the monk): trombone −9.0 dB /
+  948 Hz against −4.8 / 1612, tuba −21.8 / 415 against −5.4 / 967, horn −21.9 /
+  430 against −6.4 / 1561. On held notes, F3 off with breath 0.3 matches the
+  tuba, F3 off matches the trombone, and an "o" with F3 off and breath 0.3
+  comes nearest the horn. The horn has no profile of its own and plays
+  `brass.section`.
 - **Fast runs**: DSP glide 0.5 smears 110 ms notes.
-- **Level**: before tuning, monks came out 2.6 dB (piano) to 5.9 dB (flute)
-  under Gervill, and F3 off takes another 4–5 dB, so an untuned family's
-  level is not matched to the band until its `dyn.gain` is set by
+- **Level**: before tuning, the monks came out 2.6 dB (piano) to 5.9 dB
+  (flute) under Gervill, and F3 off takes another 4–5 dB, so an untuned
+  family's level is not matched to the band until its `dyn.gain` is set by
   measurement (§15).
