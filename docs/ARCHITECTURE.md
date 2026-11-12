@@ -144,7 +144,7 @@ Delay Lama hooks in there:
     kept in the instrument root's own space, so the choir slides across the
     floor as the instrument would; a slide up or down leaves it on the
     floor. A monk is 48 units high, a choir at most 208 wide (`MonkSize`);
-    a vocal's are twice that (below).
+    a vocal's are 1.25 times that (below).
   - The vocals. `MidiPackage` (and the scene preview) finds which sung
     channels carry the song's vocals (`ChannelSurvey.vocals`) and gives
     them to `MonkScene` (`MonkStage.vocals`). The package's songs, exported
@@ -163,54 +163,76 @@ Delay Lama hooks in there:
     Californication and Smells Like Teen Spirit, and nothing else; Where
     Is My Mind?'s "ooh" (Voice Oohs in two-note harmony, 66 % overlapping)
     counts as a choir, and Little Wing has no vocal track. A vocal's monks
-    are `MonkSize.VOCAL_SCALE` (2) times the size, twice as tall and wide
+    are `MonkSize.VOCAL_SCALE` (1.25) times the size, as much taller and wider
     (`MonkStage.scale`, used by `SungInstrument` for its place and box and
-    by `MonkBillboards` for the quads and the nod), still on the floor.
-  - The performance's spread (`MonkStage.spread`,
-    read every frame: the mixer's slider, else the config's) then moves it
-    from that floor place towards the back and sides in a fan, in channel
-    order, and up in two alternating tiers (`MonkSpread.place`); never
-    lower than on the floor. The vocals' choirs and those of instruments
-    that rest on the right of the stage in front of the back wall
-    (`MonkWing.isMember`: the middle of the resting box at x ≥ 30 and
-    z ≥ −66, which takes in the guitars, bass guitars, banjo and shamisen
-    and the small instruments beside them) take no part in the fan.
-    - The front of the stage (`MonkFront`). The vocals stand in the middle,
-      where the wing's front row stood: on the floor at z −4, side by side
-      in channel order 8 apart, the middle of their line at x −2. A vocal of
-      one monk (103 × 96) shows whole in camera 1A at rest; a full nod can
-      lift the top of its picture past the top of 1A's, and a vocal of two
-      or more reaches past the sides. The channels with a bass guitar stand
-      to their right, still at the front: the first from where a bass guitar
-      rests (x 52), each at least 8 clear of the choir to its left, in the
-      vocals' line unless 1A would cut it off at the right there, and then
-      as far behind the line as it needs to show whole (0.4 to the right
-      per unit of depth, as the rows), up to 25. Where 25 is not enough (a
-      bass of two monks or more beside a vocal) it stands 25 behind and
-      only as far right as it shows whole, behind the vocals' right end,
-      which covers part of it; never off the floor. A bass of one beside a
-      vocal of one stands at x 83, z −24, and the vocal's top, nearer the
-      camera, covers less than 1 % of 1A's width of its picture's top
-      corner. Without a vocal the bass stands at x 52, z −4.
-    - The rows (`MonkWing`). The wing's other channels stand in rows from
-      the front of the stage to the back, like a choir on risers, in channel
-      order, behind the front when a vocal or a bass guitar stands there,
-      else from the front row. The front row stands on the floor at x −2,
-      z −4, as far forward as a choir of four shows whole in camera 1A's
-      picture (16:9, 45°), where it is as wide as the picture; each row
-      behind stands 50 further back and 40 higher (more than four rows share
-      a depth of 150, more than two a height of 52), and to the right only
-      as far as it stays in that picture (0.4 per unit of depth). The
-      picture is too low for rows that don't cover each other: each row
-      covers the lower part of the one behind (of four rows, the back ones
-      show 66 %, 45 % and 39 %).
-    - A choir travels to its row or its place at the front in a straight
-      line as the spread goes from 0 to 0.5 and stays there above that
-      (`MonkWing.travel`). `MonkSpreadPlan` decides which way each
-      instrument's choir goes and counts the fan's slots among the channels
-      that are not vocals and have an instrument outside the wing;
-      `InstrumentAssignment` makes it when the first choir stands, since it
-      measures every sung instrument at rest.
+    by `MonkBillboards` for the quads and the nod), still on the floor at
+    a spread of 0.
+  - The performance's spread (`MonkStage.spread`, read every frame: the
+    mixer's slider, else the config's) then moves the choir from that floor
+    place to its place in the performance's plan (`MonkSpreadPlan`): the
+    ladder for the vocals and the ensembles, the grid for every other
+    channel. A channel's instruments share one place.
+    - The drums' lane (`MonkLane`). The drum set rests in the middle at the
+      back (x −34 to 47, z −111 to −46, 52 high, the same for every kit).
+      The lane is the directions in which camera 1A sees it, in plan, 2°
+      wider at each side: from 12° left of straight back to 17° right. No
+      choir of the grid stands in it, in front of the drums or behind them,
+      so from 1A the drums show clear of every choir. The lane is kept
+      whether the file has drums or not.
+    - The ladder (`MonkLadder`). The vocals and the ensembles (the stage's
+      choirs, strings and horns: the channels whose instrument with the
+      most notes is a `StageChoir`, `StageStrings` or `StageHorns`) stand
+      behind everything, higher, in steps. The lead vocal (the vocal with
+      the most notes, the lowest channel of those with as many) stands
+      alone on the first step, in the middle of 1A's picture: x −2,
+      z −170, 44 up, behind the wall. From 1A its feet show above the drum
+      set and its head, a full nod included, below the top of the picture,
+      for a vocal of any number of monks. The other vocals, then the
+      ensembles, each in channel order, stand on the steps behind it, as
+      many side by side as fit in 540 (two vocals of four monks), 8 apart,
+      the first in the middle, the next to its right, the next to its left.
+      Each step stands 40 further back than the one in front and 1.1 times
+      its tallest monk higher (`MonkSpread.RISE_BEHIND`, the user's request,
+      2026-11-12: a proper ladder of monks), 66 behind a step of vocals; 1A
+      shows the first, the moving cameras the rest.
+    - The grid (`MonkGrid`). Every other choir stands over the whole stage,
+      front to back and side to side, near where its channel's main
+      instrument (the one with the most notes) rests, clear of the lane, of
+      the ladder and of each other. Its places lie on arcs round camera 1A,
+      since the choirs turn to face it: 100 to 420 from it every 6, every 1°
+      up to 80° each side, between z 60 and −230, at most 450 out to the
+      side, and at least 100 in plan from cameras 1A, 1B and 1C. Two choirs
+      less than 60 apart in distance from 1A stand side by side, at least 8
+      apart across; further apart, one stands behind the other. The choirs
+      take their places one by one, the one with the cheapest place first:
+      a place costs the square of its distance from where the instrument
+      rests, a distance towards the front or the back counted at half, so a
+      choir moves to the front or the back before it moves across. A choir
+      with no place clear of the others takes the cheapest place out of the
+      lane. Then two choirs of the same width swap places while that costs
+      less in all, so the last of a kind is not left far from its
+      instrument (a bass guitar behind guitars that filled its side). So
+      the guitars and the bass fill the right side from the front
+      to the back, the keyboards the left, and the rest goes on outwards.
+      A choir is 205 wide (four monks) and the floor a disc of 280, so most
+      choirs stand beyond its edge: a choir rises over the wall as its feet
+      leave the floor, by up to 40 over 16 beyond it (`MonkGrid.lift`).
+      The choirs behind each other form a ladder too (`MonkGrid.lifts`):
+      taken from the nearest to 1A to the furthest, a choir whose direction
+      from 1A overlaps a nearer one's stands 1.1 of that one's monks higher
+      than it (53 for full-size monks), or over the wall if that is higher.
+      It is worked out every frame from where the choirs stand at the
+      spread, so wider spreads keep the steps. From 1A the choirs at the
+      front stand off the sides of the picture or reach past them.
+    - A choir travels from the floor to its place in a straight line as the
+      spread goes from 0 to 0.5, and stands there at 0.5 (the default,
+      `MonkSpread.travel`). From 0.5 to 1 every choir moves further out to
+      the side of the lane, up to 1.5 times as far from x −2 at 1, and the
+      ladder up to 40 further back; a choir never stands lower than on the
+      floor. `InstrumentAssignment` makes the plan when the first choir
+      stands, since it measures every sung instrument at rest. The scene
+      preview's `scene_<s>s_top.png` shows the stage from high above the
+      audience.
   - Each monk nods (`MonkNod`, one per monk): it rises above its place
     in the choir while the note it sings (`MonkFrames.pitches`) is away from
     where its pitch has settled (a follower with a 0.3 s time constant), by

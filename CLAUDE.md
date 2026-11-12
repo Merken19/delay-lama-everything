@@ -184,7 +184,9 @@ Checks and tools (all `.\gradlew.bat`):
   off (`mixer_*.png`).
 - `:app:delayLamaScenePreview -PdelayLamaScenePreview="<file.mid>;<out dir>;channels=1;8,40"`
   renders the 3D scene with the monks standing in it to PNGs at those
-  seconds (wide, close to the choir, and switched off), from a fake frame
+  seconds (wide, from high above the audience, from far behind camera 1A
+  where the choirs' heights show, close to the choir, and
+  switched off), from a fake frame
   source and a hidden window; no helper runs and no input is sent. With
   `focus:<start>-<end>` in place of the seconds it plays the file with
   camera focus on and a scripted move in to the first choir and out,

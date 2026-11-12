@@ -8,11 +8,14 @@ its notes are sung by the Delay Lama vocal synth from
 [delalalalay-lama](https://github.com/Merken19/delalalalay-lama), shaped to
 imitate that instrument, and a choir of monks sings the chords. The monks
 stand on the stage in the 3D scene, where the instrument would have been,
-spread around the stage and up so the choirs don't hide each other, and nod
-while their pitch moves. The song's vocals, found from the file, sing with
-monks twice the size at the front of the stage, in the middle, with the
-bass, when it is sung, beside them on the right. They can be shown in their
-own always-on-top windows instead, or both.
+spread over the whole stage, front to back and side to side, so the choirs
+don't hide each other, and nod while their pitch moves. The middle stays clear
+so the drums show. The song's vocals, found from the file, sing with monks
+1.25 times the size behind the drums, a little higher, the lead vocal in the
+middle and any other vocals and the stage's choirs, strings and horns on steps
+behind it, each higher than the last. Choirs that stand behind each other form
+a ladder too, each 1.1 monks higher than the one in front. They can be shown in their own
+always-on-top windows instead, or both.
 
 While the file plays, a mixer window mutes, solos or turns up or down any
 channel, sung or not. Each sung channel has its own **Delay Lama** switch
