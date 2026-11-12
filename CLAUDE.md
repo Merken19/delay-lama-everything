@@ -130,9 +130,10 @@ are separated by `;`:
   and looks at get louder, the rest quieter
 - `focusstrength=<0-2>`: scales focus (default 1 = 100 %, 0 = no change); a
   channel's own rise stays at most 6 dB
+- `names=0|1`: instrument names below the choirs in the scene, default on
 
-`spread`, `focus` and `focusstrength` also have controls in the panel and
-the mixer.
+`spread`, `names`, `focus` and `focusstrength` also have controls in the
+panel and the mixer (the window titled "Delay Lama Everything Controls").
 
 ### Checks and tools (`.\gradlew.bat`, from `external/midis2jam2`)
 

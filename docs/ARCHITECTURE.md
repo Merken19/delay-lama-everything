@@ -118,6 +118,19 @@ helper's window does (frame = column × 6 + row at (column × 314, row × 311),
 by side, turned to the camera about the vertical axis (`BillboardControl`,
 AxialY).
 
+**Names.** `MonkScene.nameOf` gives each channel's instrument name
+(`ChannelSurvey.instrumentNames`, as the mixer's strips have it) and
+`areNamesShown` whether they show now (the mixer's switch,
+`DelayLamaMixer.names`, else the config's `names`). `MonkBillboards` draws each
+name on the GUI node, not in the scene: a choir on the floor has its feet at y
+0, so a name in the world below them would be under the floor. Each frame it
+projects the middle of the choir's feet (before the nod) to the screen and puts
+a `BitmapText` (Inter, 2.4 % of the screen's height, at least 14 px, whole
+pixels) on a 60 % black plate just below it. It is hidden with its choir, while
+the point is behind the camera, or when the name would be off the screen. Being
+over the scene, a back choir's name can lie over a front choir. The scene
+preview grabs its frames after the GUI viewport, so the names show there.
+
 **On the floor.** Each frame the choir stands at the instrument the channel
 plays now or played last (`SungChannel.standingAt`), while that instrument
 would be on stage ignoring its gate (`Instrument.wouldBeVisible`). `MonkFloor`
@@ -139,7 +152,10 @@ E2–C6. On the twelve bundled songs this finds every lead vocal and five songs'
 backing vocals, and nothing else; a two-note "ooh" harmony counts as a choir.
 A vocal's monks
 are `MonkSize.VOCAL_SCALE` times taller and wider (`MonkStage.scale`, used by
-`SungInstrument` and `MonkBillboards`).
+`SungInstrument` and `MonkBillboards`). A vocal channel, sung or not, is named
+`ChannelSurvey.VOCALS` ("Vocals") in place of its programs: by
+`ChannelSurvey.instrumentNames` for the monk windows, the mixer strips and the
+scene's names, and by `DelayLamaText.channelPlays` and `summary` in the panel.
 
 ### The performance's spread
 
@@ -221,13 +237,15 @@ instrument's angles only while the instrument itself is on stage
 ## The mixer and levels
 
 A single-file performance with sung channels opens `DelayLamaMixerWindow`
-(Compose, always on top, at the right of the main screen;
+(titled "Delay Lama Everything Controls", `DelayLamaText.CONTROLS_TITLE`;
+Compose, always on top, at the right of the main screen;
 `MidiPackage.build(showMixer = true)` from `ApplicationService` only). It
 closes when the routers close. `DelayLamaMixer` holds a strip per channel and
 tells the routers which levels changed. A sung channel's level goes to its
 helper as `set gain` (panel gain × level). Any other channel's level scales its
-CC 7 by the square root, reapplied after a system reset. The F button (only
-with `hasScene`) changes no level, and Reset and the switches leave it alone.
+CC 7 by the square root, reapplied after a system reset. The F button and the
+instrument names switch (only with `hasScene`) change no level, and Reset and
+the Delay Lama switches leave them alone.
 
 A sung channel the mixer doesn't let be heard (`isHeard` false) hides its
 monks: they leave the scene, where its place is not held and the cameras skip

@@ -8,11 +8,15 @@ vocal synth from [delalalalay-lama](https://github.com/Merken19/delalalalay-lama
 sings its notes, shaped to imitate that instrument, and a choir of monks sings
 the chords. The monks stand on the stage where the instrument was, spread out
 so the choirs don't hide each other or the drums, and nod as their pitch
-moves. The song's vocals stand a little bigger behind the drums. You can show
-the monks in their own always-on-top windows instead, or both.
+moves, each with its instrument's name below it. The song's vocals stand a
+little bigger behind the drums. They are named Vocals everywhere (the panel,
+the mixer, the windows and the scene), not after the sax or other instrument
+the file gives them. You can show the monks in their own
+always-on-top windows instead, or both.
 
-While the file plays, a mixer sets every channel's level and flips each sung
-channel between the monks and midis2jam2's own sound. With camera focus on,
+While the file plays, the **Delay Lama Everything Controls** window (the
+mixer) sets every channel's level and flips each sung channel between the
+monks and midis2jam2's own sound. With camera focus on,
 the channels the camera is close to get louder. **Add Delay Lama** opens extra
 Delay Lama standalones so you can jam along by hand. There is no recording.
 
@@ -34,7 +38,8 @@ note count. Each channel has:
 - a level in dB.
 
 Below are the options for every file: balance, offset, imitation strength,
-where the monks are shown, the choirs' spread, camera focus, keeping the 3D
+where the monks are shown, the choirs' spread, instrument names, camera focus,
+keeping the 3D
 instruments, and the paths of the helper, the standalone and
 `imitation.json`, each showing the file it found. Changes are saved at once:
 channel choices per file (by its contents), options for all files.
@@ -47,11 +52,12 @@ instruments* is on). The band plays 6 dB quieter by default so you hear the
 monks. On Windows, Fullscreen opens as borderless while Delay Lama sings,
 because a real fullscreen window would cover the monk windows.
 
-### The mixer
+### Delay Lama Everything Controls (the mixer)
 
 Playing a single file with sung channels, from the launcher or the command
-line, opens the mixer: an always-on-top window with a strip per channel for
-mute, solo, volume (−30 to +6 dB) and Reset.
+line, opens the mixer, an always-on-top window titled **Delay Lama Everything
+Controls**, with a strip per channel for mute, solo, volume (−30 to +6 dB) and
+Reset.
 
 - A sung channel's **Delay Lama** switch hands the channel to midis2jam2's own
   sound when off: its monks hide and its 3D instrument returns, at once, even
@@ -63,8 +69,14 @@ mute, solo, volume (−30 to +6 dB) and Reset.
   of the stage, on the floor in the middle of the opening camera's picture,
   whatever the spread; press it again to send it back. Several choirs at the
   front stand side by side in channel order.
-- The **spread**, **camera focus** and **focus strength** controls act at once
-  and are saved as the panel's.
+- **Instrument names** (with the monks in the scene, on by default) shows the
+  name of what each channel plays below its choir, as the mixer's strip names
+  it: white on a dark band just under the monks' feet, the same size however
+  far the choir is. It is drawn over the scene, so a choir further back can
+  have its name over the monks in front; a name whose spot is off the screen
+  isn't shown.
+- The **spread**, **instrument names**, **camera focus** and **focus
+  strength** controls act at once and are saved as the panel's.
 
 Levels, switches and F buttons are not remembered: each play starts with every
 sung channel on and none at the front.
@@ -114,6 +126,7 @@ settings with `;`:
 | `profiles=<path>` | The `imitation.json` to use |
 | `view=scene\|windows\|both` | Where the monks are shown (default `scene`: on stage, with the helper windows hidden) |
 | `spread=<0-1>` | How far the choirs spread around the stage and up (default 0.5; 0 leaves them on the floor) |
+| `names=0\|1` | Instrument names below the choirs in the scene (default on) |
 | `focus=0\|1` | Camera focus (default off) |
 | `focusstrength=<0-2>` | Camera focus strength (default 1, that is 100 %) |
 
