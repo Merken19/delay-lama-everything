@@ -21,6 +21,23 @@ monks and midis2jam2's own sound. With camera focus on,
 the channels the camera is close to get louder. **Add Delay Lama** opens extra
 Delay Lama standalones so you can jam along by hand. There is no recording.
 
+## Videos
+
+Songs played through Delay Lama Everything (click to watch on YouTube):
+
+<table>
+<tr>
+<td align="center" width="33%"><a href="https://youtu.be/0bLkhjdbuQ4"><img src="https://i.ytimg.com/vi/0bLkhjdbuQ4/mqdefault.jpg" alt="Can't Stop but Every Instrument Is a Monk (Delay Lamas)" width="100%"></a><br>Can't Stop</td>
+<td align="center" width="33%"><a href="https://youtu.be/GnQ8HstXwVA"><img src="https://i.ytimg.com/vi/GnQ8HstXwVA/mqdefault.jpg" alt="Where Is My Mind but its 12 Monks (Delay Lama cover)" width="100%"></a><br>Where Is My Mind</td>
+<td align="center" width="33%"><a href="https://youtu.be/qb-gsm6dre8"><img src="https://i.ytimg.com/vi/qb-gsm6dre8/mqdefault.jpg" alt="Creep but Every Instrument Is a Singing Monk (Delay Lama Cover)" width="100%"></a><br>Creep</td>
+</tr>
+<tr>
+<td align="center" width="33%"><a href="https://youtu.be/EkesK07wxyU"><img src="https://i.ytimg.com/vi/EkesK07wxyU/mqdefault.jpg" alt="Do I Wanna Know? The Monks Dont" width="100%"></a><br>Do I Wanna Know?</td>
+<td align="center" width="33%"><a href="https://youtu.be/2YFUyXocs9s"><img src="https://i.ytimg.com/vi/2YFUyXocs9s/mqdefault.jpg" alt="Free Bird Solo but sung by 4 Delay Lama monks" width="100%"></a><br>Free Bird (solo)</td>
+<td align="center" width="33%"><a href="https://youtu.be/U-cYq3NxVGw"><img src="https://i.ytimg.com/vi/U-cYq3NxVGw/mqdefault.jpg" alt="Johnny B. Goode but Monks Sing Every Instrument (Delay Lama Cover)" width="100%"></a><br>Johnny B. Goode</td>
+</tr>
+</table>
+
 ## How Delay Lama sings a channel
 
 You choose which channels Delay Lama sings; the rest of the file plays as
