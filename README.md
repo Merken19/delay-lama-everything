@@ -5,20 +5,72 @@ Play any MIDI file through Delay Lama. Version 1.0, for Windows x64.
 [midis2jam2](https://github.com/wyskoj/midis2jam2) plays the file and animates
 its 3D band as usual, but any instrument you pick becomes a Delay Lama: the
 vocal synth from [delalalalay-lama](https://github.com/Merken19/delalalalay-lama)
-sings its notes, shaped to imitate that instrument, and a choir of monks sings
-the chords. The monks stand on the stage where the instrument was, spread out
-so the choirs don't hide each other or the drums, and nod as their pitch
-moves, each with its instrument's name below it. The song's vocals stand a
-little bigger behind the drums. They are named Vocals everywhere (the panel,
-the mixer, the windows and the scene), not after the sax or other instrument
-the file gives them. You can show the monks in their own
-always-on-top windows instead, or both.
+sings its notes in place of the instrument's own sound, shaped to imitate it,
+and a choir of monks sings the chords. The monks stand on the stage where the
+instrument was, spread out so the choirs don't hide each other or the drums,
+and nod as their pitch moves, each with its instrument's name below it. The
+song's vocals stand a little bigger behind the drums. They are named Vocals
+everywhere (the panel, the mixer, the windows and the scene), not after the sax
+or other instrument the file gives them. You can show the monks in their own
+always-on-top windows instead, or both. [How Delay Lama sings a
+channel](#how-delay-lama-sings-a-channel) says what you hear.
 
 While the file plays, the **Delay Lama Everything Controls** window (the
 mixer) sets every channel's level and flips each sung channel between the
 monks and midis2jam2's own sound. With camera focus on,
 the channels the camera is close to get louder. **Add Delay Lama** opens extra
 Delay Lama standalones so you can jam along by hand. There is no recording.
+
+## How Delay Lama sings a channel
+
+You choose which channels Delay Lama sings; the rest of the file plays as
+usual.
+
+- **One Delay Lama per sung channel.** Play starts a `DelayLamaVoice.exe`
+  helper for each sung channel. It holds a choir of 1 to 8 monks, each a whole
+  Delay Lama voice singing one note at a time, so a chord is shared out among
+  the monks (with more notes at once than monks, a monk takes over a held
+  note). The choir stands on stage in the instrument's place, or in the
+  helper's window.
+- **Melodic channels only.** Any channel with melodic notes, on any port, can
+  be sung. Drums (channel 10) always stay with midis2jam2.
+- **The other channels** play on midis2jam2's own synthesizer (Gervill), 6 dB
+  quieter by default so the monks are heard.
+- **Add Delay Lama** is separate: a standalone you play by hand, not tied to
+  the file.
+
+### A sung channel is pure Delay Lama
+
+Everything you hear from a sung channel comes from the Delay Lama vocal
+engine. No samples, soundfont or other synthesizer are mixed in, and
+midis2jam2's synthesizer doesn't play the channel: without the mixer the
+channel's notes never reach it, and with the mixer it gets them at volume 0, so
+the mixer's switch can hand the channel over without a gap.
+
+The engine is the one in `DelayLamaStandalone.exe` (delalalalay-lama's
+`DSP/`), a clean-room recreation of AudioNerdz' 2002 Delay Lama derived from
+[MonkSynth](https://github.com/JonET/monksynth). Instruments differ only in how
+its parameters are set:
+
+- **auto** (the default) uses the imitation profile for the channel's program.
+  The profile works the engine's own controls: vowel, level, breath, pitch
+  bend, glide, vibrato depth and rate, voice size and formants, unison voices
+  and detune, and the echo on the whole choir. Vowel, level and pitch move
+  within each note, updated every millisecond, so a trumpet sings "ta", a
+  finger bass "doom" and a flute "hoo". A profile may also move a channel by
+  whole octaves to suit the voice; one whose notes sit mostly above C5 comes
+  down.
+- **One profile** picked in the panel applies to every note of that channel.
+- **plain** sings with the standalone's own sound.
+
+The helper adds a few controls to the engine (each formant's scale and width,
+each monk's own vibrato); at their neutral values the sound is exactly the
+standalone's. How the profiles work, and which instrument gets which, is in
+[docs/IMITATION.md](docs/IMITATION.md).
+
+You hear the instrument's own sound instead only when you switch the channel's
+**Delay Lama** switch off in the mixer, or when its helper can't start (the
+channel then plays on midis2jam2's synthesizer so it is still heard).
 
 ## Using it
 
