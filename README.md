@@ -381,7 +381,12 @@ See [docs/BUILDING_LINUX_MACOS.md](docs/BUILDING_LINUX_MACOS.md).
 - **No words**: the monks never sing lyrics.
 - **No recording**: midis2jam2's video recording works as before but leaves
   out the sung channels and the monks.
-- **Windows x64 only** (see [Linux and macOS](#linux-and-macos)).
+- **Windows x64 only** (see [Linux and macOS](#linux-and-macos)), with
+  OpenGL 3.2 graphics: a virtual machine without 3D acceleration or a Remote
+  Desktop session can't show the scene.
+- **The package is not signed**: on first start Windows SmartScreen asks
+  ("More info", then "Run anyway"), and Windows 11's Smart App Control may
+  block it outright.
 
 ## Licensing
 

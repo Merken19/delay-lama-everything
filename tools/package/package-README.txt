@@ -8,7 +8,9 @@ Run
 ---
 
 1. Unzip this folder anywhere you can write to, for example your Documents.
-2. Start midis2jam2.exe.
+2. Start midis2jam2.exe. Its programs are not signed, so the first time
+   Windows may say "Windows protected your PC": click "More info", then
+   "Run anyway".
 3. Choose a MIDI file on the home tab. The Delay Lama card shows what will be
    sung: every channel Delay Lama can sing starts switched on, and drums stay
    with midis2jam2. "Choose channels" opens the panel. There you switch
@@ -47,7 +49,9 @@ soundfonts\                      the bundled soundfont (if any)
 backgrounds\                     the bundled cube map (if any)
 midi\                            songs to try (if any)
 
-You need Windows 10 or 11, 64-bit, with OpenGL graphics.
+You need Windows 10 or 11, 64-bit, and graphics with OpenGL 3.2: any
+graphics card or chip with its driver installed. A virtual machine without 3D
+acceleration or a Remote Desktop session won't show the 3D scene.
 
 Known limits
 ------------
@@ -59,5 +63,7 @@ Known limits
 - When the monks are shown in windows, closing a monk window silences that
   channel.
 - The monks are not in midis2jam2's video recordings.
+- The programs are not signed. On Windows 11 with Smart App Control on,
+  Windows may block them with no "Run anyway".
 
 Built {{BUILT}}.
